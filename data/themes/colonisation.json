@@ -1,0 +1,34 @@
+{
+  "theme_id": "colonisation",
+  "theme_label": "Colonisation européenne",
+  "periods": [
+    {
+      "start": 1500,
+      "end": 1960,
+      "actors": [
+        {
+          "id": "GB",
+          "label": "Empire britannique",
+          "territories_controlled": ["IND", "AUS", "NGA", "ZAF", "EGY"],
+          "peak_year": 1921,
+          "population_affected_M": 412,
+          "economic_extraction_estimate_B_USD": 45000,
+          "responsibility_weight": 1,
+          "confidence_level": "debated",
+          "sources": [
+            {
+              "ref": "Maddison Project Database 2020",
+              "url": "https://www.rug.nl/ggdc/historicaldevelopment/maddison/releases/maddison-project-database-2020"
+            }
+          ],
+          "disclaimer": "Donnée de démarrage J1 destinée à valider le schéma et l’interface. La pondération complète nécessite au moins deux sources et sera remplacée pendant le pipeline J3-J4."
+        }
+      ],
+      "map_config": {
+        "type": "heatmap",
+        "intensity_field": "responsibility_weight",
+        "flow_lines": true
+      }
+    }
+  ]
+}

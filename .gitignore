@@ -1,0 +1,14 @@
+.next
+node_modules
+out
+.vercel
+.env*
+!.env.example
+.DS_Store
+npm-debug.log*
+tsconfig.tsbuildinfo
+qa-screenshots
+
+# Local research clones kept out of deploy bundles.
+.design-references
+.data-sources

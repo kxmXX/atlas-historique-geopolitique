@@ -1,0 +1,31 @@
+import type { Metadata, Viewport } from "next";
+import "./globals.css";
+
+export const metadata: Metadata = {
+  title: "Atlas historique & géopolitique",
+  description: "Carte éducative interactive pour explorer les dynamiques historiques et géopolitiques par période, territoire et source.",
+  openGraph: {
+    title: "Atlas historique & géopolitique",
+    description: "Carte éducative interactive, gratuite et sourcée.",
+    type: "website",
+    locale: "fr_FR"
+  }
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#1a435c"
+};
+
+export default function RootLayout({
+  children
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="fr">
+      <body>{children}</body>
+    </html>
+  );
+}
