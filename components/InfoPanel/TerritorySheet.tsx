@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import {
   Sheet,
@@ -12,8 +13,10 @@ import { Separator } from "@/components/ui/separator";
 import { ActorCard } from "@/components/InfoPanel/ActorCard";
 import { SourcesList } from "@/components/InfoPanel/SourcesList";
 import { Disclaimer } from "@/components/InfoPanel/Disclaimer";
+import { loadTheme, getActorForTerritory, type Theme, type Actor } from "@/lib/theme-loader";
 import type { TerritorySelection } from "@/components/Map/WorldMap";
 import type { ThemeMeta } from "@/lib/theme-data";
+import { Loader2 } from "lucide-react";
 
 type TerritorySheetProps = {
   territory: TerritorySelection | null;
@@ -30,27 +33,62 @@ export function TerritorySheet({
   open,
   onOpenChange
 }: TerritorySheetProps) {
+  const [themeData, setThemeData] = useState<Theme | null>(null);
+  const [actor, setActor] = useState<Actor | null>(null);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    if (!open || !territory) return;
+
+    setLoading(true);
+    loadTheme(theme.id).then((data) => {
+      setThemeData(data);
+      if (data && territory.iso3) {
+        const found = getActorForTerritory(data, territory.iso3, year);
+        setActor(found);
+      } else {
+        setActor(null);
+      }
+      setLoading(false);
+    });
+  }, [open, territory, theme.id, year]);
+
+  const sources = actor?.sources ?? [];
+  const disclaimerText = actor?.disclaimer ?? null;
+  const confidenceLevel = actor?.confidence_level;
+
   return (
     <Sheet open={open} onOpenChange={onOpenChange}>
       <SheetContent className="flex w-full flex-col gap-5 overflow-y-auto sm:max-w-xl">
         <SheetHeader>
           <SheetTitle>{territory?.name ?? "Territoire"}</SheetTitle>
           <SheetDescription>
-            Vue initiale J1, connectée au thème {theme.label} pour l’année {year}.
+            Thème {theme.label} &mdash; année {year}
           </SheetDescription>
         </SheetHeader>
 
         <div className="flex flex-wrap gap-2">
           <Badge variant="secondary">ISO3 {territory?.iso3 ?? "n/a"}</Badge>
-          <Badge variant="outline">Confiance visible en V1</Badge>
+          {actor ? (
+            <Badge variant={confidenceLevel === "high" ? "default" : confidenceLevel === "medium" ? "secondary" : "outline"}>
+              {confidenceLevel === "high" ? "Haute confiance" : confidenceLevel === "medium" ? "Confiance moyenne" : "Débattu"}
+            </Badge>
+          ) : null}
         </div>
 
         <Separator />
-        <ActorCard />
-        <SourcesList />
-        <Disclaimer>
-          Les données chiffrées complètes seront générées pendant J3-J4. Cette fiche valide le flux UX: clic territoire, contexte, sources et badge de confiance.
-        </Disclaimer>
+
+        {loading ? (
+          <div className="flex items-center justify-center py-8">
+            <Loader2 className="animate-spin size-5 text-muted-foreground" />
+          </div>
+        ) : (
+          <>
+            <ActorCard actor={actor} />
+            <SourcesList sources={sources} />
+            <Disclaimer text={disclaimerText} confidenceLevel={confidenceLevel} />
+          </>
+        )}
       </SheetContent>
     </Sheet>
   );

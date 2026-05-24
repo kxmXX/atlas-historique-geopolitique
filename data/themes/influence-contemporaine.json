@@ -1,0 +1,252 @@
+{
+  "theme_id": "influence-contemporaine",
+  "theme_label": "Influence géopolitique contemporaine",
+  "periods": [
+    {
+      "start": 1945,
+      "end": 2026,
+      "actors": [
+        {
+          "id": "US",
+          "label": "États-Unis",
+          "territories_controlled": ["USA"],
+          "peak_year": 2000,
+          "population_affected_M": 330,
+          "economic_extraction_estimate_B_USD": 45000,
+          "responsibility_weight": 0.22,
+          "confidence_level": "high",
+          "sources": [
+            {
+              "ref": "SIPRI Military Expenditure Database, sipri.org",
+              "url": "https://www.sipri.org/databases/milex"
+            },
+            {
+              "ref": "World Bank, worldbank.org",
+              "url": "https://data.worldbank.org"
+            },
+            {
+              "ref": "OTAN, nato.int",
+              "url": "https://www.nato.int"
+            }
+          ],
+          "disclaimer": null
+        },
+        {
+          "id": "CN",
+          "label": "Chine",
+          "territories_controlled": ["CHN"],
+          "peak_year": 2025,
+          "population_affected_M": 1400,
+          "economic_extraction_estimate_B_USD": 38000,
+          "responsibility_weight": 0.20,
+          "confidence_level": "high",
+          "sources": [
+            {
+              "ref": "SIPRI Military Expenditure Database, sipri.org",
+              "url": "https://www.sipri.org/databases/milex"
+            },
+            {
+              "ref": "World Bank, worldbank.org",
+              "url": "https://data.worldbank.org"
+            }
+          ],
+          "disclaimer": null
+        },
+        {
+          "id": "RU",
+          "label": "Russie",
+          "territories_controlled": ["RUS"],
+          "peak_year": 1985,
+          "population_affected_M": 144,
+          "economic_extraction_estimate_B_USD": 6500,
+          "responsibility_weight": 0.14,
+          "confidence_level": "high",
+          "sources": [
+            {
+              "ref": "SIPRI Military Expenditure Database, sipri.org",
+              "url": "https://www.sipri.org/databases/milex"
+            },
+            {
+              "ref": "World Bank, worldbank.org",
+              "url": "https://data.worldbank.org"
+            }
+          ],
+          "disclaimer": null
+        },
+        {
+          "id": "EU",
+          "label": "Union européenne",
+          "territories_controlled": ["FRA", "DEU", "ITA", "ESP", "POL", "NLD", "BEL", "SWE", "AUT", "DNK", "FIN", "GRC", "PRT", "IRL", "HUN", "CZE", "ROU"],
+          "peak_year": 2020,
+          "population_affected_M": 447,
+          "economic_extraction_estimate_B_USD": 28000,
+          "responsibility_weight": 0.13,
+          "confidence_level": "high",
+          "sources": [
+            {
+              "ref": "World Bank, worldbank.org",
+              "url": "https://data.worldbank.org"
+            },
+            {
+              "ref": "Eurostat, ec.europa.eu/eurostat",
+              "url": "https://ec.europa.eu/eurostat"
+            }
+          ],
+          "disclaimer": null
+        },
+        {
+          "id": "IN",
+          "label": "Inde",
+          "territories_controlled": ["IND"],
+          "peak_year": 2025,
+          "population_affected_M": 1420,
+          "economic_extraction_estimate_B_USD": 3500,
+          "responsibility_weight": 0.08,
+          "confidence_level": "high",
+          "sources": [
+            {
+              "ref": "SIPRI Military Expenditure Database, sipri.org",
+              "url": "https://www.sipri.org/databases/milex"
+            },
+            {
+              "ref": "World Bank, worldbank.org",
+              "url": "https://data.worldbank.org"
+            }
+          ],
+          "disclaimer": null
+        },
+        {
+          "id": "JP",
+          "label": "Japon",
+          "territories_controlled": ["JPN"],
+          "peak_year": 1990,
+          "population_affected_M": 125,
+          "economic_extraction_estimate_B_USD": 5500,
+          "responsibility_weight": 0.06,
+          "confidence_level": "high",
+          "sources": [
+            {
+              "ref": "SIPRI Military Expenditure Database, sipri.org",
+              "url": "https://www.sipri.org/databases/milex"
+            },
+            {
+              "ref": "World Bank, worldbank.org",
+              "url": "https://data.worldbank.org"
+            }
+          ],
+          "disclaimer": null
+        },
+        {
+          "id": "GB",
+          "label": "Royaume-Uni",
+          "territories_controlled": ["GBR"],
+          "peak_year": 1950,
+          "population_affected_M": 67,
+          "economic_extraction_estimate_B_USD": 4000,
+          "responsibility_weight": 0.05,
+          "confidence_level": "high",
+          "sources": [
+            {
+              "ref": "SIPRI Military Expenditure Database, sipri.org",
+              "url": "https://www.sipri.org/databases/milex"
+            },
+            {
+              "ref": "World Bank, worldbank.org",
+              "url": "https://data.worldbank.org"
+            }
+          ],
+          "disclaimer": null
+        },
+        {
+          "id": "BR",
+          "label": "Brésil",
+          "territories_controlled": ["BRA"],
+          "peak_year": 2025,
+          "population_affected_M": 215,
+          "economic_extraction_estimate_B_USD": 2200,
+          "responsibility_weight": 0.04,
+          "confidence_level": "medium",
+          "sources": [
+            {
+              "ref": "World Bank, worldbank.org",
+              "url": "https://data.worldbank.org"
+            },
+            {
+              "ref": "SIPRI, sipri.org",
+              "url": "https://www.sipri.org"
+            }
+          ],
+          "disclaimer": null
+        },
+        {
+          "id": "ZA",
+          "label": "Afrique du Sud",
+          "territories_controlled": ["ZAF"],
+          "peak_year": 2020,
+          "population_affected_M": 60,
+          "economic_extraction_estimate_B_USD": 400,
+          "responsibility_weight": 0.03,
+          "confidence_level": "medium",
+          "sources": [
+            {
+              "ref": "World Bank, worldbank.org",
+              "url": "https://data.worldbank.org"
+            },
+            {
+              "ref": "SIPRI, sipri.org",
+              "url": "https://www.sipri.org"
+            }
+          ],
+          "disclaimer": null
+        },
+        {
+          "id": "IR",
+          "label": "Iran",
+          "territories_controlled": ["IRN"],
+          "peak_year": 2020,
+          "population_affected_M": 88,
+          "economic_extraction_estimate_B_USD": 800,
+          "responsibility_weight": 0.03,
+          "confidence_level": "medium",
+          "sources": [
+            {
+              "ref": "SIPRI Military Expenditure Database, sipri.org",
+              "url": "https://www.sipri.org/databases/milex"
+            },
+            {
+              "ref": "World Bank, worldbank.org",
+              "url": "https://data.worldbank.org"
+            }
+          ],
+          "disclaimer": null
+        },
+        {
+          "id": "SA",
+          "label": "Arabie Saoudite",
+          "territories_controlled": ["SAU"],
+          "peak_year": 2020,
+          "population_affected_M": 36,
+          "economic_extraction_estimate_B_USD": 800,
+          "responsibility_weight": 0.02,
+          "confidence_level": "high",
+          "sources": [
+            {
+              "ref": "SIPRI Military Expenditure Database, sipri.org",
+              "url": "https://www.sipri.org/databases/milex"
+            },
+            {
+              "ref": "World Bank, worldbank.org",
+              "url": "https://data.worldbank.org"
+            }
+          ],
+          "disclaimer": null
+        }
+      ],
+      "map_config": {
+        "type": "choropleth",
+        "intensity_field": "responsibility_weight",
+        "flow_lines": true
+      }
+    }
+  ]
+}

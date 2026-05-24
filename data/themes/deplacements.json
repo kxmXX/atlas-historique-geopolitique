@@ -1,0 +1,206 @@
+{
+  "theme_id": "deplacements",
+  "theme_label": "Déplacements de populations",
+  "periods": [
+    {
+      "start": 1900,
+      "end": 2026,
+      "actors": [
+        {
+          "id": "SY",
+          "label": "Crise syrienne",
+          "territories_controlled": ["SYR"],
+          "peak_year": 2016,
+          "population_affected_M": 13.5,
+          "economic_extraction_estimate_B_USD": 0,
+          "responsibility_weight": 0.20,
+          "confidence_level": "high",
+          "sources": [
+            {
+              "ref": "UNHCR Global Trends Report, unhcr.org",
+              "url": "https://www.unhcr.org/global-trends"
+            },
+            {
+              "ref": "IOM World Migration Report, iom.int",
+              "url": "https://worldmigrationreport.iom.int"
+            }
+          ],
+          "disclaimer": null
+        },
+        {
+          "id": "UA",
+          "label": "Guerre en Ukraine",
+          "territories_controlled": ["UKR"],
+          "peak_year": 2022,
+          "population_affected_M": 14.0,
+          "economic_extraction_estimate_B_USD": 0,
+          "responsibility_weight": 0.18,
+          "confidence_level": "high",
+          "sources": [
+            {
+              "ref": "UNHCR Global Trends Report, unhcr.org",
+              "url": "https://www.unhcr.org/global-trends"
+            },
+            {
+              "ref": "IOM World Migration Report, iom.int",
+              "url": "https://worldmigrationreport.iom.int"
+            }
+          ],
+          "disclaimer": null
+        },
+        {
+          "id": "AF",
+          "label": "Crise afghane",
+          "territories_controlled": ["AFG"],
+          "peak_year": 2021,
+          "population_affected_M": 6.1,
+          "economic_extraction_estimate_B_USD": 0,
+          "responsibility_weight": 0.12,
+          "confidence_level": "high",
+          "sources": [
+            {
+              "ref": "UNHCR Global Trends Report, unhcr.org",
+              "url": "https://www.unhcr.org/global-trends"
+            },
+            {
+              "ref": "IOM World Migration Report, iom.int",
+              "url": "https://worldmigrationreport.iom.int"
+            }
+          ],
+          "disclaimer": null
+        },
+        {
+          "id": "VE",
+          "label": "Crise vénézuélienne",
+          "territories_controlled": ["VEN"],
+          "peak_year": 2020,
+          "population_affected_M": 7.7,
+          "economic_extraction_estimate_B_USD": 0,
+          "responsibility_weight": 0.12,
+          "confidence_level": "high",
+          "sources": [
+            {
+              "ref": "UNHCR Global Trends Report, unhcr.org",
+              "url": "https://www.unhcr.org/global-trends"
+            },
+            {
+              "ref": "IOM World Migration Report, iom.int",
+              "url": "https://worldmigrationreport.iom.int"
+            }
+          ],
+          "disclaimer": null
+        },
+        {
+          "id": "SS",
+          "label": "Soudan du Sud",
+          "territories_controlled": ["SSD", "SDN"],
+          "peak_year": 2017,
+          "population_affected_M": 4.5,
+          "economic_extraction_estimate_B_USD": 0,
+          "responsibility_weight": 0.10,
+          "confidence_level": "high",
+          "sources": [
+            {
+              "ref": "UNHCR Global Trends Report, unhcr.org",
+              "url": "https://www.unhcr.org/global-trends"
+            },
+            {
+              "ref": "IOM World Migration Report, iom.int",
+              "url": "https://worldmigrationreport.iom.int"
+            }
+          ],
+          "disclaimer": null
+        },
+        {
+          "id": "MM",
+          "label": "Rohingyas (Birmanie)",
+          "territories_controlled": ["MMR"],
+          "peak_year": 2017,
+          "population_affected_M": 1.2,
+          "economic_extraction_estimate_B_USD": 0,
+          "responsibility_weight": 0.08,
+          "confidence_level": "high",
+          "sources": [
+            {
+              "ref": "UNHCR Global Trends Report, unhcr.org",
+              "url": "https://www.unhcr.org/global-trends"
+            },
+            {
+              "ref": "IOM World Migration Report, iom.int",
+              "url": "https://worldmigrationreport.iom.int"
+            }
+          ],
+          "disclaimer": null
+        },
+        {
+          "id": "SO",
+          "label": "Somalie",
+          "territories_controlled": ["SOM"],
+          "peak_year": 2015,
+          "population_affected_M": 3.0,
+          "economic_extraction_estimate_B_USD": 0,
+          "responsibility_weight": 0.07,
+          "confidence_level": "medium",
+          "sources": [
+            {
+              "ref": "UNHCR Global Trends Report, unhcr.org",
+              "url": "https://www.unhcr.org/global-trends"
+            },
+            {
+              "ref": "IOM World Migration Report, iom.int",
+              "url": "https://worldmigrationreport.iom.int"
+            }
+          ],
+          "disclaimer": null
+        },
+        {
+          "id": "CD",
+          "label": "RDC (Kivu, Ituri)",
+          "territories_controlled": ["COD"],
+          "peak_year": 2020,
+          "population_affected_M": 5.6,
+          "economic_extraction_estimate_B_USD": 0,
+          "responsibility_weight": 0.08,
+          "confidence_level": "debated",
+          "sources": [
+            {
+              "ref": "UNHCR Global Trends Report, unhcr.org",
+              "url": "https://www.unhcr.org/global-trends"
+            },
+            {
+              "ref": "IOM World Migration Report, iom.int",
+              "url": "https://worldmigrationreport.iom.int"
+            }
+          ],
+          "disclaimer": "Les chiffres de déplacés en RDC sont difficiles à établir précisément en raison de l'insécurité persistante et de l'accès humanitaire limité dans les zones de conflit. Estimations UNHCR."
+        },
+        {
+          "id": "YE",
+          "label": "Yémen",
+          "territories_controlled": ["YEM"],
+          "peak_year": 2019,
+          "population_affected_M": 4.5,
+          "economic_extraction_estimate_B_USD": 0,
+          "responsibility_weight": 0.05,
+          "confidence_level": "medium",
+          "sources": [
+            {
+              "ref": "UNHCR Global Trends Report, unhcr.org",
+              "url": "https://www.unhcr.org/global-trends"
+            },
+            {
+              "ref": "IOM World Migration Report, iom.int",
+              "url": "https://worldmigrationreport.iom.int"
+            }
+          ],
+          "disclaimer": null
+        }
+      ],
+      "map_config": {
+        "type": "flow",
+        "intensity_field": "population_affected_M",
+        "flow_lines": true
+      }
+    }
+  ]
+}
