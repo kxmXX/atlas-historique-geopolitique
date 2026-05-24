@@ -9,7 +9,6 @@
 ## Frontières historiques
 
 - `aourednik/historical-basemaps`: https://github.com/aourednik/historical-basemaps
-- Clone local de travail: `/.data-sources/historical-basemaps`
 - Fichiers exposés V1:
   - `/public/data/geo/historical_world_1500.geojson`
   - `/public/data/geo/historical_world_1715.geojson`
