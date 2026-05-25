@@ -434,8 +434,8 @@ export function Globe3D({ themeId, onHover, onSelect }: Globe3DProps) {
           ref={globeRef}
           width={dimensions.width}
           height={dimensions.height}
-          globeImageUrl="//unpkg.com/three-globe/example/img/earth-blue-marble.jpg"
-          backgroundImageUrl="//unpkg.com/three-globe/example/img/night-sky.png"
+          globeImageUrl="/data/geo/earth-blue-marble.jpg"
+          backgroundImageUrl="/data/geo/night-sky.png"
           polygonsData={polygons.features}
           polygonCapColor={polygonCapColor}
           polygonSideColor={polygonSideColor}
