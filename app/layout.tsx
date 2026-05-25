@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
+import { ClientLayout } from "@/components/Layout/ClientLayout";
 
 export const metadata: Metadata = {
   title: "Atlas historique & géopolitique",
@@ -25,7 +26,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr">
-      <body>{children}</body>
+      <body>
+        <ClientLayout>{children}</ClientLayout>
+      </body>
     </html>
   );
 }

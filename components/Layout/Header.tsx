@@ -1,6 +1,7 @@
-import { Globe2, ShieldCheck, BookOpen, Github } from "lucide-react";
+import { Globe2, ShieldCheck, BookOpen, Github, Scale } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export function Header() {
   return (
@@ -19,6 +20,12 @@ export function Header() {
         </div>
       </div>
       <div className="flex items-center gap-2">
+        <Button variant="ghost" size="sm" className="hidden gap-1.5 md:inline-flex" asChild>
+          <Link href="/methodologie">
+            <Scale className="size-3" aria-hidden="true" />
+            Méthodologie
+          </Link>
+        </Button>
         <Badge variant="secondary" className="hidden gap-1.5 md:inline-flex">
           <ShieldCheck className="size-3" aria-hidden="true" />
           Sans LLM utilisateur
