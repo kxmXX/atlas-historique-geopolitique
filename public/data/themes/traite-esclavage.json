@@ -1,0 +1,164 @@
+{
+  "theme_id": "traite-esclavage",
+  "theme_label": "Traite négrière & esclavage",
+  "periods": [
+    {
+      "start": 1500,
+      "end": 1900,
+      "actors": [
+        {
+          "id": "GB",
+          "label": "Empire britannique",
+          "territories_controlled": ["GHA", "NGA", "SLE", "JAM", "BRB", "TTO", "GUY"],
+          "peak_year": 1750,
+          "population_affected_M": 3.2,
+          "economic_extraction_estimate_B_USD": 18000,
+          "responsibility_weight": 0.28,
+          "confidence_level": "debated",
+          "sources": [
+            {
+              "ref": "Slave Voyages Database (Eltis & Richardson), slavevoyages.org",
+              "url": "https://www.slavevoyages.org"
+            },
+            {
+              "ref": "Nunn N., 'The Long-Term Effects of Africa's Slave Trades', QJE 2008",
+              "url": "https://doi.org/10.1162/qjec.2008.123.1.139"
+            }
+          ],
+          "disclaimer": "Données générées par IA (J3 pipeline) à partir de sources publiques. Les chiffres de population et d'extraction économique sont des estimations. Pondération à affiner avec données primaires CLIO-INFRA."
+        },
+        {
+          "id": "PT",
+          "label": "Empire portugais",
+          "territories_controlled": ["AGO", "BRA", "MOZ", "GNB", "CPV", "STP"],
+          "peak_year": 1700,
+          "population_affected_M": 5.8,
+          "economic_extraction_estimate_B_USD": 22000,
+          "responsibility_weight": 0.32,
+          "confidence_level": "debated",
+          "sources": [
+            {
+              "ref": "Slave Voyages Database (Eltis & Richardson), slavevoyages.org",
+              "url": "https://www.slavevoyages.org"
+            },
+            {
+              "ref": "CLIO-INFRA, clio-infra.eu",
+              "url": "https://clio-infra.eu"
+            }
+          ],
+          "disclaimer": "Le Portugal a transporté le plus grand volume de captifs (environ 5,8M). Pondération basée sur volume + durée. Données à croiser avec archives coloniales portugaises (Torre do Tombo)."
+        },
+        {
+          "id": "FR",
+          "label": "Empire français",
+          "territories_controlled": ["SEN", "BEN", "GIN", "HTI", "GUF", "MUS", "REU"],
+          "peak_year": 1780,
+          "population_affected_M": 1.6,
+          "economic_extraction_estimate_B_USD": 12000,
+          "responsibility_weight": 0.18,
+          "confidence_level": "debated",
+          "sources": [
+            {
+              "ref": "Slave Voyages Database (Eltis & Richardson), slavevoyages.org",
+              "url": "https://www.slavevoyages.org"
+            },
+            {
+              "ref": "Geggus D., 'The French Slave Trade: An Overview', William & Mary Quarterly 2001",
+              "url": "https://www.jstor.org/stable/2674418"
+            }
+          ],
+          "disclaimer": "Estimations basées sur Slave Voyages Database. Saint-Domingue (Haïti) représentait à lui seul ~40% de la traite française."
+        },
+        {
+          "id": "ES",
+          "label": "Empire espagnol",
+          "territories_controlled": ["CUB", "DOM", "PRI", "COL", "VEN", "PER", "MEX"],
+          "peak_year": 1800,
+          "population_affected_M": 1.1,
+          "economic_extraction_estimate_B_USD": 10000,
+          "responsibility_weight": 0.12,
+          "confidence_level": "debated",
+          "sources": [
+            {
+              "ref": "Slave Voyages Database (Eltis & Richardson), slavevoyages.org",
+              "url": "https://www.slavevoyages.org"
+            },
+            {
+              "ref": "CLIO-INFRA, clio-infra.eu",
+              "url": "https://clio-infra.eu"
+            }
+          ],
+          "disclaimer": null
+        },
+        {
+          "id": "NL",
+          "label": "Provinces-Unies / Pays-Bas",
+          "territories_controlled": ["SUR", "ANT", "ABW", "IDN"],
+          "peak_year": 1700,
+          "population_affected_M": 0.6,
+          "economic_extraction_estimate_B_USD": 6000,
+          "responsibility_weight": 0.06,
+          "confidence_level": "debated",
+          "sources": [
+            {
+              "ref": "Slave Voyages Database (Eltis & Richardson), slavevoyages.org",
+              "url": "https://www.slavevoyages.org"
+            },
+            {
+              "ref": "Postma J., 'The Dutch in the Atlantic Slave Trade', Cambridge UP 1990",
+              "url": "https://www.cambridge.org/9780521365857"
+            }
+          ],
+          "disclaimer": null
+        },
+        {
+          "id": "DK",
+          "label": "Danemark-Norvège",
+          "territories_controlled": ["VIR", "GHA"],
+          "peak_year": 1750,
+          "population_affected_M": 0.1,
+          "economic_extraction_estimate_B_USD": 800,
+          "responsibility_weight": 0.02,
+          "confidence_level": "medium",
+          "sources": [
+            {
+              "ref": "Slave Voyages Database (Eltis & Richardson), slavevoyages.org",
+              "url": "https://www.slavevoyages.org"
+            },
+            {
+              "ref": "Gøbel E., 'The Danish Slave Trade and Its Abolition', Brill 2017",
+              "url": "https://brill.com/display/title/33828"
+            }
+          ],
+          "disclaimer": null
+        },
+        {
+          "id": "US",
+          "label": "États-Unis (traite interne)",
+          "territories_controlled": ["USA"],
+          "peak_year": 1850,
+          "population_affected_M": 4.0,
+          "economic_extraction_estimate_B_USD": 15000,
+          "responsibility_weight": 0.02,
+          "confidence_level": "medium",
+          "sources": [
+            {
+              "ref": "Baptist E., 'The Half Has Never Been Told', Basic Books 2014",
+              "url": "https://www.basichooks.com/titles/edward-e-baptist/the-half-has-never-been-told/9780465044702/"
+            },
+            {
+              "ref": "US Census Bureau, Historical Statistics",
+              "url": "https://www.census.gov/history"
+            }
+          ],
+          "disclaimer": "Pondération basse car acteur non colonial dans la traite transatlantique, mais économique interne massif basé sur l'esclavage."
+        }
+      ],
+      "map_config": {
+        "type": "flow",
+        "intensity_field": "population_affected_M",
+        "flow_lines": true
+      }
+    }
+  ]
+}

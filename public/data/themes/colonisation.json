@@ -1,0 +1,185 @@
+{
+  "theme_id": "colonisation",
+  "theme_label": "Colonisation européenne",
+  "periods": [
+    {
+      "start": 1500,
+      "end": 1960,
+      "actors": [
+        {
+          "id": "GB",
+          "label": "Empire britannique",
+          "territories_controlled": ["IND", "AUS", "NGA", "ZAF", "EGY", "CAN", "PAK", "BGD", "MMR", "KEN", "SDN", "GHA", "ZWE", "ZMB", "MWI", "TZA", "UGA", "SOM", "BWA", "LSO", "SWZ"],
+          "peak_year": 1921,
+          "population_affected_M": 412,
+          "economic_extraction_estimate_B_USD": 45000,
+          "responsibility_weight": 0.32,
+          "confidence_level": "medium",
+          "sources": [
+            {
+              "ref": "Maddison Project Database 2020",
+              "url": "https://www.rug.nl/ggdc/historicaldevelopment/maddison/releases/maddison-project-database-2020"
+            },
+            {
+              "ref": "Patnaik U., 'Revisiting the Drain of Wealth from India', Columbia UP 2018",
+              "url": "https://cup.columbia.edu/book/revisiting-the-drain-of-wealth-from-colonial-india/9780231183192"
+            }
+          ],
+          "disclaimer": null
+        },
+        {
+          "id": "FR",
+          "label": "Empire français",
+          "territories_controlled": ["DZA", "SEN", "MLI", "CIV", "GIN", "BEN", "TCD", "CMR", "MDG", "MAR", "TUN", "VNM", "LAO", "KHM", "NER", "BFA", "MRT", "GAB", "COG", "CAF", "DJI"],
+          "peak_year": 1930,
+          "population_affected_M": 110,
+          "economic_extraction_estimate_B_USD": 22000,
+          "responsibility_weight": 0.26,
+          "confidence_level": "medium",
+          "sources": [
+            {
+              "ref": "Maddison Project Database 2020",
+              "url": "https://www.rug.nl/ggdc/historicaldevelopment/maddison/releases/maddison-project-database-2020"
+            },
+            {
+              "ref": "CLIO-INFRA, clio-infra.eu",
+              "url": "https://clio-infra.eu"
+            }
+          ],
+          "disclaimer": null
+        },
+        {
+          "id": "ES",
+          "label": "Empire espagnol",
+          "territories_controlled": ["MEX", "COL", "PER", "CHL", "ARG", "VEN", "CUB", "DOM", "PRI", "PHL", "GTM", "HND", "SLV", "NIC", "CRI", "PAN", "BOL", "PRY", "URY", "ECU"],
+          "peak_year": 1800,
+          "population_affected_M": 80,
+          "economic_extraction_estimate_B_USD": 18000,
+          "responsibility_weight": 0.18,
+          "confidence_level": "medium",
+          "sources": [
+            {
+              "ref": "Maddison Project Database 2020",
+              "url": "https://www.rug.nl/ggdc/historicaldevelopment/maddison/releases/maddison-project-database-2020"
+            },
+            {
+              "ref": "CLIO-INFRA, clio-infra.eu",
+              "url": "https://clio-infra.eu"
+            }
+          ],
+          "disclaimer": null
+        },
+        {
+          "id": "PT",
+          "label": "Empire portugais",
+          "territories_controlled": ["BRA", "AGO", "MOZ", "GNB", "CPV", "STP", "TLS", "MAC"],
+          "peak_year": 1650,
+          "population_affected_M": 35,
+          "economic_extraction_estimate_B_USD": 8500,
+          "responsibility_weight": 0.09,
+          "confidence_level": "medium",
+          "sources": [
+            {
+              "ref": "Maddison Project Database 2020",
+              "url": "https://www.rug.nl/ggdc/historicaldevelopment/maddison/releases/maddison-project-database-2020"
+            },
+            {
+              "ref": "CLIO-INFRA, clio-infra.eu",
+              "url": "https://clio-infra.eu"
+            }
+          ],
+          "disclaimer": null
+        },
+        {
+          "id": "NL",
+          "label": "Provinces-Unies / Pays-Bas",
+          "territories_controlled": ["IDN", "SUR", "ANT", "ABW"],
+          "peak_year": 1900,
+          "population_affected_M": 60,
+          "economic_extraction_estimate_B_USD": 6000,
+          "responsibility_weight": 0.06,
+          "confidence_level": "medium",
+          "sources": [
+            {
+              "ref": "Maddison Project Database 2020",
+              "url": "https://www.rug.nl/ggdc/historicaldevelopment/maddison/releases/maddison-project-database-2020"
+            },
+            {
+              "ref": "CLIO-INFRA, clio-infra.eu",
+              "url": "https://clio-infra.eu"
+            }
+          ],
+          "disclaimer": null
+        },
+        {
+          "id": "BE",
+          "label": "Empire belge",
+          "territories_controlled": ["COD", "RWA", "BDI"],
+          "peak_year": 1940,
+          "population_affected_M": 20,
+          "economic_extraction_estimate_B_USD": 4500,
+          "responsibility_weight": 0.04,
+          "confidence_level": "medium",
+          "sources": [
+            {
+              "ref": "Maddison Project Database 2020",
+              "url": "https://www.rug.nl/ggdc/historicaldevelopment/maddison/releases/maddison-project-database-2020"
+            },
+            {
+              "ref": "Hochschild A., 'King Leopold's Ghost', Mariner Books 1999",
+              "url": "https://www.hmhbooks.com/shop/books/King-Leopolds-Ghost/9780358212508"
+            }
+          ],
+          "disclaimer": null
+        },
+        {
+          "id": "DE",
+          "label": "Empire allemand",
+          "territories_controlled": ["TZA", "NAM", "CMR", "TGO"],
+          "peak_year": 1914,
+          "population_affected_M": 15,
+          "economic_extraction_estimate_B_USD": 2000,
+          "responsibility_weight": 0.03,
+          "confidence_level": "medium",
+          "sources": [
+            {
+              "ref": "Maddison Project Database 2020",
+              "url": "https://www.rug.nl/ggdc/historicaldevelopment/maddison/releases/maddison-project-database-2020"
+            },
+            {
+              "ref": "CLIO-INFRA, clio-infra.eu",
+              "url": "https://clio-infra.eu"
+            }
+          ],
+          "disclaimer": null
+        },
+        {
+          "id": "IT",
+          "label": "Empire italien",
+          "territories_controlled": ["LBY", "SOM", "ETH", "ERI"],
+          "peak_year": 1939,
+          "population_affected_M": 12,
+          "economic_extraction_estimate_B_USD": 1500,
+          "responsibility_weight": 0.02,
+          "confidence_level": "medium",
+          "sources": [
+            {
+              "ref": "Maddison Project Database 2020",
+              "url": "https://www.rug.nl/ggdc/historicaldevelopment/maddison/releases/maddison-project-database-2020"
+            },
+            {
+              "ref": "CLIO-INFRA, clio-infra.eu",
+              "url": "https://clio-infra.eu"
+            }
+          ],
+          "disclaimer": null
+        }
+      ],
+      "map_config": {
+        "type": "heatmap",
+        "intensity_field": "responsibility_weight",
+        "flow_lines": true
+      }
+    }
+  ]
+}

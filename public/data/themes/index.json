@@ -1,0 +1,40 @@
+{
+  "themes": [
+    {
+      "id": "colonisation",
+      "label": "Colonisation européenne",
+      "period": [1500, 1960],
+      "description": "Contrôle territorial, extraction économique et effets démographiques des empires européens."
+    },
+    {
+      "id": "traite-esclavage",
+      "label": "Traite négrière & esclavage",
+      "period": [1500, 1900],
+      "description": "Flux de déportation, destinations forcées et systèmes économiques liés à l’esclavage."
+    },
+    {
+      "id": "conflits",
+      "label": "Guerres & conflits majeurs",
+      "period": [1800, 2026],
+      "description": "Conflits interétatiques, guerres civiles et intensité géopolitique par période."
+    },
+    {
+      "id": "influence-contemporaine",
+      "label": "Influence géopolitique contemporaine",
+      "period": [1945, 2026],
+      "description": "Institutions, dépenses militaires, alliances, votes internationaux et leviers économiques."
+    },
+    {
+      "id": "ressources",
+      "label": "Exploitation des ressources",
+      "period": [1850, 2026],
+      "description": "Production, commerce et dépendances autour des ressources énergétiques et minières."
+    },
+    {
+      "id": "deplacements",
+      "label": "Déplacements de populations",
+      "period": [1900, 2026],
+      "description": "Migrations forcées, réfugiés, déplacés internes et grandes crises humanitaires."
+    }
+  ]
+}
