@@ -12,6 +12,9 @@ import { Sheet, SheetContent } from "@/components/ui/sheet";
 import { themes, defaultThemeId } from "@/lib/theme-data";
 import { loadTheme } from "@/lib/theme-loader";
 import type { Theme, Period } from "@/lib/types";
+import { iso3ToIso2 } from "@/lib/centroids";
+import { getFlagEmojiSafe } from "@/lib/flagEmoji";
+
 
 export function AtlasApp() {
   const [themeId, setThemeId] = useState(defaultThemeId);
@@ -102,7 +105,12 @@ export function AtlasApp() {
 
   return (
     <main className="flex min-h-screen flex-col bg-[#0a0a14] text-slate-100">
-      <Header onMenuClick={() => setMobileOpen(true)} />
+      <Header
+        onMenuClick={() => setMobileOpen(true)}
+        activeThemeLabel={activeThemeMeta.label}
+        activeThemeColor={activeThemeMeta.color_primary}
+        year={year}
+      />
       <div className="grid min-h-0 flex-1 grid-cols-1 overflow-hidden lg:grid-cols-[360px_minmax(0,1fr)]">
         {/* Desktop Sidebar */}
         <div className="hidden lg:block overflow-y-auto border-r border-slate-800 bg-[#0d0d1e]">
@@ -159,18 +167,31 @@ export function AtlasApp() {
               onSelect={setSelectedTerritory}
             />
           )}
-          {hoveredTerritory ? (
-            <div
-              className="pointer-events-none absolute z-30 rounded-md border border-slate-700 bg-slate-950/95 px-3 py-2 text-xs text-white shadow-lg backdrop-blur"
-              style={{
-                left: hoveredTerritory.point.x + 14,
-                top: hoveredTerritory.point.y + 14
-              }}
-            >
-              <p className="font-medium text-slate-100">{hoveredTerritory.name}</p>
-              <p className="text-muted-foreground">ISO3: {hoveredTerritory.iso3 ?? "n/a"}</p>
-            </div>
-          ) : null}
+          {hoveredTerritory ? (() => {
+            const iso2 = hoveredTerritory.iso3 ? (iso3ToIso2[hoveredTerritory.iso3.toUpperCase()] ?? "") : "";
+            const flag = iso2 ? getFlagEmojiSafe(iso2) : "";
+            return (
+              <div
+                className="pointer-events-none absolute z-30 animate-fade-in rounded-lg border bg-slate-950/95 px-3 py-2 text-xs text-white shadow-xl backdrop-blur-sm"
+                style={{
+                  left: hoveredTerritory.point.x + 14,
+                  top: hoveredTerritory.point.y + 14,
+                  borderColor: activeThemeMeta.color_primary + "60"
+                }}
+              >
+                <p className="flex items-center gap-1.5 font-semibold text-slate-100">
+                  {flag && <span className="text-base leading-none">{flag}</span>}
+                  {hoveredTerritory.name}
+                </p>
+                {hoveredTerritory.iso3 && (
+                  <p className="mt-0.5 text-muted-foreground">
+                    <span className="rounded bg-slate-800 px-1 py-0.5 font-mono">{hoveredTerritory.iso3}</span>
+                  </p>
+                )}
+              </div>
+            );
+          })() : null}
+
           <AdBanner />
         </section>
       </div>

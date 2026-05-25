@@ -237,11 +237,20 @@ export function Globe3D({ themeId, actors, themeColor, onHover, onSelect }: Glob
       ) : null}
 
       {/* Theme indicator */}
-      <div className="absolute left-4 top-4 rounded-md border border-[#1e3a4f] bg-[#0d1b2a]/90 px-3 py-2 text-xs text-slate-300 shadow-sm backdrop-blur">
-        <p className="font-medium text-slate-200">Globe 3D</p>
-        <p className="text-slate-400">Thème: {themeId}</p>
-        <p className="text-slate-400">{arcs.length} flux affichés</p>
+      <div
+        className="absolute left-4 top-4 animate-slide-up rounded-xl border bg-[#0d1b2a]/90 px-3 py-2.5 text-xs text-slate-300 shadow-lg backdrop-blur"
+        style={{ borderColor: `${themeColor}40` }}
+      >
+        <div className="flex items-center gap-2 mb-1">
+          <span
+            className="inline-block size-2 rounded-full animate-pulse"
+            style={{ background: themeColor, boxShadow: `0 0 6px ${themeColor}` }}
+          />
+          <p className="font-semibold text-slate-100 text-[11px] uppercase tracking-wide">Globe 3D</p>
+        </div>
+        <p className="text-slate-400 text-[10px]">{arcs.length} flux · {markers.length} acteurs</p>
       </div>
     </div>
   );
 }
+

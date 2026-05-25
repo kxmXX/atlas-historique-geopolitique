@@ -7,9 +7,12 @@ import Link from "next/link";
 
 type HeaderProps = {
   onMenuClick?: () => void;
+  activeThemeLabel?: string;
+  activeThemeColor?: string;
+  year?: number;
 };
 
-export function Header({ onMenuClick }: HeaderProps) {
+export function Header({ onMenuClick, activeThemeLabel, activeThemeColor, year }: HeaderProps) {
   return (
     <header className="flex min-h-14 items-center justify-between gap-4 border-b border-slate-800 bg-slate-950/95 backdrop-blur supports-[backdrop-filter]:bg-slate-950/80 px-4 md:px-6 z-40 sticky top-0 text-slate-100">
       <div className="flex min-w-0 items-center gap-3">
@@ -24,19 +27,36 @@ export function Header({ onMenuClick }: HeaderProps) {
             <Menu className="size-5" />
           </Button>
         )}
-        <div className="flex size-9 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-accent text-primary-foreground shadow-sm shadow-primary/30">
-          <Globe2 className="size-5" aria-hidden="true" />
+        <div className="relative flex size-9 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-accent text-primary-foreground shadow-sm shadow-primary/30 overflow-hidden">
+          <Globe2 className="size-5 animate-spin-slow" aria-hidden="true" />
         </div>
         <div className="min-w-0">
           <h1 className="truncate text-base font-semibold tracking-tight md:text-lg text-slate-100">
-            Atlas historique <span className="text-muted-foreground">&amp;</span> géopolitique
+            Atlas historique <span className="text-muted-foreground">&</span> géopolitique
           </h1>
           <p className="hidden text-[11px] text-muted-foreground sm:block">
             Carte interactive &middot; Timeline &middot; Décisions V1
           </p>
         </div>
       </div>
+
       <div className="flex items-center gap-2">
+        {/* Active theme + year indicator */}
+        {activeThemeLabel && year !== undefined && (
+          <div
+            className="hidden md:flex items-center gap-2 rounded-full px-3 py-1 text-xs font-medium border transition-all duration-500 animate-fade-in"
+            style={{
+              borderColor: activeThemeColor ? `${activeThemeColor}60` : "hsl(var(--border))",
+              background: activeThemeColor ? `${activeThemeColor}15` : "hsl(var(--muted))",
+              color: activeThemeColor || "hsl(var(--foreground))"
+            }}
+          >
+            <span className="tabular-nums font-bold">{year}</span>
+            <span className="opacity-50">·</span>
+            <span className="truncate max-w-[160px]">{activeThemeLabel}</span>
+          </div>
+        )}
+
         <Button variant="ghost" size="sm" className="hidden gap-1.5 md:inline-flex text-slate-300 hover:text-white" asChild>
           <Link href="/methodologie">
             <Scale className="size-3" aria-hidden="true" />
