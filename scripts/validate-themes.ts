@@ -4,7 +4,7 @@ import { z } from "zod";
 
 const sourceSchema = z.object({
   ref: z.string().min(1),
-  url: z.string().min(1)
+  url: z.string().nullable()
 });
 
 const actorSchema = z.object({
@@ -13,10 +13,11 @@ const actorSchema = z.object({
   territories_controlled: z.array(z.string().min(2)),
   peak_year: z.number().int(),
   population_affected_M: z.number(),
-  economic_extraction_estimate_B_USD: z.number(),
+  economic_extraction_estimate_B_USD: z.number().nullable(),
   responsibility_weight: z.number().min(0).max(1),
   confidence_level: z.enum(["high", "medium", "debated"]),
   sources: z.array(sourceSchema),
+  context_short: z.string().min(1),
   disclaimer: z.string().nullable()
 }).superRefine((actor, context) => {
   if (actor.responsibility_weight > 0 && actor.sources.length < 2) {
@@ -37,8 +38,11 @@ const actorSchema = z.object({
 });
 
 const periodSchema = z.object({
+  period_id: z.string().min(1),
   start: z.number().int(),
   end: z.number().int(),
+  label: z.string().min(1),
+  global_context: z.string().min(1),
   actors: z.array(actorSchema),
   map_config: z.object({
     type: z.enum(["heatmap", "choropleth", "flow"]),
@@ -65,6 +69,9 @@ const periodSchema = z.object({
 const themeSchema = z.object({
   theme_id: z.string().min(1),
   theme_label: z.string().min(1),
+  theme_description: z.string().min(1),
+  icon: z.string().min(1),
+  color_primary: z.string().regex(/^#[0-9a-fA-F]{6}$/),
   periods: z.array(periodSchema)
 });
 

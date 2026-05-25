@@ -1,44 +1,39 @@
 {
   "theme_id": "traite-esclavage",
   "theme_label": "Traite négrière & esclavage",
+  "theme_description": "Flux de déportation, destinations forcées et systèmes économiques liés à l’esclavage.",
+  "icon": "🔗",
+  "color_primary": "#8b1a2b",
   "periods": [
     {
+      "period_id": "traite_p1",
       "start": 1500,
-      "end": 1900,
+      "end": 1650,
+      "label": "Débuts de la traite transatlantique (1500-1650)",
+      "global_context": "Mise en place des premières routes de déportation d'esclaves africains pour alimenter l'économie minière et agricole espagnole et portugaise d'Amérique.",
+      "map_config": {
+        "type": "flow",
+        "intensity_field": "population_affected_M",
+        "flow_lines": true
+      },
       "actors": [
-        {
-          "id": "GB",
-          "label": "Empire britannique",
-          "territories_controlled": ["GHA", "NGA", "SLE", "JAM", "BRB", "TTO", "GUY"],
-          "peak_year": 1750,
-          "population_affected_M": 3.2,
-          "economic_extraction_estimate_B_USD": 18000,
-          "responsibility_weight": 0.28,
-          "confidence_level": "debated",
-          "sources": [
-            {
-              "ref": "Slave Voyages Database (Eltis & Richardson), slavevoyages.org",
-              "url": "https://www.slavevoyages.org"
-            },
-            {
-              "ref": "Nunn N., 'The Long-Term Effects of Africa's Slave Trades', QJE 2008",
-              "url": "https://doi.org/10.1162/qjec.2008.123.1.139"
-            }
-          ],
-          "disclaimer": "Données générées par IA (J3 pipeline) à partir de sources publiques. Les chiffres de population et d'extraction économique sont des estimations. Pondération à affiner avec données primaires CLIO-INFRA."
-        },
         {
           "id": "PT",
           "label": "Empire portugais",
-          "territories_controlled": ["AGO", "BRA", "MOZ", "GNB", "CPV", "STP"],
-          "peak_year": 1700,
-          "population_affected_M": 5.8,
-          "economic_extraction_estimate_B_USD": 22000,
-          "responsibility_weight": 0.32,
-          "confidence_level": "debated",
+          "territories_controlled": [
+            "BR",
+            "AO",
+            "MZ",
+            "CV"
+          ],
+          "peak_year": 1630,
+          "population_affected_M": 0.9,
+          "economic_extraction_estimate_B_USD": 3000,
+          "responsibility_weight": 0.6,
+          "confidence_level": "medium",
           "sources": [
             {
-              "ref": "Slave Voyages Database (Eltis & Richardson), slavevoyages.org",
+              "ref": "Slave Voyages Database",
               "url": "https://www.slavevoyages.org"
             },
             {
@@ -46,41 +41,27 @@
               "url": "https://clio-infra.eu"
             }
           ],
-          "disclaimer": "Le Portugal a transporté le plus grand volume de captifs (environ 5,8M). Pondération basée sur volume + durée. Données à croiser avec archives coloniales portugaises (Torre do Tombo)."
-        },
-        {
-          "id": "FR",
-          "label": "Empire français",
-          "territories_controlled": ["SEN", "BEN", "GIN", "HTI", "GUF", "MUS", "REU"],
-          "peak_year": 1780,
-          "population_affected_M": 1.6,
-          "economic_extraction_estimate_B_USD": 12000,
-          "responsibility_weight": 0.18,
-          "confidence_level": "debated",
-          "sources": [
-            {
-              "ref": "Slave Voyages Database (Eltis & Richardson), slavevoyages.org",
-              "url": "https://www.slavevoyages.org"
-            },
-            {
-              "ref": "Geggus D., 'The French Slave Trade: An Overview', William & Mary Quarterly 2001",
-              "url": "https://www.jstor.org/stable/2674418"
-            }
-          ],
-          "disclaimer": "Estimations basées sur Slave Voyages Database. Saint-Domingue (Haïti) représentait à lui seul ~40% de la traite française."
+          "context_short": "Domination absolue de la traite via l'Angola vers le Brésil naissant pour l'économie sucrière.",
+          "disclaimer": null
         },
         {
           "id": "ES",
           "label": "Empire espagnol",
-          "territories_controlled": ["CUB", "DOM", "PRI", "COL", "VEN", "PER", "MEX"],
-          "peak_year": 1800,
-          "population_affected_M": 1.1,
-          "economic_extraction_estimate_B_USD": 10000,
-          "responsibility_weight": 0.12,
-          "confidence_level": "debated",
+          "territories_controlled": [
+            "MX",
+            "CO",
+            "PE",
+            "CU",
+            "DO"
+          ],
+          "peak_year": 1600,
+          "population_affected_M": 0.5,
+          "economic_extraction_estimate_B_USD": 2000,
+          "responsibility_weight": 0.4,
+          "confidence_level": "medium",
           "sources": [
             {
-              "ref": "Slave Voyages Database (Eltis & Richardson), slavevoyages.org",
+              "ref": "Slave Voyages Database",
               "url": "https://www.slavevoyages.org"
             },
             {
@@ -88,77 +69,387 @@
               "url": "https://clio-infra.eu"
             }
           ],
+          "context_short": "Utilisation du système des asientos (licences de traite) confiées à des tiers pour approvisionner l'empire en esclaves.",
+          "disclaimer": null
+        }
+      ]
+    },
+    {
+      "period_id": "traite_p2",
+      "start": 1650,
+      "end": 1750,
+      "label": "Essor du système de plantation (1650-1750)",
+      "global_context": "Le développement des cultures de canne à sucre aux Antilles et de tabac en Amérique du Nord intensifie la déportation d'esclaves par de nouveaux acteurs européens.",
+      "map_config": {
+        "type": "flow",
+        "intensity_field": "population_affected_M",
+        "flow_lines": true
+      },
+      "actors": [
+        {
+          "id": "GB",
+          "label": "Empire britannique",
+          "territories_controlled": [
+            "JAM",
+            "US",
+            "GH",
+            "NG"
+          ],
+          "peak_year": 1740,
+          "population_affected_M": 1.5,
+          "economic_extraction_estimate_B_USD": 8000,
+          "responsibility_weight": 0.35,
+          "confidence_level": "medium",
+          "sources": [
+            {
+              "ref": "Slave Voyages Database",
+              "url": "https://www.slavevoyages.org"
+            },
+            {
+              "ref": "CLIO-INFRA, clio-infra.eu",
+              "url": "https://clio-infra.eu"
+            }
+          ],
+          "context_short": "Montée en puissance de la Royal African Company et commerce triangulaire centré sur la Jamaïque.",
+          "disclaimer": null
+        },
+        {
+          "id": "PT",
+          "label": "Empire portugais",
+          "territories_controlled": [
+            "BR",
+            "AO"
+          ],
+          "peak_year": 1720,
+          "population_affected_M": 1.8,
+          "economic_extraction_estimate_B_USD": 7000,
+          "responsibility_weight": 0.3,
+          "confidence_level": "medium",
+          "sources": [
+            {
+              "ref": "Slave Voyages Database",
+              "url": "https://www.slavevoyages.org"
+            },
+            {
+              "ref": "CLIO-INFRA, clio-infra.eu",
+              "url": "https://clio-infra.eu"
+            }
+          ],
+          "context_short": "Alimentation continue du Brésil pour l'exploitation agricole et le boom de l'or dans le Minas Gerais.",
+          "disclaimer": null
+        },
+        {
+          "id": "FR",
+          "label": "Empire français",
+          "territories_controlled": [
+            "HT",
+            "SN",
+            "BJ"
+          ],
+          "peak_year": 1740,
+          "population_affected_M": 0.8,
+          "economic_extraction_estimate_B_USD": 4000,
+          "responsibility_weight": 0.2,
+          "confidence_level": "medium",
+          "sources": [
+            {
+              "ref": "Slave Voyages Database",
+              "url": "https://www.slavevoyages.org"
+            },
+            {
+              "ref": "CLIO-INFRA, clio-infra.eu",
+              "url": "https://clio-infra.eu"
+            }
+          ],
+          "context_short": "Développement exponentiel des plantations à Saint-Domingue et contrôle de comptoirs au Sénégal.",
           "disclaimer": null
         },
         {
           "id": "NL",
-          "label": "Provinces-Unies / Pays-Bas",
-          "territories_controlled": ["SUR", "ANT", "ABW", "IDN"],
-          "peak_year": 1700,
-          "population_affected_M": 0.6,
-          "economic_extraction_estimate_B_USD": 6000,
-          "responsibility_weight": 0.06,
-          "confidence_level": "debated",
-          "sources": [
-            {
-              "ref": "Slave Voyages Database (Eltis & Richardson), slavevoyages.org",
-              "url": "https://www.slavevoyages.org"
-            },
-            {
-              "ref": "Postma J., 'The Dutch in the Atlantic Slave Trade', Cambridge UP 1990",
-              "url": "https://www.cambridge.org/9780521365857"
-            }
+          "label": "Provinces-Unies (Pays-Bas)",
+          "territories_controlled": [
+            "SR",
+            "AN",
+            "ID"
           ],
-          "disclaimer": null
-        },
-        {
-          "id": "DK",
-          "label": "Danemark-Norvège",
-          "territories_controlled": ["VIR", "GHA"],
-          "peak_year": 1750,
-          "population_affected_M": 0.1,
-          "economic_extraction_estimate_B_USD": 800,
-          "responsibility_weight": 0.02,
+          "peak_year": 1700,
+          "population_affected_M": 0.4,
+          "economic_extraction_estimate_B_USD": 2000,
+          "responsibility_weight": 0.15,
           "confidence_level": "medium",
           "sources": [
             {
-              "ref": "Slave Voyages Database (Eltis & Richardson), slavevoyages.org",
+              "ref": "Slave Voyages Database",
               "url": "https://www.slavevoyages.org"
             },
             {
-              "ref": "Gøbel E., 'The Danish Slave Trade and Its Abolition', Brill 2017",
-              "url": "https://brill.com/display/title/33828"
+              "ref": "Postma J., 'The Dutch in the Atlantic Slave Trade'",
+              "url": null
             }
           ],
+          "context_short": "Rôle majeur de la Compagnie néerlandaise des Indes occidentales dans le transport de captifs.",
+          "disclaimer": "Les volumes de traite néerlandaise sont plus faibles que les britanniques mais leur implication financière était majeure."
+        }
+      ]
+    },
+    {
+      "period_id": "traite_p3",
+      "start": 1750,
+      "end": 1808,
+      "label": "Apogée du commerce triangulaire (1750-1808)",
+      "global_context": "La traite transatlantique atteint son volume historique maximal. Les empires coloniaux tirent d'immenses profits des denrées tropicales.",
+      "map_config": {
+        "type": "flow",
+        "intensity_field": "population_affected_M",
+        "flow_lines": true
+      },
+      "actors": [
+        {
+          "id": "GB",
+          "label": "Empire britannique",
+          "territories_controlled": [
+            "JAM",
+            "US",
+            "GH",
+            "NG"
+          ],
+          "peak_year": 1790,
+          "population_affected_M": 3.2,
+          "economic_extraction_estimate_B_USD": 18000,
+          "responsibility_weight": 0.4,
+          "confidence_level": "high",
+          "sources": [
+            {
+              "ref": "Slave Voyages Database",
+              "url": "https://www.slavevoyages.org"
+            },
+            {
+              "ref": "CLIO-INFRA, clio-infra.eu",
+              "url": "https://clio-infra.eu"
+            }
+          ],
+          "context_short": "Dominance maritime mondiale. Les ports de Liverpool et Bristol s'enrichissent considérablement.",
+          "disclaimer": null
+        },
+        {
+          "id": "PT",
+          "label": "Empire portugais",
+          "territories_controlled": [
+            "BR",
+            "AO"
+          ],
+          "peak_year": 1800,
+          "population_affected_M": 2.8,
+          "economic_extraction_estimate_B_USD": 14000,
+          "responsibility_weight": 0.3,
+          "confidence_level": "high",
+          "sources": [
+            {
+              "ref": "Slave Voyages Database",
+              "url": "https://www.slavevoyages.org"
+            },
+            {
+              "ref": "CLIO-INFRA, clio-infra.eu",
+              "url": "https://clio-infra.eu"
+            }
+          ],
+          "context_short": "Poursuite du transport massif de captifs d'Afrique centrale vers les plantations de café et de sucre brésiliennes.",
+          "disclaimer": null
+        },
+        {
+          "id": "FR",
+          "label": "Empire français",
+          "territories_controlled": [
+            "HT",
+            "SN",
+            "BJ"
+          ],
+          "peak_year": 1785,
+          "population_affected_M": 1.6,
+          "economic_extraction_estimate_B_USD": 12000,
+          "responsibility_weight": 0.2,
+          "confidence_level": "high",
+          "sources": [
+            {
+              "ref": "Slave Voyages Database",
+              "url": "https://www.slavevoyages.org"
+            },
+            {
+              "ref": "Geggus D., 'The French Slave Trade'",
+              "url": null
+            }
+          ],
+          "context_short": "Saint-Domingue devient le premier producteur de sucre mondial, avant la révolution haïtienne de 1791.",
+          "disclaimer": null
+        },
+        {
+          "id": "ES",
+          "label": "Empire espagnol",
+          "territories_controlled": [
+            "CU",
+            "DO",
+            "PR",
+            "CO",
+            "VE"
+          ],
+          "peak_year": 1800,
+          "population_affected_M": 0.6,
+          "economic_extraction_estimate_B_USD": 3000,
+          "responsibility_weight": 0.06,
+          "confidence_level": "medium",
+          "sources": [
+            {
+              "ref": "Slave Voyages Database",
+              "url": "https://www.slavevoyages.org"
+            },
+            {
+              "ref": "CLIO-INFRA, clio-infra.eu",
+              "url": "https://clio-infra.eu"
+            }
+          ],
+          "context_short": "Libéralisation de la traite espagnole et boom sucrier à Cuba à la fin du XVIIIe siècle.",
+          "disclaimer": null
+        },
+        {
+          "id": "NL",
+          "label": "Provinces-Unies (Pays-Bas)",
+          "territories_controlled": [
+            "SR",
+            "AN"
+          ],
+          "peak_year": 1770,
+          "population_affected_M": 0.3,
+          "economic_extraction_estimate_B_USD": 1500,
+          "responsibility_weight": 0.04,
+          "confidence_level": "medium",
+          "sources": [
+            {
+              "ref": "Slave Voyages Database",
+              "url": "https://www.slavevoyages.org"
+            },
+            {
+              "ref": "CLIO-INFRA, clio-infra.eu",
+              "url": "https://clio-infra.eu"
+            }
+          ],
+          "context_short": "Maintien des circuits de traite vers le Suriname, déclin progressif face aux flottes anglaises.",
+          "disclaimer": null
+        }
+      ]
+    },
+    {
+      "period_id": "traite_p4",
+      "start": 1808,
+      "end": 1900,
+      "label": "Abolitions et traite clandestine (1808-1900)",
+      "global_context": "Interdiction légale de la traite par la Grande-Bretagne et les États-Unis. Poursuite illégale massive des flux clandestins vers le Brésil et les Caraïbes espagnoles.",
+      "map_config": {
+        "type": "flow",
+        "intensity_field": "population_affected_M",
+        "flow_lines": true
+      },
+      "actors": [
+        {
+          "id": "PT",
+          "label": "Brésil / Portugal",
+          "territories_controlled": [
+            "BR",
+            "AO"
+          ],
+          "peak_year": 1845,
+          "population_affected_M": 2.1,
+          "economic_extraction_estimate_B_USD": 11000,
+          "responsibility_weight": 0.5,
+          "confidence_level": "high",
+          "sources": [
+            {
+              "ref": "Slave Voyages Database",
+              "url": "https://www.slavevoyages.org"
+            },
+            {
+              "ref": "CLIO-INFRA, clio-infra.eu",
+              "url": "https://clio-infra.eu"
+            }
+          ],
+          "context_short": "Le Brésil indépendant poursuit une traite clandestine colossale jusqu'aux années 1850 pour ses plantations de café.",
+          "disclaimer": null
+        },
+        {
+          "id": "ES",
+          "label": "Empire espagnol",
+          "territories_controlled": [
+            "CU",
+            "PR"
+          ],
+          "peak_year": 1835,
+          "population_affected_M": 0.9,
+          "economic_extraction_estimate_B_USD": 5000,
+          "responsibility_weight": 0.3,
+          "confidence_level": "high",
+          "sources": [
+            {
+              "ref": "Slave Voyages Database",
+              "url": "https://www.slavevoyages.org"
+            },
+            {
+              "ref": "CLIO-INFRA, clio-infra.eu",
+              "url": "https://clio-infra.eu"
+            }
+          ],
+          "context_short": "Cuba importe massivement et illégalement des esclaves pour maintenir sa suprématie sucrière mondiale.",
+          "disclaimer": null
+        },
+        {
+          "id": "FR",
+          "label": "Empire français (traite illégale)",
+          "territories_controlled": [
+            "SN",
+            "GP",
+            "MQ"
+          ],
+          "peak_year": 1825,
+          "population_affected_M": 0.3,
+          "economic_extraction_estimate_B_USD": 1500,
+          "responsibility_weight": 0.12,
+          "confidence_level": "medium",
+          "sources": [
+            {
+              "ref": "Slave Voyages Database",
+              "url": "https://www.slavevoyages.org"
+            },
+            {
+              "ref": "CLIO-INFRA, clio-infra.eu",
+              "url": "https://clio-infra.eu"
+            }
+          ],
+          "context_short": "Traite clandestine tolérée sous la Restauration, avant l'abolition définitive de l'esclavage en 1848.",
           "disclaimer": null
         },
         {
           "id": "US",
           "label": "États-Unis (traite interne)",
-          "territories_controlled": ["USA"],
+          "territories_controlled": [
+            "US"
+          ],
           "peak_year": 1850,
-          "population_affected_M": 4.0,
-          "economic_extraction_estimate_B_USD": 15000,
-          "responsibility_weight": 0.02,
+          "population_affected_M": 4,
+          "economic_extraction_estimate_B_USD": 10000,
+          "responsibility_weight": 0.08,
           "confidence_level": "medium",
           "sources": [
             {
-              "ref": "Baptist E., 'The Half Has Never Been Told', Basic Books 2014",
-              "url": "https://www.basichooks.com/titles/edward-e-baptist/the-half-has-never-been-told/9780465044702/"
+              "ref": "Baptist E., 'The Half Has Never Been Told'",
+              "url": null
             },
             {
-              "ref": "US Census Bureau, Historical Statistics",
-              "url": "https://www.census.gov/history"
+              "ref": "US Census Bureau",
+              "url": null
             }
           ],
-          "disclaimer": "Pondération basse car acteur non colonial dans la traite transatlantique, mais économique interne massif basé sur l'esclavage."
+          "context_short": "Bien que la traite transatlantique soit interdite en 1808, le marché intérieur déporte 1 million d'esclaves vers le Deep South.",
+          "disclaimer": "L'inclusion des États-Unis dans cette période concerne la traite interétatique interne massive liée au coton, et non le trafic atlantique."
         }
-      ],
-      "map_config": {
-        "type": "flow",
-        "intensity_field": "population_affected_M",
-        "flow_lines": true
-      }
+      ]
     }
   ]
 }

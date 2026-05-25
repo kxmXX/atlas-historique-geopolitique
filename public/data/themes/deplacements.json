@@ -1,206 +1,499 @@
 {
   "theme_id": "deplacements",
   "theme_label": "Déplacements de populations",
+  "theme_description": "Migrations forcées, réfugiés, déplacés internes et grandes crises humanitaires.",
+  "icon": "🏃",
+  "color_primary": "#6c3483",
   "periods": [
     {
+      "period_id": "dep_p1",
       "start": 1900,
-      "end": 2026,
+      "end": 1945,
+      "label": "Guerres et bouleversements européens (1900-1945)",
+      "global_context": "Les guerres mondiales, la révolution russe, et la montée des totalitarismes déclenchent des vagues sans précédent de réfugiés et de déportations forcées en Europe.",
+      "map_config": {
+        "type": "heatmap",
+        "intensity_field": "responsibility_weight",
+        "flow_lines": true
+      },
       "actors": [
         {
-          "id": "SY",
-          "label": "Crise syrienne",
-          "territories_controlled": ["SYR"],
-          "peak_year": 2016,
-          "population_affected_M": 13.5,
-          "economic_extraction_estimate_B_USD": 0,
-          "responsibility_weight": 0.20,
+          "id": "DE",
+          "label": "Allemagne (Reich)",
+          "territories_controlled": [
+            "DE",
+            "PL",
+            "FR",
+            "AT",
+            "CZ"
+          ],
+          "peak_year": 1944,
+          "population_affected_M": 12,
+          "economic_extraction_estimate_B_USD": null,
+          "responsibility_weight": 0.5,
           "confidence_level": "high",
           "sources": [
             {
-              "ref": "UNHCR Global Trends Report, unhcr.org",
-              "url": "https://www.unhcr.org/global-trends"
+              "ref": "UNHCR Global Trends",
+              "url": "https://www.unhcr.org"
             },
             {
-              "ref": "IOM World Migration Report, iom.int",
-              "url": "https://worldmigrationreport.iom.int"
+              "ref": "Correlates of War Project",
+              "url": "https://correlatesofwar.org"
             }
           ],
+          "context_short": "Déplacement forcé de millions de travailleurs forcés, déportation des Juifs d'Europe, et fuite finale des populations allemandes de l'Est.",
           "disclaimer": null
         },
         {
-          "id": "UA",
-          "label": "Guerre en Ukraine",
-          "territories_controlled": ["UKR"],
-          "peak_year": 2022,
-          "population_affected_M": 14.0,
-          "economic_extraction_estimate_B_USD": 0,
-          "responsibility_weight": 0.18,
+          "id": "RU",
+          "label": "URSS / Empire russe",
+          "territories_controlled": [
+            "RU",
+            "PL",
+            "FI",
+            "UA"
+          ],
+          "peak_year": 1945,
+          "population_affected_M": 8,
+          "economic_extraction_estimate_B_USD": null,
+          "responsibility_weight": 0.3,
           "confidence_level": "high",
           "sources": [
             {
-              "ref": "UNHCR Global Trends Report, unhcr.org",
-              "url": "https://www.unhcr.org/global-trends"
+              "ref": "UNHCR Global Trends",
+              "url": "https://www.unhcr.org"
             },
             {
-              "ref": "IOM World Migration Report, iom.int",
-              "url": "https://worldmigrationreport.iom.int"
+              "ref": "Correlates of War Project",
+              "url": "https://correlatesofwar.org"
             }
           ],
+          "context_short": "Déplacements massifs lors de la révolution et guerre civile russe, déportation ethnique forcée de peuples sous Staline.",
           "disclaimer": null
         },
         {
-          "id": "AF",
-          "label": "Crise afghane",
-          "territories_controlled": ["AFG"],
-          "peak_year": 2021,
-          "population_affected_M": 6.1,
-          "economic_extraction_estimate_B_USD": 0,
-          "responsibility_weight": 0.12,
+          "id": "TR",
+          "label": "Empire ottoman / Turquie",
+          "territories_controlled": [
+            "TR",
+            "GR",
+            "ARM",
+            "SY"
+          ],
+          "peak_year": 1923,
+          "population_affected_M": 3.5,
+          "economic_extraction_estimate_B_USD": null,
+          "responsibility_weight": 0.2,
           "confidence_level": "high",
           "sources": [
             {
-              "ref": "UNHCR Global Trends Report, unhcr.org",
-              "url": "https://www.unhcr.org/global-trends"
+              "ref": "UNHCR Global Trends",
+              "url": "https://www.unhcr.org"
             },
             {
-              "ref": "IOM World Migration Report, iom.int",
-              "url": "https://worldmigrationreport.iom.int"
+              "ref": "Correlates of War Project",
+              "url": "https://correlatesofwar.org"
             }
           ],
-          "disclaimer": null
-        },
-        {
-          "id": "VE",
-          "label": "Crise vénézuélienne",
-          "territories_controlled": ["VEN"],
-          "peak_year": 2020,
-          "population_affected_M": 7.7,
-          "economic_extraction_estimate_B_USD": 0,
-          "responsibility_weight": 0.12,
-          "confidence_level": "high",
-          "sources": [
-            {
-              "ref": "UNHCR Global Trends Report, unhcr.org",
-              "url": "https://www.unhcr.org/global-trends"
-            },
-            {
-              "ref": "IOM World Migration Report, iom.int",
-              "url": "https://worldmigrationreport.iom.int"
-            }
-          ],
-          "disclaimer": null
-        },
-        {
-          "id": "SS",
-          "label": "Soudan du Sud",
-          "territories_controlled": ["SSD", "SDN"],
-          "peak_year": 2017,
-          "population_affected_M": 4.5,
-          "economic_extraction_estimate_B_USD": 0,
-          "responsibility_weight": 0.10,
-          "confidence_level": "high",
-          "sources": [
-            {
-              "ref": "UNHCR Global Trends Report, unhcr.org",
-              "url": "https://www.unhcr.org/global-trends"
-            },
-            {
-              "ref": "IOM World Migration Report, iom.int",
-              "url": "https://worldmigrationreport.iom.int"
-            }
-          ],
-          "disclaimer": null
-        },
-        {
-          "id": "MM",
-          "label": "Rohingyas (Birmanie)",
-          "territories_controlled": ["MMR"],
-          "peak_year": 2017,
-          "population_affected_M": 1.2,
-          "economic_extraction_estimate_B_USD": 0,
-          "responsibility_weight": 0.08,
-          "confidence_level": "high",
-          "sources": [
-            {
-              "ref": "UNHCR Global Trends Report, unhcr.org",
-              "url": "https://www.unhcr.org/global-trends"
-            },
-            {
-              "ref": "IOM World Migration Report, iom.int",
-              "url": "https://worldmigrationreport.iom.int"
-            }
-          ],
-          "disclaimer": null
-        },
-        {
-          "id": "SO",
-          "label": "Somalie",
-          "territories_controlled": ["SOM"],
-          "peak_year": 2015,
-          "population_affected_M": 3.0,
-          "economic_extraction_estimate_B_USD": 0,
-          "responsibility_weight": 0.07,
-          "confidence_level": "medium",
-          "sources": [
-            {
-              "ref": "UNHCR Global Trends Report, unhcr.org",
-              "url": "https://www.unhcr.org/global-trends"
-            },
-            {
-              "ref": "IOM World Migration Report, iom.int",
-              "url": "https://worldmigrationreport.iom.int"
-            }
-          ],
-          "disclaimer": null
-        },
-        {
-          "id": "CD",
-          "label": "RDC (Kivu, Ituri)",
-          "territories_controlled": ["COD"],
-          "peak_year": 2020,
-          "population_affected_M": 5.6,
-          "economic_extraction_estimate_B_USD": 0,
-          "responsibility_weight": 0.08,
-          "confidence_level": "debated",
-          "sources": [
-            {
-              "ref": "UNHCR Global Trends Report, unhcr.org",
-              "url": "https://www.unhcr.org/global-trends"
-            },
-            {
-              "ref": "IOM World Migration Report, iom.int",
-              "url": "https://worldmigrationreport.iom.int"
-            }
-          ],
-          "disclaimer": "Les chiffres de déplacés en RDC sont difficiles à établir précisément en raison de l'insécurité persistante et de l'accès humanitaire limité dans les zones de conflit. Estimations UNHCR."
-        },
-        {
-          "id": "YE",
-          "label": "Yémen",
-          "territories_controlled": ["YEM"],
-          "peak_year": 2019,
-          "population_affected_M": 4.5,
-          "economic_extraction_estimate_B_USD": 0,
-          "responsibility_weight": 0.05,
-          "confidence_level": "medium",
-          "sources": [
-            {
-              "ref": "UNHCR Global Trends Report, unhcr.org",
-              "url": "https://www.unhcr.org/global-trends"
-            },
-            {
-              "ref": "IOM World Migration Report, iom.int",
-              "url": "https://worldmigrationreport.iom.int"
-            }
-          ],
+          "context_short": "Génocide arménien (1915) provoquant des marches forcées vers le désert syrien, suivi de l'échange obligatoire de populations gréco-turques (1923).",
           "disclaimer": null
         }
-      ],
+      ]
+    },
+    {
+      "period_id": "dep_p2",
+      "start": 1945,
+      "end": 1990,
+      "label": "Guerre froide et Décolonisation (1945-1990)",
+      "global_context": "La décolonisation et les partitions de territoires tracées à la hâte génèrent des exodes de réfugiés et des crises humanitaires majeures.",
       "map_config": {
         "type": "flow",
         "intensity_field": "population_affected_M",
         "flow_lines": true
-      }
+      },
+      "actors": [
+        {
+          "id": "IN",
+          "label": "Inde (Partition)",
+          "territories_controlled": [
+            "IN",
+            "PK"
+          ],
+          "peak_year": 1947,
+          "population_affected_M": 14.5,
+          "economic_extraction_estimate_B_USD": null,
+          "responsibility_weight": 0.35,
+          "confidence_level": "high",
+          "sources": [
+            {
+              "ref": "UNHCR Global Trends",
+              "url": "https://www.unhcr.org"
+            },
+            {
+              "ref": "IOM World Migration Report",
+              "url": "https://www.iom.int"
+            }
+          ],
+          "context_short": "Exode croisé gigantesque et violent de millions de musulmans, hindous et sikhs lors de la partition des Indes britanniques.",
+          "disclaimer": null
+        },
+        {
+          "id": "PK",
+          "label": "Pakistan (Guerre civile)",
+          "territories_controlled": [
+            "PK",
+            "BD"
+          ],
+          "peak_year": 1971,
+          "population_affected_M": 10,
+          "economic_extraction_estimate_B_USD": null,
+          "responsibility_weight": 0.3,
+          "confidence_level": "high",
+          "sources": [
+            {
+              "ref": "UNHCR Global Trends",
+              "url": "https://www.unhcr.org"
+            },
+            {
+              "ref": "IOM World Migration Report",
+              "url": "https://www.iom.int"
+            }
+          ],
+          "context_short": "Fuite de 10 millions de réfugiés bangladais vers l'Inde pour échapper à la répression de l'armée pakistanaise lors de la guerre de libération.",
+          "disclaimer": null
+        },
+        {
+          "id": "DE",
+          "label": "Allemagne (Réfugiés d'après-guerre)",
+          "territories_controlled": [
+            "DE",
+            "PL",
+            "CZ"
+          ],
+          "peak_year": 1946,
+          "population_affected_M": 12,
+          "economic_extraction_estimate_B_USD": null,
+          "responsibility_weight": 0.2,
+          "confidence_level": "high",
+          "sources": [
+            {
+              "ref": "UNHCR Global Trends",
+              "url": "https://www.unhcr.org"
+            },
+            {
+              "ref": "IOM World Migration Report",
+              "url": "https://www.iom.int"
+            }
+          ],
+          "context_short": "Expulsion et déplacement forcé de 12 millions d'Allemands d'Europe centrale et orientale vers l'Allemagne occupée.",
+          "disclaimer": null
+        },
+        {
+          "id": "VN",
+          "label": "Vietnam (Boat People)",
+          "territories_controlled": [
+            "VN",
+            "MY",
+            "HK"
+          ],
+          "peak_year": 1979,
+          "population_affected_M": 1.5,
+          "economic_extraction_estimate_B_USD": null,
+          "responsibility_weight": 0.15,
+          "confidence_level": "high",
+          "sources": [
+            {
+              "ref": "UNHCR Global Trends",
+              "url": "https://www.unhcr.org"
+            },
+            {
+              "ref": "IOM World Migration Report",
+              "url": "https://www.iom.int"
+            }
+          ],
+          "context_short": "Exode maritime risqué de centaines de milliers de Vietnamiens fuyant le régime communiste après la chute de Saigon.",
+          "disclaimer": null
+        }
+      ]
+    },
+    {
+      "period_id": "dep_p3",
+      "start": 1990,
+      "end": 2010,
+      "label": "Instabilités régionales post-Guerre froide (1990-2010)",
+      "global_context": "L'éclatement de la Yougoslavie et les guerres d'Afrique centrale déclenchent d'importantes crises de réfugiés et de déplacés internes.",
+      "map_config": {
+        "type": "heatmap",
+        "intensity_field": "population_affected_M",
+        "flow_lines": true
+      },
+      "actors": [
+        {
+          "id": "CD",
+          "label": "Congo (Afrique centrale)",
+          "territories_controlled": [
+            "CD",
+            "RW",
+            "BI"
+          ],
+          "peak_year": 1998,
+          "population_affected_M": 5,
+          "economic_extraction_estimate_B_USD": null,
+          "responsibility_weight": 0.4,
+          "confidence_level": "high",
+          "sources": [
+            {
+              "ref": "UNHCR Global Trends",
+              "url": "https://www.unhcr.org"
+            },
+            {
+              "ref": "IOM World Migration Report",
+              "url": "https://www.iom.int"
+            },
+            {
+              "ref": "IDMC Global Report",
+              "url": "https://www.internal-displacement.org"
+            }
+          ],
+          "context_short": "La première et seconde guerre du Congo consécutives au génocide rwandais entraînent des millions de déplacés internes et de réfugiés.",
+          "disclaimer": null
+        },
+        {
+          "id": "AF",
+          "label": "Afghanistan",
+          "territories_controlled": [
+            "AF",
+            "PK",
+            "IR"
+          ],
+          "peak_year": 2001,
+          "population_affected_M": 6,
+          "economic_extraction_estimate_B_USD": null,
+          "responsibility_weight": 0.3,
+          "confidence_level": "high",
+          "sources": [
+            {
+              "ref": "UNHCR Global Trends",
+              "url": "https://www.unhcr.org"
+            },
+            {
+              "ref": "IOM World Migration Report",
+              "url": "https://www.iom.int"
+            }
+          ],
+          "context_short": "Fuite continue de millions d'Afghans vers le Pakistan et l'Iran fuyant la guerre civile et le régime des Talibans.",
+          "disclaimer": null
+        },
+        {
+          "id": "RU",
+          "label": "Russie (Tchétchénie)",
+          "territories_controlled": [
+            "RU",
+            "GE"
+          ],
+          "peak_year": 1996,
+          "population_affected_M": 0.5,
+          "economic_extraction_estimate_B_USD": null,
+          "responsibility_weight": 0.2,
+          "confidence_level": "high",
+          "sources": [
+            {
+              "ref": "UNHCR Global Trends",
+              "url": "https://www.unhcr.org"
+            },
+            {
+              "ref": "IDMC Global Report",
+              "url": "https://www.internal-displacement.org"
+            }
+          ],
+          "context_short": "Les deux guerres de Tchétchénie provoquent la destruction de Grozny et le déplacement de la majorité de la population tchétchène.",
+          "disclaimer": null
+        },
+        {
+          "id": "YU",
+          "label": "Ex-Yougoslavie",
+          "territories_controlled": [
+            "RS",
+            "HR",
+            "BA",
+            "XK"
+          ],
+          "peak_year": 1999,
+          "population_affected_M": 2.5,
+          "economic_extraction_estimate_B_USD": null,
+          "responsibility_weight": 0.1,
+          "confidence_level": "high",
+          "sources": [
+            {
+              "ref": "UNHCR Global Trends",
+              "url": "https://www.unhcr.org"
+            },
+            {
+              "ref": "IOM World Migration Report",
+              "url": "https://www.iom.int"
+            }
+          ],
+          "context_short": "Guerres d'indépendance de Croatie et Bosnie caractérisées par des 'purifications ethniques', suivies du conflit du Kosovo.",
+          "disclaimer": null
+        }
+      ]
+    },
+    {
+      "period_id": "dep_p4",
+      "start": 2010,
+      "end": 2026,
+      "label": "Crises humanitaires contemporaines (2010-2026)",
+      "global_context": "Des conflits prolongés et violents propulsent le nombre mondial de personnes déplacées de force à des niveaux records historiques.",
+      "map_config": {
+        "type": "choropleth",
+        "intensity_field": "population_affected_M",
+        "flow_lines": true
+      },
+      "actors": [
+        {
+          "id": "SY",
+          "label": "Syrie",
+          "territories_controlled": [
+            "SY",
+            "TR",
+            "LB",
+            "JO",
+            "DE"
+          ],
+          "peak_year": 2016,
+          "population_affected_M": 13,
+          "economic_extraction_estimate_B_USD": null,
+          "responsibility_weight": 0.3,
+          "confidence_level": "high",
+          "sources": [
+            {
+              "ref": "UNHCR Global Trends",
+              "url": "https://www.unhcr.org"
+            },
+            {
+              "ref": "IDMC Global Report",
+              "url": "https://www.internal-displacement.org"
+            },
+            {
+              "ref": "IOM World Migration Report",
+              "url": "https://www.iom.int"
+            }
+          ],
+          "context_short": "Guerre civile syrienne provoquant le déplacement de plus de la moitié de la population (6,6M à l'étranger, 6,8M internes).",
+          "disclaimer": null
+        },
+        {
+          "id": "UA",
+          "label": "Ukraine",
+          "territories_controlled": [
+            "UA",
+            "PL",
+            "DE",
+            "CZ"
+          ],
+          "peak_year": 2022,
+          "population_affected_M": 8,
+          "economic_extraction_estimate_B_USD": null,
+          "responsibility_weight": 0.25,
+          "confidence_level": "high",
+          "sources": [
+            {
+              "ref": "UNHCR Global Trends",
+              "url": "https://www.unhcr.org"
+            },
+            {
+              "ref": "IDMC Global Report",
+              "url": "https://www.internal-displacement.org"
+            },
+            {
+              "ref": "IOM World Migration Report",
+              "url": "https://www.iom.int"
+            }
+          ],
+          "context_short": "Invasion russe de 2022 entraînant le plus grand mouvement de réfugiés en Europe depuis la Seconde Guerre mondiale.",
+          "disclaimer": null
+        },
+        {
+          "id": "AF",
+          "label": "Afghanistan",
+          "territories_controlled": [
+            "AF",
+            "PK",
+            "IR"
+          ],
+          "peak_year": 2021,
+          "population_affected_M": 6.5,
+          "economic_extraction_estimate_B_USD": null,
+          "responsibility_weight": 0.2,
+          "confidence_level": "high",
+          "sources": [
+            {
+              "ref": "UNHCR Global Trends",
+              "url": "https://www.unhcr.org"
+            },
+            {
+              "ref": "IDMC Global Report",
+              "url": "https://www.internal-displacement.org"
+            }
+          ],
+          "context_short": "Retour au pouvoir des Talibans provoquant une nouvelle vague de départs et maintenant une immense détresse humanitaire.",
+          "disclaimer": null
+        },
+        {
+          "id": "VE",
+          "label": "Venezuela",
+          "territories_controlled": [
+            "VE",
+            "CO",
+            "PE",
+            "CL"
+          ],
+          "peak_year": 2019,
+          "population_affected_M": 7.2,
+          "economic_extraction_estimate_B_USD": null,
+          "responsibility_weight": 0.15,
+          "confidence_level": "high",
+          "sources": [
+            {
+              "ref": "UNHCR Global Trends",
+              "url": "https://www.unhcr.org"
+            },
+            {
+              "ref": "IOM World Migration Report",
+              "url": "https://www.iom.int"
+            }
+          ],
+          "context_short": "Crise économique et politique majeure provoquant l'exode de millions de citoyens vers d'autres pays d'Amérique du Sud.",
+          "disclaimer": null
+        },
+        {
+          "id": "SD",
+          "label": "Soudan",
+          "territories_controlled": [
+            "SD",
+            "TD",
+            "EG"
+          ],
+          "peak_year": 2024,
+          "population_affected_M": 9,
+          "economic_extraction_estimate_B_USD": null,
+          "responsibility_weight": 0.1,
+          "confidence_level": "high",
+          "sources": [
+            {
+              "ref": "UNHCR Global Trends",
+              "url": "https://www.unhcr.org"
+            },
+            {
+              "ref": "IDMC Global Report",
+              "url": "https://www.internal-displacement.org"
+            }
+          ],
+          "context_short": "Guerre civile soudanaise éclatant en 2023 entraînant une grave famine et le déplacement massif de populations vers le Tchad.",
+          "disclaimer": null
+        }
+      ]
     }
   ]
 }

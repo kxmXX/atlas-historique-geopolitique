@@ -1,425 +1,750 @@
 {
   "theme_id": "conflits",
   "theme_label": "Guerres & conflits majeurs",
+  "theme_description": "Conflits interétatiques, guerres civiles et intensité géopolitique par période.",
+  "icon": "⚔️",
+  "color_primary": "#c0392b",
   "periods": [
     {
+      "period_id": "conf_p1",
       "start": 1800,
-      "end": 1914,
+      "end": 1850,
+      "label": "Guerres napoléoniennes et concerts européens (1800-1850)",
+      "global_context": "Les conflits européens sont structurés par l'hégémonie napoléonienne, sa chute, et la réorganisation des équilibres par le Congrès de Vienne.",
+      "map_config": {
+        "type": "heatmap",
+        "intensity_field": "responsibility_weight",
+        "flow_lines": true
+      },
       "actors": [
         {
           "id": "FR",
-          "label": "Empire français (Napoléon)",
-          "territories_controlled": ["FRA", "DEU", "ITA", "POL", "ESP", "AUT"],
+          "label": "Empire français",
+          "territories_controlled": [
+            "FR",
+            "DE",
+            "IT",
+            "PL",
+            "ES",
+            "AT"
+          ],
           "peak_year": 1812,
           "population_affected_M": 70,
           "economic_extraction_estimate_B_USD": 8500,
-          "responsibility_weight": 0.25,
+          "responsibility_weight": 0.4,
           "confidence_level": "high",
           "sources": [
             {
-              "ref": "Correlates of War Project, correlatesofwar.org",
+              "ref": "Correlates of War Project",
               "url": "https://correlatesofwar.org"
             },
             {
-              "ref": "Clodfelter M., 'Warfare and Armed Conflicts', McFarland 2017",
-              "url": "https://mcfarlandbooks.com/product/warfare-and-armed-conflicts/"
+              "ref": "Clodfelter M., 'Warfare and Armed Conflicts'",
+              "url": null
             }
           ],
+          "context_short": "Guerres de conquête menées à travers toute l'Europe par Napoléon Ier.",
           "disclaimer": null
         },
         {
           "id": "GB",
           "label": "Empire britannique",
-          "territories_controlled": ["GBR", "IND", "ZAF", "CHN", "AFG", "MMR"],
-          "peak_year": 1900,
+          "territories_controlled": [
+            "GB",
+            "IN",
+            "ZA"
+          ],
+          "peak_year": 1815,
           "population_affected_M": 50,
           "economic_extraction_estimate_B_USD": 12000,
-          "responsibility_weight": 0.22,
+          "responsibility_weight": 0.3,
           "confidence_level": "high",
           "sources": [
             {
-              "ref": "Correlates of War Project, correlatesofwar.org",
+              "ref": "Correlates of War Project",
               "url": "https://correlatesofwar.org"
             },
             {
-              "ref": "UCDP/PRIO Armed Conflict Dataset, ucdp.uu.se",
+              "ref": "UCDP/PRIO Armed Conflict Dataset",
               "url": "https://ucdp.uu.se"
             }
           ],
-          "disclaimer": null
-        },
-        {
-          "id": "DE",
-          "label": "Empire allemand / Prusse",
-          "territories_controlled": ["DEU", "POL", "FRA", "DNK", "AUT", "CZE"],
-          "peak_year": 1871,
-          "population_affected_M": 40,
-          "economic_extraction_estimate_B_USD": 7000,
-          "responsibility_weight": 0.20,
-          "confidence_level": "high",
-          "sources": [
-            {
-              "ref": "Correlates of War Project, correlatesofwar.org",
-              "url": "https://correlatesofwar.org"
-            },
-            {
-              "ref": "UCDP/PRIO Armed Conflict Dataset, ucdp.uu.se",
-              "url": "https://ucdp.uu.se"
-            }
-          ],
+          "context_short": "Principal financeur des coalitions anti-napoléoniennes et hégémonie maritime suite à Trafalgar.",
           "disclaimer": null
         },
         {
           "id": "RU",
           "label": "Empire russe",
-          "territories_controlled": ["RUS", "POL", "FIN", "UKR", "GEO", "ARM", "AZE"],
-          "peak_year": 1905,
+          "territories_controlled": [
+            "RU",
+            "PL",
+            "FI",
+            "UA",
+            "GE"
+          ],
+          "peak_year": 1812,
           "population_affected_M": 35,
           "economic_extraction_estimate_B_USD": 5000,
-          "responsibility_weight": 0.18,
+          "responsibility_weight": 0.2,
           "confidence_level": "high",
           "sources": [
             {
-              "ref": "Correlates of War Project, correlatesofwar.org",
+              "ref": "Correlates of War Project",
               "url": "https://correlatesofwar.org"
             },
             {
-              "ref": "Clodfelter M., 'Warfare and Armed Conflicts', McFarland 2017",
-              "url": "https://mcfarlandbooks.com/product/warfare-and-armed-conflicts/"
-            }
-          ],
-          "disclaimer": null
-        },
-        {
-          "id": "OT",
-          "label": "Empire ottoman",
-          "territories_controlled": ["TUR", "GRC", "BGR", "SRB", "ROU", "SYR", "IRQ", "LBN", "JOR", "ISR", "SAU", "EGY"],
-          "peak_year": 1850,
-          "population_affected_M": 25,
-          "economic_extraction_estimate_B_USD": 3000,
-          "responsibility_weight": 0.15,
-          "confidence_level": "medium",
-          "sources": [
-            {
-              "ref": "Correlates of War Project, correlatesofwar.org",
-              "url": "https://correlatesofwar.org"
-            },
-            {
-              "ref": "UCDP/PRIO Armed Conflict Dataset, ucdp.uu.se",
+              "ref": "UCDP/PRIO Armed Conflict Dataset",
               "url": "https://ucdp.uu.se"
             }
           ],
+          "context_short": "Résistance clé à la campagne de Russie en 1812 et rôle de gendarme de l'Europe conservatrice.",
+          "disclaimer": null
+        },
+        {
+          "id": "DE",
+          "label": "Prusse / Autriche",
+          "territories_controlled": [
+            "DE",
+            "PL",
+            "AT",
+            "CZ"
+          ],
+          "peak_year": 1813,
+          "population_affected_M": 25,
+          "economic_extraction_estimate_B_USD": 3000,
+          "responsibility_weight": 0.1,
+          "confidence_level": "medium",
+          "sources": [
+            {
+              "ref": "Correlates of War Project",
+              "url": "https://correlatesofwar.org"
+            },
+            {
+              "ref": "UCDP/PRIO Armed Conflict Dataset",
+              "url": "https://ucdp.uu.se"
+            }
+          ],
+          "context_short": "États germaniques divisés puis alliés lors de la campagne de libération (Befreiungskriege) en 1813.",
           "disclaimer": null
         }
-      ],
+      ]
+    },
+    {
+      "period_id": "conf_p2",
+      "start": 1850,
+      "end": 1914,
+      "label": "Guerres industrielles et rivalités impériales (1850-1914)",
+      "global_context": "Période marquée par la guerre de Crimée, l'unification allemande et les conflits coloniaux préfigurant la Première Guerre mondiale.",
       "map_config": {
         "type": "heatmap",
         "intensity_field": "responsibility_weight",
         "flow_lines": true
-      }
-    },
-    {
-      "start": 1914,
-      "end": 1945,
+      },
       "actors": [
         {
           "id": "DE",
-          "label": "Allemagne (Reich)",
-          "territories_controlled": ["DEU", "POL", "FRA", "AUT", "CZE", "UKR", "BLR"],
-          "peak_year": 1942,
-          "population_affected_M": 120,
-          "economic_extraction_estimate_B_USD": 45000,
-          "responsibility_weight": 0.28,
+          "label": "Empire allemand / Prusse",
+          "territories_controlled": [
+            "DE",
+            "PL",
+            "FR",
+            "AT"
+          ],
+          "peak_year": 1871,
+          "population_affected_M": 40,
+          "economic_extraction_estimate_B_USD": 7000,
+          "responsibility_weight": 0.3,
           "confidence_level": "high",
           "sources": [
             {
-              "ref": "Correlates of War Project, correlatesofwar.org",
+              "ref": "Correlates of War Project",
               "url": "https://correlatesofwar.org"
             },
             {
-              "ref": "UCDP/PRIO Armed Conflict Dataset, ucdp.uu.se",
+              "ref": "UCDP/PRIO Armed Conflict Dataset",
               "url": "https://ucdp.uu.se"
-            },
-            {
-              "ref": "Tooze A., 'The Wages of Destruction', Penguin 2006",
-              "url": "https://www.penguin.co.uk/books/55231/the-wages-of-destruction-by-tooze-adam/9780141003481"
             }
           ],
+          "context_short": "Guerres d'unification menées par Bismarck contre le Danemark, l'Autriche et la France en 1870-71.",
+          "disclaimer": null
+        },
+        {
+          "id": "RU",
+          "label": "Empire russe",
+          "territories_controlled": [
+            "RU",
+            "PL",
+            "FI",
+            "UA",
+            "AM",
+            "AZ"
+          ],
+          "peak_year": 1905,
+          "population_affected_M": 50,
+          "economic_extraction_estimate_B_USD": 4000,
+          "responsibility_weight": 0.25,
+          "confidence_level": "high",
+          "sources": [
+            {
+              "ref": "Correlates of War Project",
+              "url": "https://correlatesofwar.org"
+            },
+            {
+              "ref": "UCDP/PRIO Armed Conflict Dataset",
+              "url": "https://ucdp.uu.se"
+            }
+          ],
+          "context_short": "Guerre de Crimée (1853-56), guerre russo-turque (1877) et défaite humiliante face au Japon en 1904-05.",
+          "disclaimer": null
+        },
+        {
+          "id": "FR",
+          "label": "Empire français",
+          "territories_controlled": [
+            "FR",
+            "DZ",
+            "VN",
+            "MX"
+          ],
+          "peak_year": 1870,
+          "population_affected_M": 38,
+          "economic_extraction_estimate_B_USD": 5000,
+          "responsibility_weight": 0.2,
+          "confidence_level": "high",
+          "sources": [
+            {
+              "ref": "Correlates of War Project",
+              "url": "https://correlatesofwar.org"
+            },
+            {
+              "ref": "UCDP/PRIO Armed Conflict Dataset",
+              "url": "https://ucdp.uu.se"
+            }
+          ],
+          "context_short": "Campagne d'Italie, expédition du Mexique sous Napoléon III, et guerres d'expansion coloniale.",
+          "disclaimer": null
+        },
+        {
+          "id": "GB",
+          "label": "Empire britannique",
+          "territories_controlled": [
+            "GB",
+            "IN",
+            "ZA",
+            "EG"
+          ],
+          "peak_year": 1900,
+          "population_affected_M": 60,
+          "economic_extraction_estimate_B_USD": 9000,
+          "responsibility_weight": 0.15,
+          "confidence_level": "high",
+          "sources": [
+            {
+              "ref": "Correlates of War Project",
+              "url": "https://correlatesofwar.org"
+            },
+            {
+              "ref": "UCDP/PRIO Armed Conflict Dataset",
+              "url": "https://ucdp.uu.se"
+            }
+          ],
+          "context_short": "Guerre des Boers en Afrique du Sud et expéditions de pacification sur les frontières de l'empire.",
           "disclaimer": null
         },
         {
           "id": "JP",
           "label": "Empire du Japon",
-          "territories_controlled": ["JPN", "CHN", "KOR", "PHL", "IDN", "MMR", "VNM"],
-          "peak_year": 1942,
-          "population_affected_M": 150,
-          "economic_extraction_estimate_B_USD": 20000,
-          "responsibility_weight": 0.24,
+          "territories_controlled": [
+            "JP",
+            "CN",
+            "KR",
+            "TW"
+          ],
+          "peak_year": 1905,
+          "population_affected_M": 45,
+          "economic_extraction_estimate_B_USD": 2000,
+          "responsibility_weight": 0.1,
           "confidence_level": "high",
           "sources": [
             {
-              "ref": "Correlates of War Project, correlatesofwar.org",
+              "ref": "Correlates of War Project",
               "url": "https://correlatesofwar.org"
             },
             {
-              "ref": "UCDP/PRIO Armed Conflict Dataset, ucdp.uu.se",
+              "ref": "UCDP/PRIO Armed Conflict Dataset",
               "url": "https://ucdp.uu.se"
             }
           ],
+          "context_short": "Première guerre sino-japonaise (1894) et victoire navale majeure contre la Russie (Tsushima) en 1905.",
+          "disclaimer": null
+        }
+      ]
+    },
+    {
+      "period_id": "conf_p3",
+      "start": 1914,
+      "end": 1945,
+      "label": "Les Guerres mondiales (1914-1945)",
+      "global_context": "Guerres totales impliquant la mobilisation massive des populations et des industries, caractérisées par l'effondrement des empires coloniaux et européens.",
+      "map_config": {
+        "type": "heatmap",
+        "intensity_field": "population_affected_M",
+        "flow_lines": true
+      },
+      "actors": [
+        {
+          "id": "DE",
+          "label": "Allemagne (Reich)",
+          "territories_controlled": [
+            "DE",
+            "PL",
+            "FR",
+            "AT",
+            "CZ",
+            "UA",
+            "BY"
+          ],
+          "peak_year": 1942,
+          "population_affected_M": 120,
+          "economic_extraction_estimate_B_USD": 45000,
+          "responsibility_weight": 0.3,
+          "confidence_level": "high",
+          "sources": [
+            {
+              "ref": "Correlates of War Project",
+              "url": "https://correlatesofwar.org"
+            },
+            {
+              "ref": "UCDP/PRIO Armed Conflict Dataset",
+              "url": "https://ucdp.uu.se"
+            },
+            {
+              "ref": "Tooze A., 'The Wages of Destruction'",
+              "url": null
+            }
+          ],
+          "context_short": "Instigateur des deux conflits mondiaux, responsable de la guerre d'agression en Europe et de la Shoah.",
+          "disclaimer": null
+        },
+        {
+          "id": "JP",
+          "label": "Empire du Japon",
+          "territories_controlled": [
+            "JP",
+            "CN",
+            "KR",
+            "PH",
+            "ID",
+            "MM",
+            "VN"
+          ],
+          "peak_year": 1942,
+          "population_affected_M": 150,
+          "economic_extraction_estimate_B_USD": 20000,
+          "responsibility_weight": 0.2,
+          "confidence_level": "high",
+          "sources": [
+            {
+              "ref": "Correlates of War Project",
+              "url": "https://correlatesofwar.org"
+            },
+            {
+              "ref": "UCDP/PRIO Armed Conflict Dataset",
+              "url": "https://ucdp.uu.se"
+            }
+          ],
+          "context_short": "Invasion de la Mandchourie (1937) et expansion brutale en Asie-Pacifique pendant la Seconde Guerre mondiale.",
           "disclaimer": null
         },
         {
           "id": "SU",
           "label": "Union soviétique",
-          "territories_controlled": ["RUS", "UKR", "BLR", "POL", "GEO", "ARM", "AZE"],
+          "territories_controlled": [
+            "RU",
+            "UA",
+            "BY",
+            "PL",
+            "GE",
+            "AM",
+            "AZ"
+          ],
           "peak_year": 1943,
           "population_affected_M": 90,
           "economic_extraction_estimate_B_USD": 25000,
-          "responsibility_weight": 0.20,
+          "responsibility_weight": 0.2,
           "confidence_level": "high",
           "sources": [
             {
-              "ref": "Correlates of War Project, correlatesofwar.org",
+              "ref": "Correlates of War Project",
               "url": "https://correlatesofwar.org"
             },
             {
-              "ref": "UCDP/PRIO Armed Conflict Dataset, ucdp.uu.se",
+              "ref": "UCDP/PRIO Armed Conflict Dataset",
               "url": "https://ucdp.uu.se"
             }
           ],
+          "context_short": "Guerre sur le Front de l'Est (Grande Guerre patriotique). Rôle décisif dans la défaite du nazisme au prix de pertes colossales.",
           "disclaimer": null
         },
         {
           "id": "US",
           "label": "États-Unis",
-          "territories_controlled": ["USA", "JPN", "PHL"],
+          "territories_controlled": [
+            "US",
+            "JP",
+            "PH"
+          ],
           "peak_year": 1944,
           "population_affected_M": 30,
           "economic_extraction_estimate_B_USD": 35000,
-          "responsibility_weight": 0.16,
+          "responsibility_weight": 0.15,
           "confidence_level": "high",
           "sources": [
             {
-              "ref": "Correlates of War Project, correlatesofwar.org",
+              "ref": "Correlates of War Project",
               "url": "https://correlatesofwar.org"
             },
             {
-              "ref": "UCDP/PRIO Armed Conflict Dataset, ucdp.uu.se",
+              "ref": "UCDP/PRIO Armed Conflict Dataset",
               "url": "https://ucdp.uu.se"
             }
           ],
+          "context_short": "Arsenal des démocraties, intervention décisive sur les fronts européen et pacifique (utilisation de la bombe atomique).",
           "disclaimer": null
         },
         {
           "id": "GB",
-          "label": "Royaume-Uni / Commonwealth",
-          "territories_controlled": ["GBR", "IND", "AUS", "CAN", "ZAF", "EGY"],
+          "label": "Royaume-Uni",
+          "territories_controlled": [
+            "GB",
+            "IN",
+            "AU",
+            "CA",
+            "ZA",
+            "EG"
+          ],
           "peak_year": 1943,
           "population_affected_M": 60,
           "economic_extraction_estimate_B_USD": 28000,
-          "responsibility_weight": 0.12,
+          "responsibility_weight": 0.15,
           "confidence_level": "high",
           "sources": [
             {
-              "ref": "Correlates of War Project, correlatesofwar.org",
+              "ref": "Correlates of War Project",
               "url": "https://correlatesofwar.org"
             },
             {
-              "ref": "UCDP/PRIO Armed Conflict Dataset, ucdp.uu.se",
+              "ref": "UCDP/PRIO Armed Conflict Dataset",
               "url": "https://ucdp.uu.se"
             }
           ],
+          "context_short": "Résistance héroïque solitaire en 1940 sous Churchill. Mobilisation massive des ressources de l'Empire.",
           "disclaimer": null
         }
-      ],
-      "map_config": {
-        "type": "heatmap",
-        "intensity_field": "population_affected_M",
-        "flow_lines": true
-      }
+      ]
     },
     {
+      "period_id": "conf_p4",
       "start": 1945,
-      "end": 2026,
+      "end": 1990,
+      "label": "Guerre froide et conflits périphériques (1945-1990)",
+      "global_context": "Affrontement idéologique mondial indirect entre les États-Unis et l'URSS, marqué par des conflits locaux intenses (Corée, Vietnam, Moyen-Orient).",
+      "map_config": {
+        "type": "heatmap",
+        "intensity_field": "responsibility_weight",
+        "flow_lines": true
+      },
       "actors": [
         {
           "id": "US",
           "label": "États-Unis",
-          "territories_controlled": ["USA", "AFG", "IRQ", "VNM", "KOR"],
+          "territories_controlled": [
+            "US",
+            "VN",
+            "KR"
+          ],
           "peak_year": 1968,
           "population_affected_M": 80,
           "economic_extraction_estimate_B_USD": 25000,
-          "responsibility_weight": 0.30,
+          "responsibility_weight": 0.45,
           "confidence_level": "high",
           "sources": [
             {
-              "ref": "Correlates of War Project, correlatesofwar.org",
+              "ref": "Correlates of War Project",
               "url": "https://correlatesofwar.org"
             },
             {
-              "ref": "UCDP/PRIO Armed Conflict Dataset, ucdp.uu.se",
+              "ref": "UCDP/PRIO Armed Conflict Dataset",
               "url": "https://ucdp.uu.se"
-            },
-            {
-              "ref": "ACLED, acleddata.com",
-              "url": "https://acleddata.com"
             }
           ],
+          "context_short": "Politique d'endiguement du communisme menant aux interventions militaires en Corée et au Vietnam.",
           "disclaimer": null
         },
         {
-          "id": "RU",
-          "label": "Russie / URSS",
-          "territories_controlled": ["RUS", "UKR", "AFG", "GEO", "SYR"],
+          "id": "SU",
+          "label": "Union soviétique",
+          "territories_controlled": [
+            "RU",
+            "PL",
+            "AF",
+            "BY",
+            "UA"
+          ],
           "peak_year": 1985,
-          "population_affected_M": 50,
+          "population_affected_M": 60,
           "economic_extraction_estimate_B_USD": 15000,
-          "responsibility_weight": 0.25,
+          "responsibility_weight": 0.35,
           "confidence_level": "high",
           "sources": [
             {
-              "ref": "Correlates of War Project, correlatesofwar.org",
+              "ref": "Correlates of War Project",
               "url": "https://correlatesofwar.org"
             },
             {
-              "ref": "UCDP/PRIO Armed Conflict Dataset, ucdp.uu.se",
+              "ref": "UCDP/PRIO Armed Conflict Dataset",
               "url": "https://ucdp.uu.se"
             }
           ],
+          "context_short": "Soutien aux régimes socialistes mondiaux, répression des révoltes en Europe de l'Est, invasion de l'Afghanistan (1979).",
           "disclaimer": null
         },
         {
           "id": "CN",
           "label": "Chine",
-          "territories_controlled": ["CHN", "TWN", "KOR", "VNM", "IND"],
+          "territories_controlled": [
+            "CN",
+            "KR",
+            "VN",
+            "IN"
+          ],
           "peak_year": 1969,
-          "population_affected_M": 40,
+          "population_affected_M": 50,
           "economic_extraction_estimate_B_USD": 5000,
           "responsibility_weight": 0.12,
           "confidence_level": "medium",
           "sources": [
             {
-              "ref": "Correlates of War Project, correlatesofwar.org",
+              "ref": "Correlates of War Project",
               "url": "https://correlatesofwar.org"
             },
             {
-              "ref": "ACLED, acleddata.com",
+              "ref": "UCDP/PRIO Armed Conflict Dataset",
+              "url": "https://ucdp.uu.se"
+            }
+          ],
+          "context_short": "Intervention massive en Corée (1950) et guerres frontalières contre l'Inde (1962) et le Vietnam (1979).",
+          "disclaimer": null
+        },
+        {
+          "id": "GB",
+          "label": "Royaume-Uni",
+          "territories_controlled": [
+            "GB",
+            "MY",
+            "EG",
+            "CL"
+          ],
+          "peak_year": 1956,
+          "population_affected_M": 15,
+          "economic_extraction_estimate_B_USD": 4000,
+          "responsibility_weight": 0.08,
+          "confidence_level": "medium",
+          "sources": [
+            {
+              "ref": "Correlates of War Project",
+              "url": "https://correlatesofwar.org"
+            },
+            {
+              "ref": "UCDP/PRIO Armed Conflict Dataset",
+              "url": "https://ucdp.uu.se"
+            }
+          ],
+          "context_short": "Crise de Suez (1956), guerre des Malouines (1982) et interventions d'urgence lors de la décolonisation (Malaisie).",
+          "disclaimer": null
+        }
+      ]
+    },
+    {
+      "period_id": "conf_p5",
+      "start": 1990,
+      "end": 2026,
+      "label": "Instabilités géopolitiques et multipolarité (1990-2026)",
+      "global_context": "Tensions internationales caractérisées par l'expansion de l'OTAN, le retour de la guerre en Europe (Ukraine), les guerres asymétriques au Moyen-Orient et la montée de la Chine.",
+      "map_config": {
+        "type": "choropleth",
+        "intensity_field": "responsibility_weight",
+        "flow_lines": true
+      },
+      "actors": [
+        {
+          "id": "US",
+          "label": "États-Unis",
+          "territories_controlled": [
+            "US",
+            "AF",
+            "IQ",
+            "SY"
+          ],
+          "peak_year": 2003,
+          "population_affected_M": 60,
+          "economic_extraction_estimate_B_USD": 20000,
+          "responsibility_weight": 0.3,
+          "confidence_level": "high",
+          "sources": [
+            {
+              "ref": "Correlates of War Project",
+              "url": "https://correlatesofwar.org"
+            },
+            {
+              "ref": "UCDP/PRIO Armed Conflict Dataset",
+              "url": "https://ucdp.uu.se"
+            },
+            {
+              "ref": "ACLED Database",
               "url": "https://acleddata.com"
             }
           ],
+          "context_short": "Guerre du Golfe (1991), interventions post-11 septembre en Afghanistan (2001) et en Irak (2003).",
+          "disclaimer": null
+        },
+        {
+          "id": "RU",
+          "label": "Russie",
+          "territories_controlled": [
+            "RU",
+            "UA",
+            "GE",
+            "SY"
+          ],
+          "peak_year": 2022,
+          "population_affected_M": 48,
+          "economic_extraction_estimate_B_USD": 12000,
+          "responsibility_weight": 0.25,
+          "confidence_level": "high",
+          "sources": [
+            {
+              "ref": "Correlates of War Project",
+              "url": "https://correlatesofwar.org"
+            },
+            {
+              "ref": "UCDP/PRIO Armed Conflict Dataset",
+              "url": "https://ucdp.uu.se"
+            },
+            {
+              "ref": "ACLED Database",
+              "url": "https://acleddata.com"
+            }
+          ],
+          "context_short": "Guerres de Tchétchénie, invasion de la Géorgie (2008), intervention en Syrie (2015), et invasion de l'Ukraine en 2022.",
+          "disclaimer": null
+        },
+        {
+          "id": "CN",
+          "label": "Chine",
+          "territories_controlled": [
+            "CN",
+            "TW"
+          ],
+          "peak_year": 2024,
+          "population_affected_M": 24,
+          "economic_extraction_estimate_B_USD": 3000,
+          "responsibility_weight": 0.15,
+          "confidence_level": "medium",
+          "sources": [
+            {
+              "ref": "Correlates of War Project",
+              "url": "https://correlatesofwar.org"
+            },
+            {
+              "ref": "ACLED Database",
+              "url": "https://acleddata.com"
+            }
+          ],
+          "context_short": "Pressions militaires croissantes dans le détroit de Taïwan et militarisation de la mer de Chine méridionale.",
+          "disclaimer": null
+        },
+        {
+          "id": "SA",
+          "label": "Arabie Saoudite",
+          "territories_controlled": [
+            "SA",
+            "YE"
+          ],
+          "peak_year": 2018,
+          "population_affected_M": 20,
+          "economic_extraction_estimate_B_USD": 5000,
+          "responsibility_weight": 0.1,
+          "confidence_level": "medium",
+          "sources": [
+            {
+              "ref": "UCDP/PRIO Armed Conflict Dataset",
+              "url": "https://ucdp.uu.se"
+            },
+            {
+              "ref": "ACLED Database",
+              "url": "https://acleddata.com"
+            }
+          ],
+          "context_short": "Direction de la coalition militaire intervenant au Yémen depuis 2015 contre les rebelles Houthis.",
           "disclaimer": null
         },
         {
           "id": "IR",
           "label": "Iran",
-          "territories_controlled": ["IRN", "IRQ", "SYR", "LBN", "YEM"],
-          "peak_year": 2015,
-          "population_affected_M": 35,
-          "economic_extraction_estimate_B_USD": 3000,
-          "responsibility_weight": 0.10,
+          "territories_controlled": [
+            "IR",
+            "IQ",
+            "SY",
+            "LB",
+            "YE"
+          ],
+          "peak_year": 2020,
+          "population_affected_M": 30,
+          "economic_extraction_estimate_B_USD": 2000,
+          "responsibility_weight": 0.1,
           "confidence_level": "medium",
           "sources": [
             {
-              "ref": "UCDP/PRIO Armed Conflict Dataset, ucdp.uu.se",
+              "ref": "UCDP/PRIO Armed Conflict Dataset",
               "url": "https://ucdp.uu.se"
             },
             {
-              "ref": "ACLED, acleddata.com",
+              "ref": "ACLED Database",
               "url": "https://acleddata.com"
             }
           ],
-          "disclaimer": null
-        },
-        {
-          "id": "SA",
-          "label": "Arabie Saoudite / Coalition",
-          "territories_controlled": ["SAU", "YEM"],
-          "peak_year": 2018,
-          "population_affected_M": 25,
-          "economic_extraction_estimate_B_USD": 8000,
-          "responsibility_weight": 0.08,
-          "confidence_level": "medium",
-          "sources": [
-            {
-              "ref": "UCDP/PRIO Armed Conflict Dataset, ucdp.uu.se",
-              "url": "https://ucdp.uu.se"
-            },
-            {
-              "ref": "ACLED, acleddata.com",
-              "url": "https://acleddata.com"
-            }
-          ],
+          "context_short": "Guerre d'influence régionale indirecte ('axe de la résistance') à travers des milices alliées en Irak, Syrie, Liban et Yémen.",
           "disclaimer": null
         },
         {
           "id": "IL",
           "label": "Israël",
-          "territories_controlled": ["ISR", "PSE", "LBN", "SYR", "JOR"],
-          "peak_year": 1982,
-          "population_affected_M": 15,
-          "economic_extraction_estimate_B_USD": 2500,
-          "responsibility_weight": 0.08,
-          "confidence_level": "medium",
-          "sources": [
-            {
-              "ref": "UCDP/PRIO Armed Conflict Dataset, ucdp.uu.se",
-              "url": "https://ucdp.uu.se"
-            },
-            {
-              "ref": "ACLED, acleddata.com",
-              "url": "https://acleddata.com"
-            }
+          "territories_controlled": [
+            "IL",
+            "PS",
+            "LB",
+            "SY"
           ],
-          "disclaimer": null
-        },
-        {
-          "id": "TR",
-          "label": "Turquie",
-          "territories_controlled": ["TUR", "SYR", "IRQ", "CYP"],
-          "peak_year": 2020,
+          "peak_year": 2024,
           "population_affected_M": 10,
           "economic_extraction_estimate_B_USD": 1500,
-          "responsibility_weight": 0.04,
+          "responsibility_weight": 0.1,
           "confidence_level": "medium",
           "sources": [
             {
-              "ref": "UCDP/PRIO Armed Conflict Dataset, ucdp.uu.se",
+              "ref": "UCDP/PRIO Armed Conflict Dataset",
               "url": "https://ucdp.uu.se"
             },
             {
-              "ref": "ACLED, acleddata.com",
+              "ref": "ACLED Database",
               "url": "https://acleddata.com"
             }
           ],
-          "disclaimer": null
-        },
-        {
-          "id": "KP",
-          "label": "Corée du Nord",
-          "territories_controlled": ["PRK"],
-          "peak_year": 2017,
-          "population_affected_M": 25,
-          "economic_extraction_estimate_B_USD": 0,
-          "responsibility_weight": 0.03,
-          "confidence_level": "medium",
-          "sources": [
-            {
-              "ref": "UCDP/PRIO Armed Conflict Dataset, ucdp.uu.se",
-              "url": "https://ucdp.uu.se"
-            },
-            {
-              "ref": "SIPRI, sipri.org",
-              "url": "https://www.sipri.org"
-            }
-          ],
+          "context_short": "Conflit israélo-palestinien récurrent, interventions militaires au Liban et opérations ciblées en Syrie.",
           "disclaimer": null
         }
-      ],
-      "map_config": {
-        "type": "choropleth",
-        "intensity_field": "responsibility_weight",
-        "flow_lines": true
-      }
+      ]
     }
   ]
 }

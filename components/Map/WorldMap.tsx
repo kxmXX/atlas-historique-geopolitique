@@ -3,6 +3,9 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import maplibregl, { type GeoJSONSource, type MapMouseEvent } from "maplibre-gl";
 import { Loader2 } from "lucide-react";
+import type { Theme, Period } from "@/lib/types";
+import { getCountryColor } from "@/lib/colors";
+import { iso2ToIso3 } from "@/lib/centroids";
 
 type GeoManifest = {
   current: {
@@ -30,7 +33,8 @@ export type TerritorySelection = {
 };
 
 type WorldMapProps = {
-  themeId: string;
+  activeTheme: Theme | null;
+  activePeriod: Period | null;
   year: number;
   onHover: (territory: TerritoryHover | null) => void;
   onSelect: (territory: TerritorySelection) => void;
@@ -79,7 +83,7 @@ function nearestHistoricalLayer(manifest: GeoManifest | null, year: number) {
   }, manifest.historical[0]);
 }
 
-export function WorldMap({ themeId, year, onHover, onSelect }: WorldMapProps) {
+export function WorldMap({ activeTheme, activePeriod, year, onHover, onSelect }: WorldMapProps) {
   const mapContainerRef = useRef<HTMLDivElement | null>(null);
   const mapRef = useRef<maplibregl.Map | null>(null);
   const [manifest, setManifest] = useState<GeoManifest | null>(null);
@@ -122,18 +126,12 @@ export function WorldMap({ themeId, year, onHover, onSelect }: WorldMapProps) {
         type: "fill",
         source: "current-countries",
         paint: {
-          "fill-color": [
-            "match",
-            ["get", "ISO3166-1-Alpha-3"],
-            ["IND", "AUS", "NGA", "ZAF", "EGY"],
-            "#0f766e",
-            "#d4c7b0"
-          ],
+          "fill-color": "rgba(20, 20, 35, 0.28)",
           "fill-opacity": [
             "case",
             ["boolean", ["feature-state", "hover"], false],
-            0.62,
-            0.28
+            0.82,
+            0.65
           ]
         }
       });
@@ -231,41 +229,64 @@ export function WorldMap({ themeId, year, onHover, onSelect }: WorldMapProps) {
     updateHistoricalLayer().catch(() => undefined);
   }, [historicalLayer, isReady]);
 
+  // Color countries dynamically based on active actors of the period
   useEffect(() => {
     const map = mapRef.current;
     if (!map || !isReady || !map.getLayer("country-fill")) {
       return;
     }
 
-    const highlightedTerritories = themeId === "colonisation" ? ["IND", "AUS", "NGA", "ZAF", "EGY"] : [];
-    if (highlightedTerritories.length === 0) {
-      map.setPaintProperty("country-fill", "fill-color", "#d4c7b0");
+    const actors = activePeriod?.actors ?? [];
+    if (actors.length === 0) {
+      map.setPaintProperty("country-fill", "fill-color", "rgba(20, 20, 35, 0.28)");
       return;
     }
 
-    map.setPaintProperty("country-fill", "fill-color", [
-      "match",
-      ["get", "ISO3166-1-Alpha-3"],
-      highlightedTerritories,
-      "#0f766e",
-      "#d4c7b0"
-    ]);
-  }, [themeId, isReady]);
+    const matchExpr: any[] = ["match", ["get", "ISO3166-1-Alpha-3"]];
+    let hasMatches = false;
+
+    for (const actor of actors) {
+      const actorIso3 = iso2ToIso3[actor.id.toUpperCase()];
+      if (actorIso3) {
+        matchExpr.push(actorIso3);
+        matchExpr.push(getCountryColor(actor.id, actors, 0.8));
+        hasMatches = true;
+      }
+
+      for (const t of actor.territories_controlled) {
+        const tIso3 = iso2ToIso3[t.toUpperCase()];
+        if (tIso3) {
+          matchExpr.push(tIso3);
+          matchExpr.push(getCountryColor(t, actors, 0.6));
+          hasMatches = true;
+        }
+      }
+    }
+
+    // Default fallback color
+    matchExpr.push("rgba(20, 20, 35, 0.28)");
+
+    if (hasMatches) {
+      map.setPaintProperty("country-fill", "fill-color", matchExpr);
+    } else {
+      map.setPaintProperty("country-fill", "fill-color", "rgba(20, 20, 35, 0.28)");
+    }
+  }, [activePeriod, isReady]);
 
   return (
     <div className="relative size-full">
       <div ref={mapContainerRef} className="absolute inset-0" />
       {!isReady ? (
-        <div className="absolute inset-0 flex items-center justify-center bg-background/70 backdrop-blur-sm">
-          <div className="flex items-center gap-2 rounded-md border bg-card px-3 py-2 text-sm shadow-sm">
+        <div className="absolute inset-0 flex items-center justify-center bg-[#07111a]/70 backdrop-blur-xs">
+          <div className="flex items-center gap-2 rounded-md border border-[#1e3a4f] bg-[#0d1b2a]/95 px-3 py-2 text-sm text-slate-300 shadow-sm">
             <Loader2 className="animate-spin" aria-hidden="true" />
-            Chargement carte
+            Chargement carte...
           </div>
         </div>
       ) : null}
-      <div className="absolute left-4 top-4 rounded-md border bg-background/92 px-3 py-2 text-xs shadow-sm backdrop-blur">
-        <p className="font-medium">Frontières historiques: {historicalLayer?.year ?? "n/a"}</p>
-        <p className="text-muted-foreground">Thème: {themeId}</p>
+      <div className="absolute left-4 top-4 rounded-md border border-[#1e3a4f] bg-[#0d1b2a]/90 px-3 py-2 text-xs text-slate-300 shadow-sm backdrop-blur">
+        <p className="font-medium text-slate-200">Frontières historiques: {historicalLayer?.year ?? "n/a"}</p>
+        <p className="text-slate-400">Thème: {activeTheme?.theme_label ?? "n/a"}</p>
       </div>
     </div>
   );

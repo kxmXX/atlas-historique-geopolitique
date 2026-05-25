@@ -1,61 +1,50 @@
 {
   "theme_id": "colonisation",
   "theme_label": "Colonisation européenne",
+  "theme_description": "Contrôle territorial, extraction économique et effets démographiques des empires européens.",
+  "icon": "🚢",
+  "color_primary": "#b6573b",
   "periods": [
     {
+      "period_id": "col_p1",
       "start": 1500,
-      "end": 1960,
+      "end": 1650,
+      "label": "Premiers empires et mercantilisme (1500-1650)",
+      "global_context": "Les puissances ibériques dominent les premières vagues d'expansion maritime, colonisant les Amériques et établissant des routes commerciales vers l'Afrique et l'Asie.",
+      "map_config": {
+        "type": "heatmap",
+        "intensity_field": "responsibility_weight",
+        "flow_lines": true
+      },
       "actors": [
-        {
-          "id": "GB",
-          "label": "Empire britannique",
-          "territories_controlled": ["IND", "AUS", "NGA", "ZAF", "EGY", "CAN", "PAK", "BGD", "MMR", "KEN", "SDN", "GHA", "ZWE", "ZMB", "MWI", "TZA", "UGA", "SOM", "BWA", "LSO", "SWZ"],
-          "peak_year": 1921,
-          "population_affected_M": 412,
-          "economic_extraction_estimate_B_USD": 45000,
-          "responsibility_weight": 0.32,
-          "confidence_level": "medium",
-          "sources": [
-            {
-              "ref": "Maddison Project Database 2020",
-              "url": "https://www.rug.nl/ggdc/historicaldevelopment/maddison/releases/maddison-project-database-2020"
-            },
-            {
-              "ref": "Patnaik U., 'Revisiting the Drain of Wealth from India', Columbia UP 2018",
-              "url": "https://cup.columbia.edu/book/revisiting-the-drain-of-wealth-from-colonial-india/9780231183192"
-            }
-          ],
-          "disclaimer": null
-        },
-        {
-          "id": "FR",
-          "label": "Empire français",
-          "territories_controlled": ["DZA", "SEN", "MLI", "CIV", "GIN", "BEN", "TCD", "CMR", "MDG", "MAR", "TUN", "VNM", "LAO", "KHM", "NER", "BFA", "MRT", "GAB", "COG", "CAF", "DJI"],
-          "peak_year": 1930,
-          "population_affected_M": 110,
-          "economic_extraction_estimate_B_USD": 22000,
-          "responsibility_weight": 0.26,
-          "confidence_level": "medium",
-          "sources": [
-            {
-              "ref": "Maddison Project Database 2020",
-              "url": "https://www.rug.nl/ggdc/historicaldevelopment/maddison/releases/maddison-project-database-2020"
-            },
-            {
-              "ref": "CLIO-INFRA, clio-infra.eu",
-              "url": "https://clio-infra.eu"
-            }
-          ],
-          "disclaimer": null
-        },
         {
           "id": "ES",
           "label": "Empire espagnol",
-          "territories_controlled": ["MEX", "COL", "PER", "CHL", "ARG", "VEN", "CUB", "DOM", "PRI", "PHL", "GTM", "HND", "SLV", "NIC", "CRI", "PAN", "BOL", "PRY", "URY", "ECU"],
-          "peak_year": 1800,
-          "population_affected_M": 80,
-          "economic_extraction_estimate_B_USD": 18000,
-          "responsibility_weight": 0.18,
+          "territories_controlled": [
+            "MX",
+            "CO",
+            "PE",
+            "CL",
+            "AR",
+            "VE",
+            "CU",
+            "DO",
+            "PR",
+            "GT",
+            "HN",
+            "SV",
+            "NI",
+            "CR",
+            "PA",
+            "BO",
+            "PY",
+            "UY",
+            "EC"
+          ],
+          "peak_year": 1600,
+          "population_affected_M": 40,
+          "economic_extraction_estimate_B_USD": 12000,
+          "responsibility_weight": 0.55,
           "confidence_level": "medium",
           "sources": [
             {
@@ -67,16 +56,26 @@
               "url": "https://clio-infra.eu"
             }
           ],
+          "context_short": "Expansion majeure dans les Amériques suite aux conquêtes de cortés et Pizarro. Extraction massive de métaux précieux (argent de Potosí).",
           "disclaimer": null
         },
         {
           "id": "PT",
           "label": "Empire portugais",
-          "territories_controlled": ["BRA", "AGO", "MOZ", "GNB", "CPV", "STP", "TLS", "MAC"],
-          "peak_year": 1650,
-          "population_affected_M": 35,
-          "economic_extraction_estimate_B_USD": 8500,
-          "responsibility_weight": 0.09,
+          "territories_controlled": [
+            "BR",
+            "AO",
+            "MZ",
+            "GW",
+            "CV",
+            "ST",
+            "TL",
+            "MO"
+          ],
+          "peak_year": 1620,
+          "population_affected_M": 10,
+          "economic_extraction_estimate_B_USD": 6000,
+          "responsibility_weight": 0.45,
           "confidence_level": "medium",
           "sources": [
             {
@@ -88,16 +87,91 @@
               "url": "https://clio-infra.eu"
             }
           ],
+          "context_short": "Monopole initial sur la route des Indes orientales et colonisation précoce du Brésil centrée sur la canne à sucre.",
+          "disclaimer": null
+        }
+      ]
+    },
+    {
+      "period_id": "col_p2",
+      "start": 1650,
+      "end": 1789,
+      "label": "Rivalités impériales et commerce colonial (1650-1789)",
+      "global_context": "Montée en puissance des empires britanniques, français et néerlandais. Concurrence féroce pour le contrôle du commerce mondial et des plantations de sucre.",
+      "map_config": {
+        "type": "flow",
+        "intensity_field": "responsibility_weight",
+        "flow_lines": true
+      },
+      "actors": [
+        {
+          "id": "GB",
+          "label": "Empire britannique",
+          "territories_controlled": [
+            "US",
+            "CA",
+            "JAM",
+            "IN",
+            "GH"
+          ],
+          "peak_year": 1770,
+          "population_affected_M": 150,
+          "economic_extraction_estimate_B_USD": 18000,
+          "responsibility_weight": 0.4,
+          "confidence_level": "medium",
+          "sources": [
+            {
+              "ref": "Maddison Project Database 2020",
+              "url": "https://www.rug.nl/ggdc/historicaldevelopment/maddison/releases/maddison-project-database-2020"
+            },
+            {
+              "ref": "CLIO-INFRA, clio-infra.eu",
+              "url": "https://clio-infra.eu"
+            }
+          ],
+          "context_short": "Expansion des treize colonies d'Amérique du Nord et début de l'influence de la Compagnie des Indes en Asie du Sud.",
+          "disclaimer": null
+        },
+        {
+          "id": "FR",
+          "label": "Empire français",
+          "territories_controlled": [
+            "CA",
+            "HT",
+            "SN",
+            "IN"
+          ],
+          "peak_year": 1750,
+          "population_affected_M": 30,
+          "economic_extraction_estimate_B_USD": 12000,
+          "responsibility_weight": 0.35,
+          "confidence_level": "medium",
+          "sources": [
+            {
+              "ref": "Maddison Project Database 2020",
+              "url": "https://www.rug.nl/ggdc/historicaldevelopment/maddison/releases/maddison-project-database-2020"
+            },
+            {
+              "ref": "CLIO-INFRA, clio-infra.eu",
+              "url": "https://clio-infra.eu"
+            }
+          ],
+          "context_short": "Contrôle de la Nouvelle-France (Canada/Louisiane) et exploitation sucrière intensive à Saint-Domingue.",
           "disclaimer": null
         },
         {
           "id": "NL",
-          "label": "Provinces-Unies / Pays-Bas",
-          "territories_controlled": ["IDN", "SUR", "ANT", "ABW"],
-          "peak_year": 1900,
-          "population_affected_M": 60,
-          "economic_extraction_estimate_B_USD": 6000,
-          "responsibility_weight": 0.06,
+          "label": "Provinces-Unies (Pays-Bas)",
+          "territories_controlled": [
+            "ID",
+            "SR",
+            "ZA",
+            "AW"
+          ],
+          "peak_year": 1700,
+          "population_affected_M": 20,
+          "economic_extraction_estimate_B_USD": 7000,
+          "responsibility_weight": 0.15,
           "confidence_level": "medium",
           "sources": [
             {
@@ -109,16 +183,22 @@
               "url": "https://clio-infra.eu"
             }
           ],
+          "context_short": "Monopole commercial sur les épices via la COV (Indes orientales) et contrôle du Suriname.",
           "disclaimer": null
         },
         {
-          "id": "BE",
-          "label": "Empire belge",
-          "territories_controlled": ["COD", "RWA", "BDI"],
-          "peak_year": 1940,
-          "population_affected_M": 20,
-          "economic_extraction_estimate_B_USD": 4500,
-          "responsibility_weight": 0.04,
+          "id": "ES",
+          "label": "Empire espagnol",
+          "territories_controlled": [
+            "MX",
+            "CO",
+            "PE",
+            "AR"
+          ],
+          "peak_year": 1780,
+          "population_affected_M": 25,
+          "economic_extraction_estimate_B_USD": 5000,
+          "responsibility_weight": 0.1,
           "confidence_level": "medium",
           "sources": [
             {
@@ -126,20 +206,243 @@
               "url": "https://www.rug.nl/ggdc/historicaldevelopment/maddison/releases/maddison-project-database-2020"
             },
             {
-              "ref": "Hochschild A., 'King Leopold's Ghost', Mariner Books 1999",
-              "url": "https://www.hmhbooks.com/shop/books/King-Leopolds-Ghost/9780358212508"
+              "ref": "CLIO-INFRA, clio-infra.eu",
+              "url": "https://clio-infra.eu"
             }
           ],
+          "context_short": "Maintien difficile de l'immense empire américain sous les réformes bourboniennes face aux incursions britanniques.",
+          "disclaimer": null
+        }
+      ]
+    },
+    {
+      "period_id": "col_p3",
+      "start": 1789,
+      "end": 1884,
+      "label": "Transition industrielle et nouvelles conquêtes (1789-1884)",
+      "global_context": "Marqué par la décolonisation des Amériques et le déplacement des intérêts impériaux vers la conquête directe de l'Asie et de l'Afrique du Nord.",
+      "map_config": {
+        "type": "heatmap",
+        "intensity_field": "responsibility_weight",
+        "flow_lines": true
+      },
+      "actors": [
+        {
+          "id": "GB",
+          "label": "Empire britannique",
+          "territories_controlled": [
+            "IN",
+            "CA",
+            "AU",
+            "ZA",
+            "EG",
+            "NZ"
+          ],
+          "peak_year": 1880,
+          "population_affected_M": 280,
+          "economic_extraction_estimate_B_USD": 30000,
+          "responsibility_weight": 0.5,
+          "confidence_level": "high",
+          "sources": [
+            {
+              "ref": "Maddison Project Database 2020",
+              "url": "https://www.rug.nl/ggdc/historicaldevelopment/maddison/releases/maddison-project-database-2020"
+            },
+            {
+              "ref": "CLIO-INFRA, clio-infra.eu",
+              "url": "https://clio-infra.eu"
+            }
+          ],
+          "context_short": "Consolidation du Raj britannique en Inde et colonisation de peuplement en Australie et Nouvelle-Zélande.",
+          "disclaimer": null
+        },
+        {
+          "id": "FR",
+          "label": "Empire français",
+          "territories_controlled": [
+            "DZ",
+            "SN",
+            "VN",
+            "KH"
+          ],
+          "peak_year": 1880,
+          "population_affected_M": 40,
+          "economic_extraction_estimate_B_USD": 10000,
+          "responsibility_weight": 0.3,
+          "confidence_level": "medium",
+          "sources": [
+            {
+              "ref": "Maddison Project Database 2020",
+              "url": "https://www.rug.nl/ggdc/historicaldevelopment/maddison/releases/maddison-project-database-2020"
+            },
+            {
+              "ref": "CLIO-INFRA, clio-infra.eu",
+              "url": "https://clio-infra.eu"
+            }
+          ],
+          "context_short": "Conquête de l'Algérie à partir de 1830 et premières implantations coloniales en Indochine.",
+          "disclaimer": null
+        },
+        {
+          "id": "NL",
+          "label": "Empire néerlandais",
+          "territories_controlled": [
+            "ID",
+            "SR"
+          ],
+          "peak_year": 1880,
+          "population_affected_M": 30,
+          "economic_extraction_estimate_B_USD": 6000,
+          "responsibility_weight": 0.12,
+          "confidence_level": "medium",
+          "sources": [
+            {
+              "ref": "Maddison Project Database 2020",
+              "url": "https://www.rug.nl/ggdc/historicaldevelopment/maddison/releases/maddison-project-database-2020"
+            },
+            {
+              "ref": "CLIO-INFRA, clio-infra.eu",
+              "url": "https://clio-infra.eu"
+            }
+          ],
+          "context_short": "Exploitation systématique des Indes orientales néerlandaises via le système des cultures forcé (Cultuurstelsel).",
+          "disclaimer": null
+        },
+        {
+          "id": "ES",
+          "label": "Empire espagnol",
+          "territories_controlled": [
+            "CU",
+            "PH",
+            "PR"
+          ],
+          "peak_year": 1850,
+          "population_affected_M": 10,
+          "economic_extraction_estimate_B_USD": 2000,
+          "responsibility_weight": 0.08,
+          "confidence_level": "medium",
+          "sources": [
+            {
+              "ref": "Maddison Project Database 2020",
+              "url": "https://www.rug.nl/ggdc/historicaldevelopment/maddison/releases/maddison-project-database-2020"
+            },
+            {
+              "ref": "CLIO-INFRA, clio-infra.eu",
+              "url": "https://clio-infra.eu"
+            }
+          ],
+          "context_short": "Perte de la quasi-totalité des colonies américaines, repli stratégique sur Cuba, Porto Rico et les Philippines.",
+          "disclaimer": null
+        }
+      ]
+    },
+    {
+      "period_id": "col_p4",
+      "start": 1884,
+      "end": 1914,
+      "label": "Impérialisme et partage de l'Afrique (1884-1914)",
+      "global_context": "La conférence de Berlin déclenche la colonisation systématique de l'Afrique. Apogée politique et militaire des empires coloniaux européens.",
+      "map_config": {
+        "type": "choropleth",
+        "intensity_field": "responsibility_weight",
+        "flow_lines": true
+      },
+      "actors": [
+        {
+          "id": "GB",
+          "label": "Empire britannique",
+          "territories_controlled": [
+            "IN",
+            "EG",
+            "ZA",
+            "NG",
+            "KE",
+            "SD",
+            "GH",
+            "ZW",
+            "ZM",
+            "MW",
+            "UG",
+            "SO",
+            "BW",
+            "LS",
+            "SZ"
+          ],
+          "peak_year": 1914,
+          "population_affected_M": 400,
+          "economic_extraction_estimate_B_USD": 45000,
+          "responsibility_weight": 0.35,
+          "confidence_level": "high",
+          "sources": [
+            {
+              "ref": "Maddison Project Database 2020",
+              "url": "https://www.rug.nl/ggdc/historicaldevelopment/maddison/releases/maddison-project-database-2020"
+            },
+            {
+              "ref": "CLIO-INFRA, clio-infra.eu",
+              "url": "https://clio-infra.eu"
+            }
+          ],
+          "context_short": "Contrôle d'un quart de la surface du globe. Projet d'axe Le Cap-Le Caire en Afrique.",
+          "disclaimer": null
+        },
+        {
+          "id": "FR",
+          "label": "Empire français",
+          "territories_controlled": [
+            "DZ",
+            "SN",
+            "ML",
+            "CI",
+            "GN",
+            "BJ",
+            "TD",
+            "CM",
+            "MG",
+            "MA",
+            "TN",
+            "VN",
+            "LA",
+            "KH",
+            "NE",
+            "BF",
+            "MR",
+            "GA",
+            "CG",
+            "CF",
+            "DJ"
+          ],
+          "peak_year": 1914,
+          "population_affected_M": 95,
+          "economic_extraction_estimate_B_USD": 22000,
+          "responsibility_weight": 0.28,
+          "confidence_level": "high",
+          "sources": [
+            {
+              "ref": "Maddison Project Database 2020",
+              "url": "https://www.rug.nl/ggdc/historicaldevelopment/maddison/releases/maddison-project-database-2020"
+            },
+            {
+              "ref": "CLIO-INFRA, clio-infra.eu",
+              "url": "https://clio-infra.eu"
+            }
+          ],
+          "context_short": "Constitution de l'AOF et de l'AEF, protectorats sur le Maroc et la Tunisie, domination de l'Indochine.",
           "disclaimer": null
         },
         {
           "id": "DE",
           "label": "Empire allemand",
-          "territories_controlled": ["TZA", "NAM", "CMR", "TGO"],
+          "territories_controlled": [
+            "TZ",
+            "NA",
+            "CM",
+            "TG"
+          ],
           "peak_year": 1914,
           "population_affected_M": 15,
-          "economic_extraction_estimate_B_USD": 2000,
-          "responsibility_weight": 0.03,
+          "economic_extraction_estimate_B_USD": 4000,
+          "responsibility_weight": 0.12,
           "confidence_level": "medium",
           "sources": [
             {
@@ -151,16 +454,103 @@
               "url": "https://clio-infra.eu"
             }
           ],
+          "context_short": "Arrivée tardive dans la course coloniale sous Bismarck. Répression brutale des révoltes (génocide des Hereros).",
+          "disclaimer": null
+        },
+        {
+          "id": "BE",
+          "label": "Empire belge",
+          "territories_controlled": [
+            "CD",
+            "RW",
+            "BI"
+          ],
+          "peak_year": 1910,
+          "population_affected_M": 18,
+          "economic_extraction_estimate_B_USD": 5000,
+          "responsibility_weight": 0.08,
+          "confidence_level": "medium",
+          "sources": [
+            {
+              "ref": "Maddison Project Database 2020",
+              "url": "https://www.rug.nl/ggdc/historicaldevelopment/maddison/releases/maddison-project-database-2020"
+            },
+            {
+              "ref": "Hochschild A., 'King Leopold's Ghost'",
+              "url": null
+            }
+          ],
+          "context_short": "Exploitation ultra-violente du caoutchouc au Congo sous la propriété personnelle de Léopold II, puis repris par l'État belge.",
+          "disclaimer": "Les sources primaires sur le Congo léopoldien divergent sur l'estimation de la mortalité directe, d'où des données à apprécier avec recul."
+        },
+        {
+          "id": "NL",
+          "label": "Empire néerlandais",
+          "territories_controlled": [
+            "ID",
+            "SR",
+            "AW"
+          ],
+          "peak_year": 1914,
+          "population_affected_M": 45,
+          "economic_extraction_estimate_B_USD": 8000,
+          "responsibility_weight": 0.07,
+          "confidence_level": "medium",
+          "sources": [
+            {
+              "ref": "Maddison Project Database 2020",
+              "url": "https://www.rug.nl/ggdc/historicaldevelopment/maddison/releases/maddison-project-database-2020"
+            },
+            {
+              "ref": "CLIO-INFRA, clio-infra.eu",
+              "url": "https://clio-infra.eu"
+            }
+          ],
+          "context_short": "Guerre d'Atjeh et soumission finale de l'ensemble de l'archipel indonésien sous contrôle direct.",
+          "disclaimer": null
+        },
+        {
+          "id": "PT",
+          "label": "Empire portugais",
+          "territories_controlled": [
+            "AO",
+            "MZ",
+            "GW",
+            "CV",
+            "ST",
+            "TL",
+            "MO"
+          ],
+          "peak_year": 1914,
+          "population_affected_M": 12,
+          "economic_extraction_estimate_B_USD": 2000,
+          "responsibility_weight": 0.05,
+          "confidence_level": "medium",
+          "sources": [
+            {
+              "ref": "Maddison Project Database 2020",
+              "url": "https://www.rug.nl/ggdc/historicaldevelopment/maddison/releases/maddison-project-database-2020"
+            },
+            {
+              "ref": "CLIO-INFRA, clio-infra.eu",
+              "url": "https://clio-infra.eu"
+            }
+          ],
+          "context_short": "Occupation effective des territoires intérieurs de l'Angola et du Mozambique suite aux exigences de la Conférence de Berlin.",
           "disclaimer": null
         },
         {
           "id": "IT",
           "label": "Empire italien",
-          "territories_controlled": ["LBY", "SOM", "ETH", "ERI"],
-          "peak_year": 1939,
-          "population_affected_M": 12,
-          "economic_extraction_estimate_B_USD": 1500,
-          "responsibility_weight": 0.02,
+          "territories_controlled": [
+            "LY",
+            "SO",
+            "ER"
+          ],
+          "peak_year": 1914,
+          "population_affected_M": 5,
+          "economic_extraction_estimate_B_USD": 1000,
+          "responsibility_weight": 0.05,
           "confidence_level": "medium",
           "sources": [
             {
@@ -172,14 +562,212 @@
               "url": "https://clio-infra.eu"
             }
           ],
+          "context_short": "Conquête de la Libye (1911) et établissement de colonies en Érythrée et Somalie, échec de l'invasion de l'Éthiopie (Adoua).",
           "disclaimer": null
         }
-      ],
+      ]
+    },
+    {
+      "period_id": "col_p5",
+      "start": 1914,
+      "end": 1960,
+      "label": "Guerres mondiales et décolonisation (1914-1960)",
+      "global_context": "Le démantèlement des empires coloniaux s'accélère après la Seconde Guerre mondiale sous l'essor des mouvements nationalistes et dans le contexte de la Guerre froide.",
       "map_config": {
-        "type": "heatmap",
+        "type": "choropleth",
         "intensity_field": "responsibility_weight",
         "flow_lines": true
-      }
+      },
+      "actors": [
+        {
+          "id": "GB",
+          "label": "Empire britannique",
+          "territories_controlled": [
+            "IN",
+            "EG",
+            "ZA",
+            "NG",
+            "KE",
+            "SD",
+            "GH",
+            "ZW",
+            "ZM",
+            "MW",
+            "UG",
+            "SO",
+            "BW",
+            "LS",
+            "SZ"
+          ],
+          "peak_year": 1921,
+          "population_affected_M": 412,
+          "economic_extraction_estimate_B_USD": 40000,
+          "responsibility_weight": 0.35,
+          "confidence_level": "high",
+          "sources": [
+            {
+              "ref": "Maddison Project Database 2020",
+              "url": "https://www.rug.nl/ggdc/historicaldevelopment/maddison/releases/maddison-project-database-2020"
+            },
+            {
+              "ref": "CLIO-INFRA, clio-infra.eu",
+              "url": "https://clio-infra.eu"
+            }
+          ],
+          "context_short": "Extension temporaire via les mandats de la SDN, suivie de la perte de l'Inde (1947) et de la décolonisation africaine.",
+          "disclaimer": null
+        },
+        {
+          "id": "FR",
+          "label": "Empire français",
+          "territories_controlled": [
+            "DZ",
+            "SN",
+            "ML",
+            "CI",
+            "GN",
+            "BJ",
+            "TD",
+            "CM",
+            "MG",
+            "MA",
+            "TN",
+            "VN",
+            "LA",
+            "KH",
+            "NE",
+            "BF",
+            "MR",
+            "GA",
+            "CG",
+            "CF",
+            "DJ"
+          ],
+          "peak_year": 1930,
+          "population_affected_M": 110,
+          "economic_extraction_estimate_B_USD": 20000,
+          "responsibility_weight": 0.3,
+          "confidence_level": "high",
+          "sources": [
+            {
+              "ref": "Maddison Project Database 2020",
+              "url": "https://www.rug.nl/ggdc/historicaldevelopment/maddison/releases/maddison-project-database-2020"
+            },
+            {
+              "ref": "CLIO-INFRA, clio-infra.eu",
+              "url": "https://clio-infra.eu"
+            }
+          ],
+          "context_short": "Guerres de résistance coloniale majeures en Indochine (Dien Bien Phu) et en Algérie marquant la fin de l'empire.",
+          "disclaimer": null
+        },
+        {
+          "id": "NL",
+          "label": "Empire néerlandais",
+          "territories_controlled": [
+            "ID",
+            "SR"
+          ],
+          "peak_year": 1940,
+          "population_affected_M": 70,
+          "economic_extraction_estimate_B_USD": 6000,
+          "responsibility_weight": 0.12,
+          "confidence_level": "medium",
+          "sources": [
+            {
+              "ref": "Maddison Project Database 2020",
+              "url": "https://www.rug.nl/ggdc/historicaldevelopment/maddison/releases/maddison-project-database-2020"
+            },
+            {
+              "ref": "CLIO-INFRA, clio-infra.eu",
+              "url": "https://clio-infra.eu"
+            }
+          ],
+          "context_short": "Tentative avortée de reconquête militaire de l'Indonésie (1945-1949) face à la république proclamee par Sukarno.",
+          "disclaimer": null
+        },
+        {
+          "id": "BE",
+          "label": "Empire belge",
+          "territories_controlled": [
+            "CD",
+            "RW",
+            "BI"
+          ],
+          "peak_year": 1940,
+          "population_affected_M": 15,
+          "economic_extraction_estimate_B_USD": 4000,
+          "responsibility_weight": 0.08,
+          "confidence_level": "medium",
+          "sources": [
+            {
+              "ref": "Maddison Project Database 2020",
+              "url": "https://www.rug.nl/ggdc/historicaldevelopment/maddison/releases/maddison-project-database-2020"
+            },
+            {
+              "ref": "CLIO-INFRA, clio-infra.eu",
+              "url": "https://clio-infra.eu"
+            }
+          ],
+          "context_short": "Octroi précipité de l'indépendance du Congo Belge en 1960 suite aux émeutes de Léopoldville.",
+          "disclaimer": null
+        },
+        {
+          "id": "PT",
+          "label": "Empire portugais",
+          "territories_controlled": [
+            "AO",
+            "MZ",
+            "GW",
+            "TL",
+            "MO"
+          ],
+          "peak_year": 1950,
+          "population_affected_M": 15,
+          "economic_extraction_estimate_B_USD": 3000,
+          "responsibility_weight": 0.08,
+          "confidence_level": "medium",
+          "sources": [
+            {
+              "ref": "Maddison Project Database 2020",
+              "url": "https://www.rug.nl/ggdc/historicaldevelopment/maddison/releases/maddison-project-database-2020"
+            },
+            {
+              "ref": "CLIO-INFRA, clio-infra.eu",
+              "url": "https://clio-infra.eu"
+            }
+          ],
+          "context_short": "Le régime autoritaire de Salazar refuse la décolonisation, entraînant le début des guerres coloniales à partir de 1961.",
+          "disclaimer": null
+        },
+        {
+          "id": "IT",
+          "label": "Empire italien",
+          "territories_controlled": [
+            "LY",
+            "SO",
+            "ET",
+            "ER"
+          ],
+          "peak_year": 1939,
+          "population_affected_M": 15,
+          "economic_extraction_estimate_B_USD": 2000,
+          "responsibility_weight": 0.07,
+          "confidence_level": "medium",
+          "sources": [
+            {
+              "ref": "Maddison Project Database 2020",
+              "url": "https://www.rug.nl/ggdc/historicaldevelopment/maddison/releases/maddison-project-database-2020"
+            },
+            {
+              "ref": "CLIO-INFRA, clio-infra.eu",
+              "url": "https://clio-infra.eu"
+            }
+          ],
+          "context_short": "Agression fasciste contre l'Éthiopie (1935). Perte totale des colonies lors de la Seconde Guerre mondiale.",
+          "disclaimer": null
+        }
+      ]
     }
   ]
 }

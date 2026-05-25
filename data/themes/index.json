@@ -4,37 +4,55 @@
       "id": "colonisation",
       "label": "Colonisation européenne",
       "period": [1500, 1960],
-      "description": "Contrôle territorial, extraction économique et effets démographiques des empires européens."
+      "description": "Contrôle territorial, extraction économique et effets démographiques des empires européens.",
+      "icon": "🚢",
+      "color_primary": "#b6573b",
+      "theme_description": "Contrôle territorial, extraction économique et effets démographiques des empires européens."
     },
     {
       "id": "traite-esclavage",
       "label": "Traite négrière & esclavage",
       "period": [1500, 1900],
-      "description": "Flux de déportation, destinations forcées et systèmes économiques liés à l’esclavage."
+      "description": "Flux de déportation, destinations forcées et systèmes économiques liés à l’esclavage.",
+      "icon": "🔗",
+      "color_primary": "#8b1a2b",
+      "theme_description": "Flux de déportation, destinations forcées et systèmes économiques liés à l’esclavage."
     },
     {
       "id": "conflits",
       "label": "Guerres & conflits majeurs",
       "period": [1800, 2026],
-      "description": "Conflits interétatiques, guerres civiles et intensité géopolitique par période."
+      "description": "Conflits interétatiques, guerres civiles et intensité géopolitique par période.",
+      "icon": "⚔️",
+      "color_primary": "#c0392b",
+      "theme_description": "Conflits interétatiques, guerres civiles et intensité géopolitique par période."
     },
     {
       "id": "influence-contemporaine",
       "label": "Influence géopolitique contemporaine",
       "period": [1945, 2026],
-      "description": "Institutions, dépenses militaires, alliances, votes internationaux et leviers économiques."
+      "description": "Institutions, dépenses militaires, alliances, votes internationaux et leviers économiques.",
+      "icon": "🌐",
+      "color_primary": "#1a5276",
+      "theme_description": "Institutions, dépenses militaires, alliances, votes internationaux et leviers économiques."
     },
     {
       "id": "ressources",
       "label": "Exploitation des ressources",
       "period": [1850, 2026],
-      "description": "Production, commerce et dépendances autour des ressources énergétiques et minières."
+      "description": "Production, commerce et dépendances autour des ressources énergétiques et minières.",
+      "icon": "🛢️",
+      "color_primary": "#b8860b",
+      "theme_description": "Production, commerce et dépendances autour des ressources énergétiques et minières."
     },
     {
       "id": "deplacements",
       "label": "Déplacements de populations",
       "period": [1900, 2026],
-      "description": "Migrations forcées, réfugiés, déplacés internes et grandes crises humanitaires."
+      "description": "Migrations forcées, réfugiés, déplacés internes et grandes crises humanitaires.",
+      "icon": "🏃",
+      "color_primary": "#6c3483",
+      "theme_description": "Migrations forcées, réfugiés, déplacés internes et grandes crises humanitaires."
     }
   ]
 }

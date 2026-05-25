@@ -1,14 +1,17 @@
 "use client";
 
-import { useMemo, useState, useRef, useCallback } from "react";
+import { useMemo, useState, useRef, useCallback, useEffect } from "react";
 import { Header } from "@/components/Layout/Header";
 import { Sidebar } from "@/components/Layout/Sidebar";
 import { AdBanner } from "@/components/Layout/AdBanner";
 import { WorldMap, type TerritoryHover, type TerritorySelection } from "@/components/Map/WorldMap";
-import { Globe3D, type GlobeHover, type GlobeSelection } from "@/components/Map/Globe3D";
+import { WorldGlobe } from "@/components/Map/WorldGlobe";
 import { TerritorySheet } from "@/components/InfoPanel/TerritorySheet";
-import { ViewToggle, type ViewMode } from "@/components/Controls/ViewToggle";
+import { type ViewMode } from "@/components/Controls/ViewToggle";
+import { Sheet, SheetContent } from "@/components/ui/sheet";
 import { themes, defaultThemeId } from "@/lib/theme-data";
+import { loadTheme } from "@/lib/theme-loader";
+import type { Theme, Period } from "@/lib/types";
 
 export function AtlasApp() {
   const [themeId, setThemeId] = useState(defaultThemeId);
@@ -16,13 +19,52 @@ export function AtlasApp() {
   const [viewMode, setViewMode] = useState<ViewMode>("globe");
   const [hoveredTerritory, setHoveredTerritory] = useState<TerritoryHover | null>(null);
   const [selectedTerritory, setSelectedTerritory] = useState<TerritorySelection | null>(null);
+  const [mobileOpen, setMobileOpen] = useState(false);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const mapSectionRef = useRef<HTMLDivElement>(null);
 
-  const activeTheme = useMemo(
-    () => themes.find((theme) => theme.id === themeId) ?? themes[0],
+  // Loaded full theme data
+  const [themeData, setThemeData] = useState<Theme | null>(null);
+
+  const yearRef = useRef(year);
+  yearRef.current = year;
+
+  // Load theme data dynamically
+  useEffect(() => {
+    loadTheme(themeId).then((data) => {
+      if (data) {
+        setThemeData(data);
+        // Automatically snap year to the start of the first period if current year is out of bounds
+        const periods = data.periods || [];
+        if (periods.length > 0) {
+          const firstPeriod = periods[0];
+          const lastPeriod = periods[periods.length - 1];
+          if (yearRef.current < firstPeriod.start || yearRef.current > lastPeriod.end) {
+            setYear(firstPeriod.start);
+          }
+        }
+      }
+    });
+  }, [themeId]);
+
+  const activeThemeMeta = useMemo(
+    () => themes.find((t) => t.id === themeId) ?? themes[0],
     [themeId]
   );
+
+  // Calculate active period based on year
+  const activePeriod = useMemo<Period | null>(() => {
+    if (!themeData?.periods) return null;
+    return themeData.periods.find((p) => year >= p.start && year <= p.end) ?? themeData.periods[0] ?? null;
+  }, [themeData, year]);
+
+  // Sync year boundaries when active theme metadata changes
+  const periodBounds = useMemo<[number, number]>(() => {
+    if (activeThemeMeta?.period && activeThemeMeta.period.length === 2) {
+      return [activeThemeMeta.period[0], activeThemeMeta.period[1]];
+    }
+    return [1500, 2026];
+  }, [activeThemeMeta]);
 
   /* Track mouse position in the map section for globe tooltip positioning */
   const handleMouseMove = useCallback((e: React.MouseEvent) => {
@@ -30,21 +72,22 @@ export function AtlasApp() {
     setMousePos({ x: e.clientX - rect.left, y: e.clientY - rect.top });
   }, []);
 
-  /* Globe hover: the Globe3D component gives us name/iso3 but not screen coords.
-     We use the tracked mouse position for the tooltip. */
-  const handleGlobeHover = useCallback((territory: GlobeHover | null) => {
-    if (!territory) {
-      setHoveredTerritory(null);
-      return;
-    }
-    setHoveredTerritory({
-      name: territory.name,
-      iso3: territory.iso3,
-      point: mousePos
-    });
-  }, [mousePos]);
+  const handleGlobeHover = useCallback(
+    (territory: any | null) => {
+      if (!territory) {
+        setHoveredTerritory(null);
+        return;
+      }
+      setHoveredTerritory({
+        name: territory.name,
+        iso3: territory.iso3,
+        point: mousePos
+      });
+    },
+    [mousePos]
+  );
 
-  const handleGlobeSelect = useCallback((territory: GlobeSelection) => {
+  const handleGlobeSelect = useCallback((territory: any) => {
     setSelectedTerritory({
       name: territory.name,
       iso3: territory.iso3,
@@ -52,33 +95,65 @@ export function AtlasApp() {
     });
   }, []);
 
+  const handleThemeChange = useCallback((id: string) => {
+    setThemeId(id);
+    setMobileOpen(false);
+  }, []);
+
   return (
-    <main className="flex min-h-screen flex-col bg-background">
-      <Header />
+    <main className="flex min-h-screen flex-col bg-[#0a0a14] text-slate-100">
+      <Header onMenuClick={() => setMobileOpen(true)} />
       <div className="grid min-h-0 flex-1 grid-cols-1 overflow-hidden lg:grid-cols-[360px_minmax(0,1fr)]">
-        <Sidebar
-          activeTheme={activeTheme}
-          themeId={themeId}
-          year={year}
-          viewMode={viewMode}
-          onThemeChange={setThemeId}
-          onYearChange={setYear}
-          onViewModeChange={setViewMode}
-        />
+        {/* Desktop Sidebar */}
+        <div className="hidden lg:block overflow-y-auto border-r border-slate-800 bg-[#0d0d1e]">
+          <Sidebar
+            activeTheme={activeThemeMeta}
+            themeId={themeId}
+            year={year}
+            viewMode={viewMode}
+            onThemeChange={setThemeId}
+            onYearChange={setYear}
+            onViewModeChange={setViewMode}
+            periodBounds={periodBounds}
+            themePeriods={themeData?.periods ?? []}
+          />
+        </div>
+
+        {/* Mobile Sidebar Drawer */}
+        <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
+          <SheetContent side="left" className="w-[320px] p-0 bg-[#0d0d1e] border-slate-800 text-slate-100 overflow-y-auto z-50">
+            <div className="py-4">
+              <Sidebar
+                activeTheme={activeThemeMeta}
+                themeId={themeId}
+                year={year}
+                viewMode={viewMode}
+                onThemeChange={handleThemeChange}
+                onYearChange={setYear}
+                onViewModeChange={setViewMode}
+                periodBounds={periodBounds}
+                themePeriods={themeData?.periods ?? []}
+              />
+            </div>
+          </SheetContent>
+        </Sheet>
+
         <section
           ref={mapSectionRef}
-          className="relative min-h-[620px] overflow-hidden border-t bg-card lg:border-l lg:border-t-0"
+          className="relative min-h-[620px] overflow-hidden border-t border-slate-800 bg-[#08080f] lg:border-l lg:border-t-0"
           onMouseMove={handleMouseMove}
         >
-          {viewMode === "globe" ? (
-            <Globe3D
-              themeId={themeId}
+          {viewMode === "globe" && themeData ? (
+            <WorldGlobe
+              activeTheme={themeData}
+              activePeriod={activePeriod}
+              onCountryClick={handleGlobeSelect}
               onHover={handleGlobeHover}
-              onSelect={handleGlobeSelect}
             />
           ) : (
             <WorldMap
-              themeId={themeId}
+              activeTheme={themeData}
+              activePeriod={activePeriod}
               year={year}
               onHover={setHoveredTerritory}
               onSelect={setSelectedTerritory}
@@ -86,13 +161,13 @@ export function AtlasApp() {
           )}
           {hoveredTerritory ? (
             <div
-              className="pointer-events-none absolute z-30 rounded-md border bg-popover px-3 py-2 text-xs shadow-lg"
+              className="pointer-events-none absolute z-30 rounded-md border border-slate-700 bg-slate-950/95 px-3 py-2 text-xs text-white shadow-lg backdrop-blur"
               style={{
                 left: hoveredTerritory.point.x + 14,
                 top: hoveredTerritory.point.y + 14
               }}
             >
-              <p className="font-medium">{hoveredTerritory.name}</p>
+              <p className="font-medium text-slate-100">{hoveredTerritory.name}</p>
               <p className="text-muted-foreground">ISO3: {hoveredTerritory.iso3 ?? "n/a"}</p>
             </div>
           ) : null}
@@ -101,7 +176,7 @@ export function AtlasApp() {
       </div>
       <TerritorySheet
         territory={selectedTerritory}
-        theme={activeTheme}
+        theme={activeThemeMeta}
         year={year}
         open={Boolean(selectedTerritory)}
         onOpenChange={(open) => {

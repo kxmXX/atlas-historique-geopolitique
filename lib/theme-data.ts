@@ -7,6 +7,9 @@ export type ThemeMeta = {
   label: string;
   period: number[];
   description: string;
+  icon: string;
+  color_primary: string;
+  theme_description: string;
 };
 
 export const themes = themesIndex.themes satisfies ThemeMeta[];

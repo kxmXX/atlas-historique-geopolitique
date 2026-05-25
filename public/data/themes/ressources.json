@@ -1,311 +1,483 @@
 {
   "theme_id": "ressources",
   "theme_label": "Exploitation des ressources",
+  "theme_description": "Production, commerce et dépendances autour des ressources énergétiques et minières.",
+  "icon": "🛢️",
+  "color_primary": "#b8860b",
   "periods": [
     {
+      "period_id": "res_p1",
       "start": 1850,
-      "end": 2026,
+      "end": 1914,
+      "label": "Révolution du charbon et industrialisation (1850-1914)",
+      "global_context": "Le charbon est le pivot de l'expansion industrielle européenne et américaine, dictant la hiérarchie des puissances militaires et manufacturières.",
+      "map_config": {
+        "type": "heatmap",
+        "intensity_field": "responsibility_weight",
+        "flow_lines": true
+      },
       "actors": [
         {
-          "id": "SA",
-          "label": "Arabie Saoudite (OPEP)",
-          "territories_controlled": ["SAU"],
-          "peak_year": 2020,
-          "population_affected_M": 36,
-          "economic_extraction_estimate_B_USD": 18000,
-          "responsibility_weight": 0.14,
-          "confidence_level": "high",
+          "id": "GB",
+          "label": "Royaume-Uni",
+          "territories_controlled": [
+            "GB",
+            "ZA",
+            "IN"
+          ],
+          "peak_year": 1900,
+          "population_affected_M": 45,
+          "economic_extraction_estimate_B_USD": 5000,
+          "responsibility_weight": 0.45,
+          "confidence_level": "medium",
           "sources": [
             {
-              "ref": "BP Statistical Review of World Energy, bp.com",
-              "url": "https://www.bp.com/en/global/corporate/energy-economics/statistical-review-of-world-energy.html"
+              "ref": "Maddison Project Database 2020",
+              "url": "https://www.rug.nl/ggdc/historicaldevelopment/maddison/releases/maddison-project-database-2020"
             },
             {
-              "ref": "World Bank, worldbank.org",
-              "url": "https://data.worldbank.org"
+              "ref": "CLIO-INFRA, clio-infra.eu",
+              "url": "https://clio-infra.eu"
             }
           ],
+          "context_short": "Premier extracteur et exportateur mondial de charbon, alimentant sa flotte à vapeur commerciale et militaire.",
+          "disclaimer": null
+        },
+        {
+          "id": "DE",
+          "label": "Empire allemand",
+          "territories_controlled": [
+            "DE",
+            "PL"
+          ],
+          "peak_year": 1910,
+          "population_affected_M": 60,
+          "economic_extraction_estimate_B_USD": 3500,
+          "responsibility_weight": 0.3,
+          "confidence_level": "medium",
+          "sources": [
+            {
+              "ref": "Maddison Project Database 2020",
+              "url": "https://www.rug.nl/ggdc/historicaldevelopment/maddison/releases/maddison-project-database-2020"
+            },
+            {
+              "ref": "CLIO-INFRA, clio-infra.eu",
+              "url": "https://clio-infra.eu"
+            }
+          ],
+          "context_short": "Développement industriel rapide du bassin de la Ruhr et de la Silésie, surpassant la production française.",
           "disclaimer": null
         },
         {
           "id": "US",
           "label": "États-Unis",
-          "territories_controlled": ["USA"],
-          "peak_year": 2023,
-          "population_affected_M": 330,
-          "economic_extraction_estimate_B_USD": 22000,
-          "responsibility_weight": 0.12,
-          "confidence_level": "high",
+          "territories_controlled": [
+            "US"
+          ],
+          "peak_year": 1914,
+          "population_affected_M": 95,
+          "economic_extraction_estimate_B_USD": 4000,
+          "responsibility_weight": 0.25,
+          "confidence_level": "medium",
           "sources": [
             {
-              "ref": "BP Statistical Review of World Energy, bp.com",
-              "url": "https://www.bp.com/en/global/corporate/energy-economics/statistical-review-of-world-energy.html"
+              "ref": "Maddison Project Database 2020",
+              "url": "https://www.rug.nl/ggdc/historicaldevelopment/maddison/releases/maddison-project-database-2020"
             },
             {
-              "ref": "World Bank, worldbank.org",
-              "url": "https://data.worldbank.org"
+              "ref": "CLIO-INFRA, clio-infra.eu",
+              "url": "https://clio-infra.eu"
             }
           ],
+          "context_short": "Exploitation massive des bassins des Appalaches pour soutenir la croissance sidérurgique.",
           "disclaimer": null
-        },
+        }
+      ]
+    },
+    {
+      "period_id": "res_p2",
+      "start": 1914,
+      "end": 1970,
+      "label": "Transition vers le pétrole (1914-1970)",
+      "global_context": "Le pétrole s'impose comme la ressource hautement stratégique indispensable aux armées mécanisées et à la pétrochimie moderne.",
+      "map_config": {
+        "type": "flow",
+        "intensity_field": "responsibility_weight",
+        "flow_lines": true
+      },
+      "actors": [
         {
-          "id": "CN",
-          "label": "Chine",
-          "territories_controlled": ["CHN"],
-          "peak_year": 2025,
-          "population_affected_M": 1400,
-          "economic_extraction_estimate_B_USD": 25000,
-          "responsibility_weight": 0.15,
+          "id": "US",
+          "label": "États-Unis",
+          "territories_controlled": [
+            "US",
+            "VE",
+            "SA"
+          ],
+          "peak_year": 1950,
+          "population_affected_M": 150,
+          "economic_extraction_estimate_B_USD": 18000,
+          "responsibility_weight": 0.45,
           "confidence_level": "high",
           "sources": [
             {
-              "ref": "BP Statistical Review of World Energy, bp.com",
-              "url": "https://www.bp.com/en/global/corporate/energy-economics/statistical-review-of-world-energy.html"
+              "ref": "Maddison Project Database 2020",
+              "url": "https://www.rug.nl/ggdc/historicaldevelopment/maddison/releases/maddison-project-database-2020"
             },
             {
-              "ref": "World Bank, worldbank.org",
-              "url": "https://data.worldbank.org"
+              "ref": "BP Statistical Review of World Energy",
+              "url": null
             }
           ],
+          "context_short": "Premier producteur mondial, domine les compagnies pétrolières multinationales (les 'Sept Sœurs').",
           "disclaimer": null
         },
         {
           "id": "RU",
-          "label": "Russie",
-          "territories_controlled": ["RUS"],
-          "peak_year": 2018,
-          "population_affected_M": 144,
-          "economic_extraction_estimate_B_USD": 12000,
-          "responsibility_weight": 0.12,
-          "confidence_level": "high",
-          "sources": [
-            {
-              "ref": "BP Statistical Review of World Energy, bp.com",
-              "url": "https://www.bp.com/en/global/corporate/energy-economics/statistical-review-of-world-energy.html"
-            },
-            {
-              "ref": "World Bank, worldbank.org",
-              "url": "https://data.worldbank.org"
-            }
+          "label": "Union soviétique",
+          "territories_controlled": [
+            "RU",
+            "AZ"
           ],
-          "disclaimer": null
-        },
-        {
-          "id": "IR",
-          "label": "Iran",
-          "territories_controlled": ["IRN"],
-          "peak_year": 2010,
-          "population_affected_M": 88,
-          "economic_extraction_estimate_B_USD": 4500,
-          "responsibility_weight": 0.06,
-          "confidence_level": "medium",
-          "sources": [
-            {
-              "ref": "BP Statistical Review of World Energy, bp.com",
-              "url": "https://www.bp.com/en/global/corporate/energy-economics/statistical-review-of-world-energy.html"
-            },
-            {
-              "ref": "World Bank, worldbank.org",
-              "url": "https://data.worldbank.org"
-            }
-          ],
-          "disclaimer": null
-        },
-        {
-          "id": "NG",
-          "label": "Nigeria",
-          "territories_controlled": ["NGA"],
-          "peak_year": 2020,
+          "peak_year": 1965,
           "population_affected_M": 220,
-          "economic_extraction_estimate_B_USD": 3500,
-          "responsibility_weight": 0.05,
-          "confidence_level": "medium",
-          "sources": [
-            {
-              "ref": "BP Statistical Review of World Energy, bp.com",
-              "url": "https://www.bp.com/en/global/corporate/energy-economics/statistical-review-of-world-energy.html"
-            },
-            {
-              "ref": "World Bank, worldbank.org",
-              "url": "https://data.worldbank.org"
-            }
-          ],
-          "disclaimer": null
-        },
-        {
-          "id": "CD",
-          "label": "RDC (cobalt, cuivre)",
-          "territories_controlled": ["COD"],
-          "peak_year": 2025,
-          "population_affected_M": 100,
-          "economic_extraction_estimate_B_USD": 2000,
-          "responsibility_weight": 0.04,
-          "confidence_level": "debated",
-          "sources": [
-            {
-              "ref": "USGS Mineral Commodity Summaries, usgs.gov",
-              "url": "https://www.usgs.gov/centers/national-minerals-information-center/mineral-commodity-summaries"
-            },
-            {
-              "ref": "World Bank, worldbank.org",
-              "url": "https://data.worldbank.org"
-            }
-          ],
-          "disclaimer": "Les estimations d'extraction minière en RDC sont sujettes à débat en raison de l'exploitation informelle et des conflits armés dans les régions minières. Chiffres basés sur les déclarations officielles, probablement sous-estimés."
-        },
-        {
-          "id": "AU",
-          "label": "Australie",
-          "territories_controlled": ["AUS"],
-          "peak_year": 2023,
-          "population_affected_M": 26,
-          "economic_extraction_estimate_B_USD": 6000,
-          "responsibility_weight": 0.06,
+          "economic_extraction_estimate_B_USD": 10000,
+          "responsibility_weight": 0.25,
           "confidence_level": "high",
           "sources": [
             {
-              "ref": "BP Statistical Review of World Energy, bp.com",
-              "url": "https://www.bp.com/en/global/corporate/energy-economics/statistical-review-of-world-energy.html"
+              "ref": "Maddison Project Database 2020",
+              "url": "https://www.rug.nl/ggdc/historicaldevelopment/maddison/releases/maddison-project-database-2020"
             },
             {
-              "ref": "USGS Mineral Commodity Summaries, usgs.gov",
-              "url": "https://www.usgs.gov/centers/national-minerals-information-center/mineral-commodity-summaries"
+              "ref": "SIPRI Military Expenditure Database",
+              "url": "https://www.sipri.org"
             }
           ],
+          "context_short": "Exploitation intensive du bassin de Bakou puis du bassin Oural-Volga assurant son autonomie énergétique.",
           "disclaimer": null
         },
         {
-          "id": "BR",
-          "label": "Brésil (minerai de fer, soja)",
-          "territories_controlled": ["BRA"],
-          "peak_year": 2025,
-          "population_affected_M": 215,
+          "id": "SA",
+          "label": "Arabie Saoudite",
+          "territories_controlled": [
+            "SA"
+          ],
+          "peak_year": 1968,
+          "population_affected_M": 6,
           "economic_extraction_estimate_B_USD": 5000,
-          "responsibility_weight": 0.05,
+          "responsibility_weight": 0.15,
           "confidence_level": "medium",
           "sources": [
             {
-              "ref": "USGS Mineral Commodity Summaries, usgs.gov",
-              "url": "https://www.usgs.gov/centers/national-minerals-information-center/mineral-commodity-summaries"
+              "ref": "Maddison Project Database 2020",
+              "url": "https://www.rug.nl/ggdc/historicaldevelopment/maddison/releases/maddison-project-database-2020"
             },
             {
-              "ref": "World Bank, worldbank.org",
-              "url": "https://data.worldbank.org"
+              "ref": "CLIO-INFRA, clio-infra.eu",
+              "url": "https://clio-infra.eu"
             }
           ],
+          "context_short": "Découverte de gisements géants (Ghawar) exploités par la compagnie Aramco sous influence américaine.",
           "disclaimer": null
         },
         {
-          "id": "ZA",
-          "label": "Afrique du Sud (platine, or)",
-          "territories_controlled": ["ZAF"],
-          "peak_year": 2010,
-          "population_affected_M": 60,
-          "economic_extraction_estimate_B_USD": 3500,
-          "responsibility_weight": 0.04,
+          "id": "GB",
+          "label": "Royaume-Uni / Moyen-Orient",
+          "territories_controlled": [
+            "GB",
+            "IR",
+            "IQ"
+          ],
+          "peak_year": 1950,
+          "population_affected_M": 40,
+          "economic_extraction_estimate_B_USD": 4000,
+          "responsibility_weight": 0.15,
+          "confidence_level": "medium",
+          "sources": [
+            {
+              "ref": "Maddison Project Database 2020",
+              "url": "https://www.rug.nl/ggdc/historicaldevelopment/maddison/releases/maddison-project-database-2020"
+            },
+            {
+              "ref": "CLIO-INFRA, clio-infra.eu",
+              "url": "https://clio-infra.eu"
+            }
+          ],
+          "context_short": "Contrôle des gisements perses via l'Anglo-Persian Oil Company (future BP) avant les nationalisations.",
+          "disclaimer": null
+        }
+      ]
+    },
+    {
+      "period_id": "res_p3",
+      "start": 1970,
+      "end": 2000,
+      "label": "Chocs pétroliers et géopolitique du brut (1970-2000)",
+      "global_context": "L'OPEP s'impose comme un acteur géopolitique crucial capable de déstabiliser les économies occidentales en régulant l'offre.",
+      "map_config": {
+        "type": "flow",
+        "intensity_field": "responsibility_weight",
+        "flow_lines": true
+      },
+      "actors": [
+        {
+          "id": "SA",
+          "label": "Arabie Saoudite",
+          "territories_controlled": [
+            "SA"
+          ],
+          "peak_year": 1980,
+          "population_affected_M": 10,
+          "economic_extraction_estimate_B_USD": 15000,
+          "responsibility_weight": 0.35,
           "confidence_level": "high",
           "sources": [
             {
-              "ref": "USGS Mineral Commodity Summaries, usgs.gov",
-              "url": "https://www.usgs.gov/centers/national-minerals-information-center/mineral-commodity-summaries"
+              "ref": "Maddison Project Database 2020",
+              "url": "https://www.rug.nl/ggdc/historicaldevelopment/maddison/releases/maddison-project-database-2020"
             },
             {
-              "ref": "World Bank, worldbank.org",
-              "url": "https://data.worldbank.org"
+              "ref": "CLIO-INFRA, clio-infra.eu",
+              "url": "https://clio-infra.eu"
             }
           ],
+          "context_short": "Devient le 'swing producer' mondial, capable de dicter les prix du brut par ses ajustements de production.",
+          "disclaimer": null
+        },
+        {
+          "id": "US",
+          "label": "États-Unis",
+          "territories_controlled": [
+            "US"
+          ],
+          "peak_year": 1975,
+          "population_affected_M": 220,
+          "economic_extraction_estimate_B_USD": 10000,
+          "responsibility_weight": 0.25,
+          "confidence_level": "high",
+          "sources": [
+            {
+              "ref": "Maddison Project Database 2020",
+              "url": "https://www.rug.nl/ggdc/historicaldevelopment/maddison/releases/maddison-project-database-2020"
+            },
+            {
+              "ref": "SIPRI Military Expenditure Database",
+              "url": "https://www.sipri.org"
+            }
+          ],
+          "context_short": "Déclin de la production domestique traditionnelle, dépendance forte au pétrole du Moyen-Orient.",
+          "disclaimer": null
+        },
+        {
+          "id": "RU",
+          "label": "Union soviétique / Russie",
+          "territories_controlled": [
+            "RU"
+          ],
+          "peak_year": 1988,
+          "population_affected_M": 280,
+          "economic_extraction_estimate_B_USD": 9000,
+          "responsibility_weight": 0.2,
+          "confidence_level": "high",
+          "sources": [
+            {
+              "ref": "Maddison Project Database 2020",
+              "url": "https://www.rug.nl/ggdc/historicaldevelopment/maddison/releases/maddison-project-database-2020"
+            },
+            {
+              "ref": "SIPRI Military Expenditure Database",
+              "url": "https://www.sipri.org"
+            }
+          ],
+          "context_short": "Exploitation du gaz et du pétrole de Sibérie occidentale, approvisionnant l'Europe occidentale via des gazoducs.",
+          "disclaimer": null
+        },
+        {
+          "id": "AE",
+          "label": "Émirats Arabes Unis",
+          "territories_controlled": [
+            "AE"
+          ],
+          "peak_year": 1990,
+          "population_affected_M": 2,
+          "economic_extraction_estimate_B_USD": 4000,
+          "responsibility_weight": 0.1,
+          "confidence_level": "medium",
+          "sources": [
+            {
+              "ref": "Maddison Project Database 2020",
+              "url": "https://www.rug.nl/ggdc/historicaldevelopment/maddison/releases/maddison-project-database-2020"
+            },
+            {
+              "ref": "CLIO-INFRA, clio-infra.eu",
+              "url": "https://clio-infra.eu"
+            }
+          ],
+          "context_short": "Accumulation de capitaux massifs par l'exportation d'hydrocarbures, transformation urbaine rapide d'Abou Dabi.",
           "disclaimer": null
         },
         {
           "id": "VE",
           "label": "Venezuela",
-          "territories_controlled": ["VEN"],
-          "peak_year": 2008,
-          "population_affected_M": 28,
-          "economic_extraction_estimate_B_USD": 2500,
-          "responsibility_weight": 0.04,
-          "confidence_level": "medium",
-          "sources": [
-            {
-              "ref": "BP Statistical Review of World Energy, bp.com",
-              "url": "https://www.bp.com/en/global/corporate/energy-economics/statistical-review-of-world-energy.html"
-            },
-            {
-              "ref": "World Bank, worldbank.org",
-              "url": "https://data.worldbank.org"
-            }
+          "territories_controlled": [
+            "VE"
           ],
-          "disclaimer": null
-        },
-        {
-          "id": "AE",
-          "label": "Émirats arabes unis",
-          "territories_controlled": ["ARE"],
-          "peak_year": 2020,
-          "population_affected_M": 10,
+          "peak_year": 1997,
+          "population_affected_M": 23,
           "economic_extraction_estimate_B_USD": 4000,
-          "responsibility_weight": 0.05,
-          "confidence_level": "high",
-          "sources": [
-            {
-              "ref": "BP Statistical Review of World Energy, bp.com",
-              "url": "https://www.bp.com/en/global/corporate/energy-economics/statistical-review-of-world-energy.html"
-            },
-            {
-              "ref": "World Bank, worldbank.org",
-              "url": "https://data.worldbank.org"
-            }
-          ],
-          "disclaimer": null
-        },
-        {
-          "id": "CL",
-          "label": "Chili (cuivre, lithium)",
-          "territories_controlled": ["CHL"],
-          "peak_year": 2025,
-          "population_affected_M": 20,
-          "economic_extraction_estimate_B_USD": 2800,
-          "responsibility_weight": 0.04,
-          "confidence_level": "high",
-          "sources": [
-            {
-              "ref": "USGS Mineral Commodity Summaries, usgs.gov",
-              "url": "https://www.usgs.gov/centers/national-minerals-information-center/mineral-commodity-summaries"
-            },
-            {
-              "ref": "World Bank, worldbank.org",
-              "url": "https://data.worldbank.org"
-            }
-          ],
-          "disclaimer": null
-        },
-        {
-          "id": "ID",
-          "label": "Indonésie (charbon, nickel)",
-          "territories_controlled": ["IDN"],
-          "peak_year": 2023,
-          "population_affected_M": 275,
-          "economic_extraction_estimate_B_USD": 3200,
-          "responsibility_weight": 0.04,
+          "responsibility_weight": 0.1,
           "confidence_level": "medium",
           "sources": [
             {
-              "ref": "BP Statistical Review of World Energy, bp.com",
-              "url": "https://www.bp.com/en/global/corporate/energy-economics/statistical-review-of-world-energy.html"
+              "ref": "Maddison Project Database 2020",
+              "url": "https://www.rug.nl/ggdc/historicaldevelopment/maddison/releases/maddison-project-database-2020"
             },
             {
-              "ref": "USGS Mineral Commodity Summaries, usgs.gov",
-              "url": "https://www.usgs.gov/centers/national-minerals-information-center/mineral-commodity-summaries"
+              "ref": "CLIO-INFRA, clio-infra.eu",
+              "url": "https://clio-infra.eu"
             }
           ],
+          "context_short": "Membre fondateur de l'OPEP, nationalisation de l'industrie pétrolière (PDVSA) en 1976.",
           "disclaimer": null
         }
-      ],
+      ]
+    },
+    {
+      "period_id": "res_p4",
+      "start": 2000,
+      "end": 2026,
+      "label": "Transition énergétique et métaux critiques (2000-2026)",
+      "global_context": "Tensions centrées sur le gaz naturel, le pétrole de schiste américain, et le contrôle des minerais stratégiques du numérique et des batteries.",
       "map_config": {
-        "type": "flow",
-        "intensity_field": "economic_extraction_estimate_B_USD",
+        "type": "choropleth",
+        "intensity_field": "responsibility_weight",
         "flow_lines": true
-      }
+      },
+      "actors": [
+        {
+          "id": "CN",
+          "label": "Chine",
+          "territories_controlled": [
+            "CN",
+            "CD"
+          ],
+          "peak_year": 2024,
+          "population_affected_M": 1400,
+          "economic_extraction_estimate_B_USD": 25000,
+          "responsibility_weight": 0.35,
+          "confidence_level": "high",
+          "sources": [
+            {
+              "ref": "Maddison Project Database 2020",
+              "url": "https://www.rug.nl/ggdc/historicaldevelopment/maddison/releases/maddison-project-database-2020"
+            },
+            {
+              "ref": "USGS Mineral Commodity Summaries",
+              "url": null
+            }
+          ],
+          "context_short": "Monopole de raffinage sur les terres rares et métaux critiques (cobalt, lithium) requis pour la transition verte.",
+          "disclaimer": null
+        },
+        {
+          "id": "US",
+          "label": "États-Unis",
+          "territories_controlled": [
+            "US"
+          ],
+          "peak_year": 2020,
+          "population_affected_M": 330,
+          "economic_extraction_estimate_B_USD": 15000,
+          "responsibility_weight": 0.2,
+          "confidence_level": "high",
+          "sources": [
+            {
+              "ref": "SIPRI Military Expenditure Database",
+              "url": "https://www.sipri.org"
+            },
+            {
+              "ref": "Maddison Project Database 2020",
+              "url": "https://www.rug.nl/ggdc/historicaldevelopment/maddison/releases/maddison-project-database-2020"
+            }
+          ],
+          "context_short": "Révolution des hydrocarbures non conventionnels (gaz et pétrole de schiste), redevenant premier producteur mondial.",
+          "disclaimer": null
+        },
+        {
+          "id": "RU",
+          "label": "Russie",
+          "territories_controlled": [
+            "RU",
+            "DE"
+          ],
+          "peak_year": 2021,
+          "population_affected_M": 145,
+          "economic_extraction_estimate_B_USD": 14000,
+          "responsibility_weight": 0.2,
+          "confidence_level": "high",
+          "sources": [
+            {
+              "ref": "SIPRI Military Expenditure Database",
+              "url": "https://www.sipri.org"
+            },
+            {
+              "ref": "Maddison Project Database 2020",
+              "url": "https://www.rug.nl/ggdc/historicaldevelopment/maddison/releases/maddison-project-database-2020"
+            }
+          ],
+          "context_short": "Utilisation du gaz comme arme géopolitique envers l'Europe (Nord Stream) avant la rupture de 2022.",
+          "disclaimer": null
+        },
+        {
+          "id": "SA",
+          "label": "Arabie Saoudite",
+          "territories_controlled": [
+            "SA"
+          ],
+          "peak_year": 2024,
+          "population_affected_M": 35,
+          "economic_extraction_estimate_B_USD": 12000,
+          "responsibility_weight": 0.15,
+          "confidence_level": "high",
+          "sources": [
+            {
+              "ref": "Maddison Project Database 2020",
+              "url": "https://www.rug.nl/ggdc/historicaldevelopment/maddison/releases/maddison-project-database-2020"
+            },
+            {
+              "ref": "CLIO-INFRA, clio-infra.eu",
+              "url": "https://clio-infra.eu"
+            }
+          ],
+          "context_short": "Production de brut à bas coût et création du fonds souverain PIF pour préparer l'après-pétrole.",
+          "disclaimer": null
+        },
+        {
+          "id": "AU",
+          "label": "Australie",
+          "territories_controlled": [
+            "AU"
+          ],
+          "peak_year": 2024,
+          "population_affected_M": 26,
+          "economic_extraction_estimate_B_USD": 6000,
+          "responsibility_weight": 0.1,
+          "confidence_level": "high",
+          "sources": [
+            {
+              "ref": "Maddison Project Database 2020",
+              "url": "https://www.rug.nl/ggdc/historicaldevelopment/maddison/releases/maddison-project-database-2020"
+            },
+            {
+              "ref": "CLIO-INFRA, clio-infra.eu",
+              "url": "https://clio-infra.eu"
+            }
+          ],
+          "context_short": "Premier exportateur mondial de minerai de fer, de charbon métallurgique et de lithium brut.",
+          "disclaimer": null
+        }
+      ]
     }
   ]
 }

@@ -3,18 +3,24 @@
   "$id": "https://atlas-historique.local/theme.schema.json",
   "title": "Historical Geopolitical Theme",
   "type": "object",
-  "required": ["theme_id", "theme_label", "periods"],
+  "required": ["theme_id", "theme_label", "theme_description", "icon", "color_primary", "periods"],
   "properties": {
     "theme_id": { "type": "string", "minLength": 1 },
     "theme_label": { "type": "string", "minLength": 1 },
+    "theme_description": { "type": "string", "minLength": 1 },
+    "icon": { "type": "string", "minLength": 1 },
+    "color_primary": { "type": "string", "pattern": "^#[0-9a-fA-F]{6}$" },
     "periods": {
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["start", "end", "actors", "map_config"],
+        "required": ["period_id", "start", "end", "label", "actors", "global_context", "map_config"],
         "properties": {
+          "period_id": { "type": "string", "minLength": 1 },
           "start": { "type": "integer" },
           "end": { "type": "integer" },
+          "label": { "type": "string", "minLength": 1 },
+          "global_context": { "type": "string", "minLength": 1 },
           "actors": {
             "type": "array",
             "items": {
@@ -29,6 +35,7 @@
                 "responsibility_weight",
                 "confidence_level",
                 "sources",
+                "context_short",
                 "disclaimer"
               ],
               "properties": {
@@ -40,7 +47,7 @@
                 },
                 "peak_year": { "type": "integer" },
                 "population_affected_M": { "type": "number" },
-                "economic_extraction_estimate_B_USD": { "type": "number" },
+                "economic_extraction_estimate_B_USD": { "type": ["number", "null"] },
                 "responsibility_weight": { "type": "number", "minimum": 0, "maximum": 1 },
                 "confidence_level": { "enum": ["high", "medium", "debated"] },
                 "sources": {
@@ -50,10 +57,11 @@
                     "required": ["ref", "url"],
                     "properties": {
                       "ref": { "type": "string", "minLength": 1 },
-                      "url": { "type": "string", "minLength": 1 }
+                      "url": { "type": ["string", "null"] }
                     }
                   }
                 },
+                "context_short": { "type": "string", "minLength": 1 },
                 "disclaimer": { "type": ["string", "null"] }
               }
             }

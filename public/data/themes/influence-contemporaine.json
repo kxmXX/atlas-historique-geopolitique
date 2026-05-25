@@ -1,252 +1,433 @@
 {
   "theme_id": "influence-contemporaine",
   "theme_label": "Influence géopolitique contemporaine",
+  "theme_description": "Institutions, dépenses militaires, alliances, votes internationaux et leviers économiques.",
+  "icon": "🌐",
+  "color_primary": "#1a5276",
   "periods": [
     {
+      "period_id": "inf_p1",
       "start": 1945,
-      "end": 2026,
+      "end": 1990,
+      "label": "Bipolarité de la Guerre froide (1945-1990)",
+      "global_context": "Division idéologique, militaire et économique de la planète en deux blocs antagonistes dirigés par les États-Unis et l'URSS.",
+      "map_config": {
+        "type": "choropleth",
+        "intensity_field": "responsibility_weight",
+        "flow_lines": false
+      },
       "actors": [
         {
           "id": "US",
           "label": "États-Unis",
-          "territories_controlled": ["USA"],
-          "peak_year": 2000,
-          "population_affected_M": 330,
-          "economic_extraction_estimate_B_USD": 45000,
-          "responsibility_weight": 0.22,
+          "territories_controlled": [
+            "US",
+            "JP",
+            "DE",
+            "GB",
+            "FR",
+            "KR",
+            "CA",
+            "IT"
+          ],
+          "peak_year": 1960,
+          "population_affected_M": 450,
+          "economic_extraction_estimate_B_USD": 15000,
+          "responsibility_weight": 0.5,
           "confidence_level": "high",
           "sources": [
             {
-              "ref": "SIPRI Military Expenditure Database, sipri.org",
-              "url": "https://www.sipri.org/databases/milex"
+              "ref": "SIPRI Military Expenditure Database",
+              "url": "https://www.sipri.org"
             },
             {
-              "ref": "World Bank, worldbank.org",
-              "url": "https://data.worldbank.org"
-            },
-            {
-              "ref": "OTAN, nato.int",
-              "url": "https://www.nato.int"
+              "ref": "Maddison Project Database 2020",
+              "url": "https://www.rug.nl/ggdc/historicaldevelopment/maddison/releases/maddison-project-database-2020"
             }
           ],
+          "context_short": "Création de l'OTAN, Plan Marshall pour l'Europe et suprématie économique capitaliste globale.",
           "disclaimer": null
         },
         {
-          "id": "CN",
-          "label": "Chine",
-          "territories_controlled": ["CHN"],
-          "peak_year": 2025,
-          "population_affected_M": 1400,
-          "economic_extraction_estimate_B_USD": 38000,
-          "responsibility_weight": 0.20,
+          "id": "SU",
+          "label": "Union soviétique",
+          "territories_controlled": [
+            "RU",
+            "PL",
+            "BY",
+            "UA",
+            "GE",
+            "AM",
+            "AZ"
+          ],
+          "peak_year": 1975,
+          "population_affected_M": 280,
+          "economic_extraction_estimate_B_USD": 8000,
+          "responsibility_weight": 0.35,
           "confidence_level": "high",
           "sources": [
             {
-              "ref": "SIPRI Military Expenditure Database, sipri.org",
-              "url": "https://www.sipri.org/databases/milex"
+              "ref": "SIPRI Military Expenditure Database",
+              "url": "https://www.sipri.org"
             },
             {
-              "ref": "World Bank, worldbank.org",
-              "url": "https://data.worldbank.org"
+              "ref": "Maddison Project Database 2020",
+              "url": "https://www.rug.nl/ggdc/historicaldevelopment/maddison/releases/maddison-project-database-2020"
             }
           ],
-          "disclaimer": null
-        },
-        {
-          "id": "RU",
-          "label": "Russie",
-          "territories_controlled": ["RUS"],
-          "peak_year": 1985,
-          "population_affected_M": 144,
-          "economic_extraction_estimate_B_USD": 6500,
-          "responsibility_weight": 0.14,
-          "confidence_level": "high",
-          "sources": [
-            {
-              "ref": "SIPRI Military Expenditure Database, sipri.org",
-              "url": "https://www.sipri.org/databases/milex"
-            },
-            {
-              "ref": "World Bank, worldbank.org",
-              "url": "https://data.worldbank.org"
-            }
-          ],
-          "disclaimer": null
-        },
-        {
-          "id": "EU",
-          "label": "Union européenne",
-          "territories_controlled": ["FRA", "DEU", "ITA", "ESP", "POL", "NLD", "BEL", "SWE", "AUT", "DNK", "FIN", "GRC", "PRT", "IRL", "HUN", "CZE", "ROU"],
-          "peak_year": 2020,
-          "population_affected_M": 447,
-          "economic_extraction_estimate_B_USD": 28000,
-          "responsibility_weight": 0.13,
-          "confidence_level": "high",
-          "sources": [
-            {
-              "ref": "World Bank, worldbank.org",
-              "url": "https://data.worldbank.org"
-            },
-            {
-              "ref": "Eurostat, ec.europa.eu/eurostat",
-              "url": "https://ec.europa.eu/eurostat"
-            }
-          ],
-          "disclaimer": null
-        },
-        {
-          "id": "IN",
-          "label": "Inde",
-          "territories_controlled": ["IND"],
-          "peak_year": 2025,
-          "population_affected_M": 1420,
-          "economic_extraction_estimate_B_USD": 3500,
-          "responsibility_weight": 0.08,
-          "confidence_level": "high",
-          "sources": [
-            {
-              "ref": "SIPRI Military Expenditure Database, sipri.org",
-              "url": "https://www.sipri.org/databases/milex"
-            },
-            {
-              "ref": "World Bank, worldbank.org",
-              "url": "https://data.worldbank.org"
-            }
-          ],
-          "disclaimer": null
-        },
-        {
-          "id": "JP",
-          "label": "Japon",
-          "territories_controlled": ["JPN"],
-          "peak_year": 1990,
-          "population_affected_M": 125,
-          "economic_extraction_estimate_B_USD": 5500,
-          "responsibility_weight": 0.06,
-          "confidence_level": "high",
-          "sources": [
-            {
-              "ref": "SIPRI Military Expenditure Database, sipri.org",
-              "url": "https://www.sipri.org/databases/milex"
-            },
-            {
-              "ref": "World Bank, worldbank.org",
-              "url": "https://data.worldbank.org"
-            }
-          ],
+          "context_short": "Pacte de Varsovie, Conseil d'assistance économique mutuelle (CAEM) et influence sur les mouvements socialistes.",
           "disclaimer": null
         },
         {
           "id": "GB",
           "label": "Royaume-Uni",
-          "territories_controlled": ["GBR"],
+          "territories_controlled": [
+            "GB",
+            "CA",
+            "AU",
+            "NZ",
+            "ZA",
+            "IN"
+          ],
           "peak_year": 1950,
-          "population_affected_M": 67,
-          "economic_extraction_estimate_B_USD": 4000,
-          "responsibility_weight": 0.05,
-          "confidence_level": "high",
-          "sources": [
-            {
-              "ref": "SIPRI Military Expenditure Database, sipri.org",
-              "url": "https://www.sipri.org/databases/milex"
-            },
-            {
-              "ref": "World Bank, worldbank.org",
-              "url": "https://data.worldbank.org"
-            }
-          ],
-          "disclaimer": null
-        },
-        {
-          "id": "BR",
-          "label": "Brésil",
-          "territories_controlled": ["BRA"],
-          "peak_year": 2025,
-          "population_affected_M": 215,
-          "economic_extraction_estimate_B_USD": 2200,
-          "responsibility_weight": 0.04,
+          "population_affected_M": 100,
+          "economic_extraction_estimate_B_USD": 3000,
+          "responsibility_weight": 0.08,
           "confidence_level": "medium",
           "sources": [
             {
-              "ref": "World Bank, worldbank.org",
-              "url": "https://data.worldbank.org"
+              "ref": "SIPRI Military Expenditure Database",
+              "url": "https://www.sipri.org"
             },
             {
-              "ref": "SIPRI, sipri.org",
-              "url": "https://www.sipri.org"
+              "ref": "Maddison Project Database 2020",
+              "url": "https://www.rug.nl/ggdc/historicaldevelopment/maddison/releases/maddison-project-database-2020"
             }
           ],
+          "context_short": "Allié privilégié des États-Unis (Special Relationship) et maintien d'une influence via le Commonwealth.",
           "disclaimer": null
         },
         {
-          "id": "ZA",
-          "label": "Afrique du Sud",
-          "territories_controlled": ["ZAF"],
-          "peak_year": 2020,
+          "id": "FR",
+          "label": "France",
+          "territories_controlled": [
+            "FR",
+            "DZ",
+            "SN",
+            "CI"
+          ],
+          "peak_year": 1965,
           "population_affected_M": 60,
-          "economic_extraction_estimate_B_USD": 400,
-          "responsibility_weight": 0.03,
+          "economic_extraction_estimate_B_USD": 2500,
+          "responsibility_weight": 0.07,
           "confidence_level": "medium",
           "sources": [
             {
-              "ref": "World Bank, worldbank.org",
-              "url": "https://data.worldbank.org"
-            },
-            {
-              "ref": "SIPRI, sipri.org",
+              "ref": "SIPRI Military Expenditure Database",
               "url": "https://www.sipri.org"
-            }
-          ],
-          "disclaimer": null
-        },
-        {
-          "id": "IR",
-          "label": "Iran",
-          "territories_controlled": ["IRN"],
-          "peak_year": 2020,
-          "population_affected_M": 88,
-          "economic_extraction_estimate_B_USD": 800,
-          "responsibility_weight": 0.03,
-          "confidence_level": "medium",
-          "sources": [
-            {
-              "ref": "SIPRI Military Expenditure Database, sipri.org",
-              "url": "https://www.sipri.org/databases/milex"
             },
             {
-              "ref": "World Bank, worldbank.org",
-              "url": "https://data.worldbank.org"
+              "ref": "Maddison Project Database 2020",
+              "url": "https://www.rug.nl/ggdc/historicaldevelopment/maddison/releases/maddison-project-database-2020"
             }
           ],
-          "disclaimer": null
-        },
-        {
-          "id": "SA",
-          "label": "Arabie Saoudite",
-          "territories_controlled": ["SAU"],
-          "peak_year": 2020,
-          "population_affected_M": 36,
-          "economic_extraction_estimate_B_USD": 800,
-          "responsibility_weight": 0.02,
-          "confidence_level": "high",
-          "sources": [
-            {
-              "ref": "SIPRI Military Expenditure Database, sipri.org",
-              "url": "https://www.sipri.org/databases/milex"
-            },
-            {
-              "ref": "World Bank, worldbank.org",
-              "url": "https://data.worldbank.org"
-            }
-          ],
+          "context_short": "Diplomatie gaullienne d'indépendance nationale (force de frappe nucléaire) et création de la CEE.",
           "disclaimer": null
         }
-      ],
+      ]
+    },
+    {
+      "period_id": "inf_p2",
+      "start": 1990,
+      "end": 2010,
+      "label": "Hégémonie unipolaire américaine (1990-2010)",
+      "global_context": "Chute du mur de Berlin et implosion de l'URSS. Les États-Unis s'érigent en hyperpuissance régulatrice mondiale.",
+      "map_config": {
+        "type": "choropleth",
+        "intensity_field": "responsibility_weight",
+        "flow_lines": false
+      },
+      "actors": [
+        {
+          "id": "US",
+          "label": "États-Unis",
+          "territories_controlled": [
+            "US",
+            "JP",
+            "DE",
+            "GB",
+            "KR",
+            "IQ",
+            "AF"
+          ],
+          "peak_year": 2000,
+          "population_affected_M": 600,
+          "economic_extraction_estimate_B_USD": 25000,
+          "responsibility_weight": 0.6,
+          "confidence_level": "high",
+          "sources": [
+            {
+              "ref": "SIPRI Military Expenditure Database",
+              "url": "https://www.sipri.org"
+            },
+            {
+              "ref": "Maddison Project Database 2020",
+              "url": "https://www.rug.nl/ggdc/historicaldevelopment/maddison/releases/maddison-project-database-2020"
+            }
+          ],
+          "context_short": "Période de la 'Pax Americana'. Domination militaire technologique sans rival et expansion culturelle mondiale.",
+          "disclaimer": null
+        },
+        {
+          "id": "EU",
+          "label": "Union européenne",
+          "territories_controlled": [
+            "BE",
+            "FR",
+            "DE",
+            "IT",
+            "NL",
+            "PL",
+            "ES"
+          ],
+          "peak_year": 2004,
+          "population_affected_M": 450,
+          "economic_extraction_estimate_B_USD": 14000,
+          "responsibility_weight": 0.15,
+          "confidence_level": "high",
+          "sources": [
+            {
+              "ref": "Maddison Project Database 2020",
+              "url": "https://www.rug.nl/ggdc/historicaldevelopment/maddison/releases/maddison-project-database-2020"
+            },
+            {
+              "ref": "Eurostat database",
+              "url": null
+            }
+          ],
+          "context_short": "Création de l'Euro, élargissement historique vers l'Est européen en 2004 et puissance commerciale de premier plan.",
+          "disclaimer": "L'Union européenne est représentée ici en tant qu'entité supranationale majeure de puissance normative et économique."
+        },
+        {
+          "id": "CN",
+          "label": "Chine",
+          "territories_controlled": [
+            "CN"
+          ],
+          "peak_year": 2008,
+          "population_affected_M": 1300,
+          "economic_extraction_estimate_B_USD": 8000,
+          "responsibility_weight": 0.1,
+          "confidence_level": "medium",
+          "sources": [
+            {
+              "ref": "SIPRI Military Expenditure Database",
+              "url": "https://www.sipri.org"
+            },
+            {
+              "ref": "Maddison Project Database 2020",
+              "url": "https://www.rug.nl/ggdc/historicaldevelopment/maddison/releases/maddison-project-database-2020"
+            }
+          ],
+          "context_short": "Intégration à l'OMC (2001) et essor industriel spectaculaire devenant 'l'atelier du monde'.",
+          "disclaimer": null
+        },
+        {
+          "id": "RU",
+          "label": "Russie",
+          "territories_controlled": [
+            "RU",
+            "BY"
+          ],
+          "peak_year": 2000,
+          "population_affected_M": 145,
+          "economic_extraction_estimate_B_USD": 3000,
+          "responsibility_weight": 0.08,
+          "confidence_level": "medium",
+          "sources": [
+            {
+              "ref": "SIPRI Military Expenditure Database",
+              "url": "https://www.sipri.org"
+            },
+            {
+              "ref": "Maddison Project Database 2020",
+              "url": "https://www.rug.nl/ggdc/historicaldevelopment/maddison/releases/maddison-project-database-2020"
+            }
+          ],
+          "context_short": "Transition douloureuse vers le capitalisme, maintien de l'arsenal nucléaire et restructuration sous Poutine.",
+          "disclaimer": null
+        },
+        {
+          "id": "JP",
+          "label": "Japon",
+          "territories_controlled": [
+            "JP"
+          ],
+          "peak_year": 1995,
+          "population_affected_M": 125,
+          "economic_extraction_estimate_B_USD": 5000,
+          "responsibility_weight": 0.07,
+          "confidence_level": "medium",
+          "sources": [
+            {
+              "ref": "SIPRI Military Expenditure Database",
+              "url": "https://www.sipri.org"
+            },
+            {
+              "ref": "Maddison Project Database 2020",
+              "url": "https://www.rug.nl/ggdc/historicaldevelopment/maddison/releases/maddison-project-database-2020"
+            }
+          ],
+          "context_short": "Deuxième puissance économique mondiale, influence technologique forte malgré l'éclatement de la bulle spéculative.",
+          "disclaimer": null
+        }
+      ]
+    },
+    {
+      "period_id": "inf_p3",
+      "start": 2010,
+      "end": 2026,
+      "label": "Rivalités multipolaires émergentes (2010-2026)",
+      "global_context": "La mondialisation se fragmente. Concurrence stratégique sino-américaine directe et affirmation de nouvelles puissances régionales.",
       "map_config": {
         "type": "choropleth",
         "intensity_field": "responsibility_weight",
         "flow_lines": true
-      }
+      },
+      "actors": [
+        {
+          "id": "US",
+          "label": "États-Unis",
+          "territories_controlled": [
+            "US",
+            "JP",
+            "KR",
+            "DE",
+            "GB",
+            "PL"
+          ],
+          "peak_year": 2026,
+          "population_affected_M": 500,
+          "economic_extraction_estimate_B_USD": 22000,
+          "responsibility_weight": 0.35,
+          "confidence_level": "high",
+          "sources": [
+            {
+              "ref": "SIPRI Military Expenditure Database",
+              "url": "https://www.sipri.org"
+            },
+            {
+              "ref": "Maddison Project Database 2020",
+              "url": "https://www.rug.nl/ggdc/historicaldevelopment/maddison/releases/maddison-project-database-2020"
+            }
+          ],
+          "context_short": "Première puissance militaire (budget proche des 900B$) et domination financière mondiale par le dollar.",
+          "disclaimer": null
+        },
+        {
+          "id": "CN",
+          "label": "Chine",
+          "territories_controlled": [
+            "CN",
+            "PK"
+          ],
+          "peak_year": 2026,
+          "population_affected_M": 1400,
+          "economic_extraction_estimate_B_USD": 18000,
+          "responsibility_weight": 0.3,
+          "confidence_level": "high",
+          "sources": [
+            {
+              "ref": "SIPRI Military Expenditure Database",
+              "url": "https://www.sipri.org"
+            },
+            {
+              "ref": "Maddison Project Database 2020",
+              "url": "https://www.rug.nl/ggdc/historicaldevelopment/maddison/releases/maddison-project-database-2020"
+            }
+          ],
+          "context_short": "Projets des 'Nouvelles routes de la soie' (BRI), rattrapage militaire et domination technologique/industrielle.",
+          "disclaimer": null
+        },
+        {
+          "id": "RU",
+          "label": "Russie",
+          "territories_controlled": [
+            "RU",
+            "BY",
+            "SY"
+          ],
+          "peak_year": 2024,
+          "population_affected_M": 150,
+          "economic_extraction_estimate_B_USD": 5000,
+          "responsibility_weight": 0.15,
+          "confidence_level": "high",
+          "sources": [
+            {
+              "ref": "SIPRI Military Expenditure Database",
+              "url": "https://www.sipri.org"
+            },
+            {
+              "ref": "Maddison Project Database 2020",
+              "url": "https://www.rug.nl/ggdc/historicaldevelopment/maddison/releases/maddison-project-database-2020"
+            }
+          ],
+          "context_short": "Affirmation militaire directe (Ukraine, Syrie, Afrique) et pivot géopolitique vers l'Asie.",
+          "disclaimer": null
+        },
+        {
+          "id": "EU",
+          "label": "Union européenne",
+          "territories_controlled": [
+            "FR",
+            "DE",
+            "IT",
+            "ES",
+            "PL"
+          ],
+          "peak_year": 2020,
+          "population_affected_M": 440,
+          "economic_extraction_estimate_B_USD": 12000,
+          "responsibility_weight": 0.1,
+          "confidence_level": "high",
+          "sources": [
+            {
+              "ref": "Maddison Project Database 2020",
+              "url": "https://www.rug.nl/ggdc/historicaldevelopment/maddison/releases/maddison-project-database-2020"
+            },
+            {
+              "ref": "SIPRI Military Expenditure Database",
+              "url": "https://www.sipri.org"
+            }
+          ],
+          "context_short": "Première puissance régulatrice (normes RGPD, climat) mais intégration de défense militaire lente.",
+          "disclaimer": null
+        },
+        {
+          "id": "IN",
+          "label": "Inde",
+          "territories_controlled": [
+            "IN"
+          ],
+          "peak_year": 2026,
+          "population_affected_M": 1430,
+          "economic_extraction_estimate_B_USD": 7000,
+          "responsibility_weight": 0.1,
+          "confidence_level": "medium",
+          "sources": [
+            {
+              "ref": "Maddison Project Database 2020",
+              "url": "https://www.rug.nl/ggdc/historicaldevelopment/maddison/releases/maddison-project-database-2020"
+            },
+            {
+              "ref": "SIPRI Military Expenditure Database",
+              "url": "https://www.sipri.org"
+            }
+          ],
+          "context_short": "Devient le pays le plus peuplé, croissance économique rapide et positionnement multi-aligné.",
+          "disclaimer": null
+        }
+      ]
     }
   ]
 }
