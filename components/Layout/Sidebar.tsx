@@ -6,6 +6,7 @@ import { ViewToggle, type ViewMode } from "@/components/Controls/ViewToggle";
 import { ResponsibilityChart } from "@/components/DataViz/ResponsibilityChart";
 import { RankingPanel } from "@/components/DataViz/RankingPanel";
 import { TimelineChart } from "@/components/DataViz/TimelineChart";
+import { GlobalStats } from "@/components/DataViz/GlobalStats";
 import type { ThemeMeta } from "@/lib/theme-data";
 import type { Period } from "@/lib/types";
 
@@ -68,14 +69,15 @@ export function Sidebar({
         </div>
       </section>
 
+      <GlobalStats />
       <ViewToggle value={viewMode} onChange={onViewModeChange} />
       <ThemeFilter value={themeId} onChange={onThemeChange} />
       <TimelineSlider value={year} onChange={onYearChange} min={periodBounds[0]} max={periodBounds[1]} />
       <PeriodSelector value={year} onChange={onYearChange} periods={themePeriods} />
       <CompareToggle />
-      <TimelineChart themeId={themeId} year={year} />
-      <ResponsibilityChart themeId={themeId} year={year} />
-      <RankingPanel themeId={themeId} year={year} />
+      <TimelineChart />
+      <ResponsibilityChart />
+      <RankingPanel />
     </aside>
   );
 }

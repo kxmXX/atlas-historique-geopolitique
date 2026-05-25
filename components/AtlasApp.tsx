@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState, useRef, useCallback, useEffect } from "react";
+import { useCallback, useState, useRef } from "react";
 import { Header } from "@/components/Layout/Header";
 import { Sidebar } from "@/components/Layout/Sidebar";
 import { AdBanner } from "@/components/Layout/AdBanner";
@@ -9,16 +9,23 @@ import { WorldGlobe } from "@/components/Map/WorldGlobe";
 import { TerritorySheet } from "@/components/InfoPanel/TerritorySheet";
 import { type ViewMode } from "@/components/Controls/ViewToggle";
 import { Sheet, SheetContent } from "@/components/ui/sheet";
-import { themes, defaultThemeId } from "@/lib/theme-data";
-import { loadTheme } from "@/lib/theme-loader";
-import type { Theme, Period } from "@/lib/types";
+import { useTheme } from "@/contexts/ThemeContext";
 import { iso3ToIso2 } from "@/lib/centroids";
 import { getFlagEmojiSafe } from "@/lib/flagEmoji";
 
-
 export function AtlasApp() {
-  const [themeId, setThemeId] = useState(defaultThemeId);
-  const [year, setYear] = useState(1900);
+  const {
+    themeId,
+    setThemeId,
+    activeThemeMeta,
+    themeData,
+    year,
+    setYear,
+    activePeriod,
+    periodBounds,
+    themePeriods
+  } = useTheme();
+
   const [viewMode, setViewMode] = useState<ViewMode>("globe");
   const [hoveredTerritory, setHoveredTerritory] = useState<TerritoryHover | null>(null);
   const [selectedTerritory, setSelectedTerritory] = useState<TerritorySelection | null>(null);
@@ -26,50 +33,7 @@ export function AtlasApp() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const mapSectionRef = useRef<HTMLDivElement>(null);
 
-  // Loaded full theme data
-  const [themeData, setThemeData] = useState<Theme | null>(null);
-
-  const yearRef = useRef(year);
-  yearRef.current = year;
-
-  // Load theme data dynamically
-  useEffect(() => {
-    loadTheme(themeId).then((data) => {
-      if (data) {
-        setThemeData(data);
-        // Automatically snap year to the start of the first period if current year is out of bounds
-        const periods = data.periods || [];
-        if (periods.length > 0) {
-          const firstPeriod = periods[0];
-          const lastPeriod = periods[periods.length - 1];
-          if (yearRef.current < firstPeriod.start || yearRef.current > lastPeriod.end) {
-            setYear(firstPeriod.start);
-          }
-        }
-      }
-    });
-  }, [themeId]);
-
-  const activeThemeMeta = useMemo(
-    () => themes.find((t) => t.id === themeId) ?? themes[0],
-    [themeId]
-  );
-
-  // Calculate active period based on year
-  const activePeriod = useMemo<Period | null>(() => {
-    if (!themeData?.periods) return null;
-    return themeData.periods.find((p) => year >= p.start && year <= p.end) ?? themeData.periods[0] ?? null;
-  }, [themeData, year]);
-
-  // Sync year boundaries when active theme metadata changes
-  const periodBounds = useMemo<[number, number]>(() => {
-    if (activeThemeMeta?.period && activeThemeMeta.period.length === 2) {
-      return [activeThemeMeta.period[0], activeThemeMeta.period[1]];
-    }
-    return [1500, 2026];
-  }, [activeThemeMeta]);
-
-  /* Track mouse position in the map section for globe tooltip positioning */
+  /* Track mouse position for globe tooltip */
   const handleMouseMove = useCallback((e: React.MouseEvent) => {
     const rect = e.currentTarget.getBoundingClientRect();
     setMousePos({ x: e.clientX - rect.left, y: e.clientY - rect.top });
@@ -77,31 +41,20 @@ export function AtlasApp() {
 
   const handleGlobeHover = useCallback(
     (territory: any | null) => {
-      if (!territory) {
-        setHoveredTerritory(null);
-        return;
-      }
-      setHoveredTerritory({
-        name: territory.name,
-        iso3: territory.iso3,
-        point: mousePos
-      });
+      if (!territory) { setHoveredTerritory(null); return; }
+      setHoveredTerritory({ name: territory.name, iso3: territory.iso3, point: mousePos });
     },
     [mousePos]
   );
 
   const handleGlobeSelect = useCallback((territory: any) => {
-    setSelectedTerritory({
-      name: territory.name,
-      iso3: territory.iso3,
-      properties: territory.properties
-    });
+    setSelectedTerritory({ name: territory.name, iso3: territory.iso3, properties: territory.properties });
   }, []);
 
   const handleThemeChange = useCallback((id: string) => {
     setThemeId(id);
     setMobileOpen(false);
-  }, []);
+  }, [setThemeId]);
 
   return (
     <main className="flex min-h-screen flex-col bg-[#0a0a14] text-slate-100">
@@ -123,7 +76,7 @@ export function AtlasApp() {
             onYearChange={setYear}
             onViewModeChange={setViewMode}
             periodBounds={periodBounds}
-            themePeriods={themeData?.periods ?? []}
+            themePeriods={themePeriods}
           />
         </div>
 
@@ -140,7 +93,7 @@ export function AtlasApp() {
                 onYearChange={setYear}
                 onViewModeChange={setViewMode}
                 periodBounds={periodBounds}
-                themePeriods={themeData?.periods ?? []}
+                themePeriods={themePeriods}
               />
             </div>
           </SheetContent>
@@ -167,6 +120,8 @@ export function AtlasApp() {
               onSelect={setSelectedTerritory}
             />
           )}
+
+          {/* Enriched tooltip */}
           {hoveredTerritory ? (() => {
             const iso2 = hoveredTerritory.iso3 ? (iso3ToIso2[hoveredTerritory.iso3.toUpperCase()] ?? "") : "";
             const flag = iso2 ? getFlagEmojiSafe(iso2) : "";
@@ -195,16 +150,13 @@ export function AtlasApp() {
           <AdBanner />
         </section>
       </div>
+
       <TerritorySheet
         territory={selectedTerritory}
         theme={activeThemeMeta}
         year={year}
         open={Boolean(selectedTerritory)}
-        onOpenChange={(open) => {
-          if (!open) {
-            setSelectedTerritory(null);
-          }
-        }}
+        onOpenChange={(open) => { if (!open) setSelectedTerritory(null); }}
       />
     </main>
   );

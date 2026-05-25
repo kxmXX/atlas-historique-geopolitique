@@ -57,7 +57,7 @@ export function Globe3D({ themeId, actors, themeColor, onHover, onSelect }: Glob
 
   /* ---------- load countries GeoJSON ---------- */
   useEffect(() => {
-    fetch("/data/geo/countries.geojson")
+    fetch("/data/geo/globe-countries-110m.geojson")
       .then((r) => r.json())
       .then((data: GeoJSON.FeatureCollection) => setPolygons(data))
       .catch(() => setPolygons(null));
@@ -99,17 +99,18 @@ export function Globe3D({ themeId, actors, themeColor, onHover, onSelect }: Glob
   const polygonCapColor = useCallback(
     (feature: any) => {
       const props = feature?.properties ?? {};
-      const iso3 = (props["ISO3166-1-Alpha-3"] ?? props.ISO_A3 ?? props.ADM0_A3 ?? "").toUpperCase();
-      let iso2 = (props["ISO3166-1-Alpha-2"] ?? props.ISO_A2 ?? "").toUpperCase();
+      // 110m GeoJSON uses uppercase keys: ISO_A2, ISO_A3, ADM0_A3, NAME
+      let iso2 = (props.ISO_A2 ?? props.WB_A2 ?? props.FIPS_10_ ?? "").toUpperCase();
+      const iso3 = (props.ISO_A3 ?? props.ADM0_A3 ?? props.SOV_A3 ?? "").toUpperCase();
+      const name  = props.NAME ?? props.ADMIN ?? "";
 
-      // Look up conversion
-      if (iso3ToIso2[iso3]) {
+      // Fallback: iso3→iso2 lookup
+      if ((!iso2 || iso2 === "-99") && iso3 && iso3ToIso2[iso3]) {
         iso2 = iso3ToIso2[iso3];
       }
 
       // Manual overrides for Natural Earth -99 anomalies
-      const name = props.name || props.NAME || "";
-      if (name === "France") iso2 = "FR";
+      if (name === "France")  iso2 = "FR";
       else if (name === "Norway") iso2 = "NO";
       else if (name === "Kosovo") iso2 = "XK";
 
@@ -117,6 +118,7 @@ export function Globe3D({ themeId, actors, themeColor, onHover, onSelect }: Glob
     },
     [actors]
   );
+
 
   /* ---------- polygon side colour ---------- */
   const polygonSideColor = useCallback(() => "#0f1923", []);
@@ -135,12 +137,12 @@ export function Globe3D({ themeId, actors, themeColor, onHover, onSelect }: Glob
         return;
       }
       const props = polygon?.properties ?? {};
-      const name = String(props.name ?? props.NAME ?? props.NAME_LONG ?? props.ADMIN ?? "");
-      const iso3 = props["ISO3166-1-Alpha-3"] ?? props.ISO_A3 ?? props.ADM0_A3;
+      const name = String(props.NAME ?? props.ADMIN ?? props.NAME_LONG ?? "");
+      const iso3 = props.ISO_A3 ?? props.ADM0_A3 ?? props.SOV_A3;
       onHover({
         name: name || "Territoire",
         iso3: typeof iso3 === "string" && iso3 !== "-99" ? iso3 : undefined,
-        point: { x: 0, y: 0 } // replaced by screen-space in parent
+        point: { x: 0, y: 0 }
       });
     },
     [onHover]
@@ -150,8 +152,8 @@ export function Globe3D({ themeId, actors, themeColor, onHover, onSelect }: Glob
     (polygon: any | null) => {
       if (!polygon) return;
       const props = polygon?.properties ?? {};
-      const name = String(props.name ?? props.NAME ?? props.NAME_LONG ?? props.ADMIN ?? "");
-      const iso3 = props["ISO3166-1-Alpha-3"] ?? props.ISO_A3 ?? props.ADM0_A3;
+      const name = String(props.NAME ?? props.ADMIN ?? props.NAME_LONG ?? "");
+      const iso3 = props.ISO_A3 ?? props.ADM0_A3 ?? props.SOV_A3;
       onSelect({
         name: name || "Territoire",
         iso3: typeof iso3 === "string" && iso3 !== "-99" ? iso3 : undefined,
@@ -186,9 +188,9 @@ export function Globe3D({ themeId, actors, themeColor, onHover, onSelect }: Glob
 
   /* ---------- render ---------- */
   return (
-    <div ref={containerRef} className="absolute inset-0 bg-[#07111a]">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0a1628] via-[#0d1b2a] to-[#07111a]" />
+    <div ref={containerRef} className="absolute inset-0" style={{ background: "#040d16" }}>
+      {/* Deep space background */}
+      <div className="absolute inset-0 bg-gradient-radial from-[#0a1628] via-[#050d18] to-[#020508]" />
 
       {polygons ? (
         <Globe
@@ -200,57 +202,85 @@ export function Globe3D({ themeId, actors, themeColor, onHover, onSelect }: Glob
           polygonsData={polygons.features}
           polygonCapColor={polygonCapColor}
           polygonSideColor={polygonSideColor}
-          polygonStrokeColor={() => "#1e3a4f"}
-          polygonAltitude={0.005}
+          polygonStrokeColor={() => "#1e3a5f"}
+          polygonAltitude={0.008}
           arcsData={arcs}
           arcColor="color"
-          arcAltitudeAutoScale={0.3}
-          arcStroke={0.6}
-          arcDashLength={0.4}
-          arcDashGap={0.2}
-          arcDashAnimateTime={3000}
+          arcAltitudeAutoScale={0.4}
+          arcStroke={0.8}
+          arcDashLength={0.5}
+          arcDashGap={0.15}
+          arcDashAnimateTime={2000}
           arcLabel={arcLabel}
-          arcsTransitionDuration={800}
+          arcsTransitionDuration={600}
           onPolygonHover={handlePolygonHover}
           onPolygonClick={handlePolygonClick}
           onGlobeReady={handleGlobeReady}
           enablePointerInteraction
-          atmosphereColor="#1a3a5c"
-          atmosphereAltitude={0.15}
+          atmosphereColor={themeColor}
+          atmosphereAltitude={0.25}
           htmlElementsData={markers}
           htmlLat="lat"
           htmlLng="lng"
           htmlElement={htmlElementFn}
-          htmlAltitude={0.01}
+          htmlAltitude={0.02}
           rendererConfig={{ antialias: true, alpha: true }}
         />
       ) : null}
 
-      {/* Loading overlay */}
-      {!ready ? (
-        <div className="absolute inset-0 flex items-center justify-center bg-[#07111a]/80 backdrop-blur-sm z-10 pointer-events-none">
-          <div className="flex items-center gap-2 rounded-md border border-[#1e3a4f] bg-[#0d1b2a]/95 px-3 py-2 text-sm text-slate-300 shadow-sm">
-            <Loader2 className="animate-spin" aria-hidden="true" />
-            Chargement du globe...
+      {/* Premium loading overlay */}
+      {!ready && (
+        <div className="absolute inset-0 flex flex-col items-center justify-center bg-[#040d16]/90 backdrop-blur-sm z-10 pointer-events-none gap-4">
+          <div className="relative">
+            {/* Outer ring */}
+            <div
+              className="absolute inset-0 rounded-full border-2 animate-spin-slow opacity-30"
+              style={{ borderColor: themeColor }}
+            />
+            {/* Inner spinner */}
+            <div
+              className="size-14 rounded-full border-2 border-transparent animate-spin"
+              style={{ borderTopColor: themeColor, borderRightColor: themeColor + "40" }}
+            />
+            {/* Center dot */}
+            <div
+              className="absolute inset-0 m-auto size-4 rounded-full animate-pulse"
+              style={{ background: themeColor + "80" }}
+            />
+          </div>
+          <div className="flex flex-col items-center gap-1">
+            <p className="text-sm font-semibold text-slate-200">Chargement du globe 3D</p>
+            <p className="text-xs text-muted-foreground">Initialisation Three.js…</p>
           </div>
         </div>
-      ) : null}
+      )}
 
-      {/* Theme indicator */}
-      <div
-        className="absolute left-4 top-4 animate-slide-up rounded-xl border bg-[#0d1b2a]/90 px-3 py-2.5 text-xs text-slate-300 shadow-lg backdrop-blur"
-        style={{ borderColor: `${themeColor}40` }}
-      >
-        <div className="flex items-center gap-2 mb-1">
-          <span
-            className="inline-block size-2 rounded-full animate-pulse"
-            style={{ background: themeColor, boxShadow: `0 0 6px ${themeColor}` }}
-          />
-          <p className="font-semibold text-slate-100 text-[11px] uppercase tracking-wide">Globe 3D</p>
+      {/* Top-left: theme indicator */}
+      {ready && (
+        <div
+          className="absolute left-4 top-4 animate-slide-up rounded-xl border bg-slate-950/80 px-3 py-2 text-xs text-slate-300 shadow-lg backdrop-blur"
+          style={{ borderColor: `${themeColor}50` }}
+        >
+          <div className="flex items-center gap-2 mb-0.5">
+            <span
+              className="inline-block size-2 rounded-full animate-pulse"
+              style={{ background: themeColor, boxShadow: `0 0 6px ${themeColor}` }}
+            />
+            <p className="font-bold text-slate-100 text-[11px] uppercase tracking-widest">Globe 3D</p>
+          </div>
+          <p className="text-slate-500 text-[10px]">{arcs.length} flux · {markers.length} acteurs</p>
         </div>
-        <p className="text-slate-400 text-[10px]">{arcs.length} flux · {markers.length} acteurs</p>
-      </div>
+      )}
+
+      {/* Bottom-right: interaction hint */}
+      {ready && (
+        <div className="absolute bottom-4 right-4 animate-fade-in text-[10px] text-slate-600 text-right pointer-events-none">
+          <p>Cliquer sur un pays pour les détails</p>
+          <p>Faire glisser pour tourner le globe</p>
+        </div>
+      )}
     </div>
   );
 }
+
 

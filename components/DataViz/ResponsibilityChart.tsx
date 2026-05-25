@@ -1,42 +1,26 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Loader2 } from "lucide-react";
-import { loadTheme, getActorsForPeriod, type Actor } from "@/lib/theme-loader";
-
-type ResponsibilityChartProps = {
-  themeId: string;
-  year: number;
-};
+import { useTheme } from "@/contexts/ThemeContext";
+import { getFlagEmojiSafe } from "@/lib/flagEmoji";
 
 const ACTOR_COLORS = [
-  "#c0392b", "#2980b9", "#27ae60", "#e67e22", "#8e44ad",
-  "#16a085", "#d35400", "#2c3e50", "#f39c12", "#1abc9c"
+  "#e63946", "#457b9d", "#2a9d8f", "#e9c46a", "#f4a261",
+  "#8338ec", "#06d6a0", "#fb8500", "#219ebc", "#c77dff"
 ];
 
-export function ResponsibilityChart({ themeId, year }: ResponsibilityChartProps) {
-  const [actors, setActors] = useState<Actor[]>([]);
-  const [loading, setLoading] = useState(true);
-  const svgRef = useRef<SVGSVGElement>(null);
+export function ResponsibilityChart() {
+  const { activePeriod, loading, activeThemeMeta } = useTheme();
 
-  useEffect(() => {
-    setLoading(true);
-    loadTheme(themeId).then((theme) => {
-      if (theme) {
-        const data = getActorsForPeriod(theme, year);
-        setActors(data.sort((a, b) => b.responsibility_weight - a.responsibility_weight));
-      } else {
-        setActors([]);
-      }
-      setLoading(false);
-    });
-  }, [themeId, year]);
+  const actors = (activePeriod?.actors ?? [])
+    .slice()
+    .sort((a, b) => b.responsibility_weight - a.responsibility_weight);
 
   if (loading) {
     return (
-      <section className="flex flex-col gap-3 rounded-md border bg-card p-4">
-        <p className="text-sm font-medium">Pondération acteurs</p>
+      <section className="flex flex-col gap-3 rounded-xl border border-slate-800 bg-card p-4">
+        <p className="text-sm font-semibold text-slate-200">Poids de responsabilité</p>
         <div className="flex items-center justify-center py-6">
           <Loader2 className="animate-spin size-4 text-muted-foreground" />
         </div>
@@ -46,8 +30,8 @@ export function ResponsibilityChart({ themeId, year }: ResponsibilityChartProps)
 
   if (actors.length === 0) {
     return (
-      <section className="flex flex-col gap-3 rounded-md border bg-card p-4">
-        <p className="text-sm font-medium">Pondération acteurs</p>
+      <section className="flex flex-col gap-3 rounded-xl border border-slate-800 bg-card p-4">
+        <p className="text-sm font-semibold text-slate-200">Poids de responsabilité</p>
         <p className="text-xs text-muted-foreground">Aucune donnée pour cette période.</p>
       </section>
     );
@@ -57,33 +41,33 @@ export function ResponsibilityChart({ themeId, year }: ResponsibilityChartProps)
   const displayActors = actors.slice(0, 6);
 
   return (
-    <section className="flex flex-col gap-3 rounded-md border bg-card p-4">
+    <section className="flex flex-col gap-3 rounded-xl border border-slate-800 bg-card p-4 animate-slide-up">
       <div className="flex items-center justify-between gap-3">
-        <p className="text-sm font-medium">Pondération acteurs</p>
-        <Badge variant="secondary">{actors.length} acteurs</Badge>
+        <p className="text-sm font-semibold text-slate-200">Poids de responsabilité</p>
+        <Badge
+          variant="secondary"
+          className="text-[10px]"
+          style={{ background: activeThemeMeta.color_primary + "20", color: activeThemeMeta.color_primary, borderColor: activeThemeMeta.color_primary + "40" }}
+        >
+          {actors.length} acteurs
+        </Badge>
       </div>
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-2.5">
         {displayActors.map((actor, index) => {
           const pct = (actor.responsibility_weight / maxWeight) * 100;
+          const color = ACTOR_COLORS[index % ACTOR_COLORS.length];
+          const flag = getFlagEmojiSafe(actor.id);
           return (
-            <div key={actor.id} className="flex items-center gap-2">
-              <div
-                className="size-2 shrink-0 rounded-full"
-                style={{ backgroundColor: ACTOR_COLORS[index % ACTOR_COLORS.length] }}
-              />
-              <span className="min-w-0 flex-1 truncate text-xs text-muted-foreground">
-                {actor.label}
-              </span>
-              <div className="flex h-3 flex-1 overflow-hidden rounded-full bg-muted">
+            <div key={actor.id} className="flex items-center gap-2 group">
+              <span className="text-xs w-5 text-center shrink-0" title={actor.label}>{flag}</span>
+              <span className="min-w-0 w-24 shrink-0 truncate text-[11px] text-slate-300">{actor.label}</span>
+              <div className="relative flex h-2 flex-1 overflow-hidden rounded-full bg-slate-800">
                 <div
-                  className="h-full rounded-full transition-all duration-500"
-                  style={{
-                    width: `${pct}%`,
-                    backgroundColor: ACTOR_COLORS[index % ACTOR_COLORS.length]
-                  }}
+                  className="h-full rounded-full transition-all duration-700"
+                  style={{ width: `${pct}%`, backgroundColor: color, boxShadow: `0 0 6px ${color}60` }}
                 />
               </div>
-              <span className="w-10 text-right text-xs tabular-nums font-medium">
+              <span className="w-9 text-right text-[11px] tabular-nums font-semibold text-slate-300 shrink-0">
                 {(actor.responsibility_weight * 100).toFixed(0)}%
               </span>
             </div>

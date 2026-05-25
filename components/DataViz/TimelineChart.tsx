@@ -1,31 +1,15 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
+import { useTheme } from "@/contexts/ThemeContext";
 import { Loader2 } from "lucide-react";
-import { loadTheme, type Period } from "@/lib/theme-loader";
 
-type TimelineChartProps = {
-  themeId: string;
-  year: number;
-};
-
-export function TimelineChart({ themeId, year }: TimelineChartProps) {
-  const [periods, setPeriods] = useState<Period[]>([]);
-  const [loading, setLoading] = useState(true);
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    setLoading(true);
-    loadTheme(themeId).then((theme) => {
-      setPeriods(theme?.periods ?? []);
-      setLoading(false);
-    });
-  }, [themeId]);
+export function TimelineChart() {
+  const { themePeriods, year, loading, activeThemeMeta, setYear } = useTheme();
 
   if (loading) {
     return (
-      <section className="flex flex-col gap-3 rounded-md border bg-card p-4">
-        <p className="text-sm font-medium">Chronologie</p>
+      <section className="flex flex-col gap-3 rounded-xl border border-slate-800 bg-card p-4">
+        <p className="text-sm font-semibold text-slate-200">Chronologie</p>
         <div className="flex items-center justify-center py-4">
           <Loader2 className="animate-spin size-4 text-muted-foreground" />
         </div>
@@ -33,64 +17,85 @@ export function TimelineChart({ themeId, year }: TimelineChartProps) {
     );
   }
 
-  if (periods.length === 0) {
-    return null;
-  }
+  if (themePeriods.length === 0) return null;
 
-  const minYear = Math.min(...periods.map((p) => p.start));
-  const maxYear = Math.max(...periods.map((p) => p.end));
+  const minYear = Math.min(...themePeriods.map((p) => p.start));
+  const maxYear = Math.max(...themePeriods.map((p) => p.end));
   const span = maxYear - minYear || 1;
+  const themeColor = activeThemeMeta.color_primary;
 
   return (
-    <section className="flex flex-col gap-3 rounded-md border bg-card p-4">
-      <p className="text-sm font-medium">Chronologie</p>
-      <div ref={containerRef} className="relative h-12">
-        {/* Timeline track */}
-        <div className="absolute inset-x-0 top-1/2 h-1 -translate-y-1/2 rounded-full bg-muted" />
+    <section className="flex flex-col gap-3 rounded-xl border border-slate-800 bg-card p-4 animate-slide-up">
+      <p className="text-sm font-semibold text-slate-200">Chronologie</p>
 
-        {periods.map((period, index) => {
+      <div className="relative h-10 select-none">
+        {/* Track */}
+        <div className="absolute inset-x-0 top-1/2 h-1 -translate-y-1/2 rounded-full bg-slate-800" />
+
+        {/* Period segments */}
+        {themePeriods.map((period, index) => {
           const leftPct = ((period.start - minYear) / span) * 100;
           const widthPct = ((period.end - period.start) / span) * 100;
-
+          const isActive = year >= period.start && year <= period.end;
           return (
-            <div
+            <button
               key={index}
-              className="absolute top-0 h-full rounded-full"
+              type="button"
+              title={period.label}
+              onClick={() => setYear(period.start)}
+              className="absolute top-1/2 h-3 -translate-y-1/2 rounded-full transition-all duration-300 hover:opacity-100 focus:outline-none"
               style={{
                 left: `${leftPct}%`,
-                width: `${Math.max(widthPct, 2)}%`
+                width: `${Math.max(widthPct, 3)}%`,
+                background: isActive ? themeColor : themeColor + "50",
+                boxShadow: isActive ? `0 0 8px ${themeColor}80` : "none",
+                opacity: isActive ? 1 : 0.5
               }}
-            >
-              <div className="absolute inset-x-0 top-1/2 h-2 -translate-y-1/2 rounded-full bg-primary/50" />
-              <span
-                className="absolute -top-1 left-1/2 -translate-x-1/2 text-[10px] text-muted-foreground whitespace-nowrap"
-              >
-                {period.start}
-              </span>
-              <span
-                className="absolute -bottom-1 left-1/2 -translate-x-1/2 text-[10px] text-muted-foreground whitespace-nowrap"
-              >
-                {period.end}
-              </span>
-            </div>
+            />
           );
         })}
 
-        {/* Current year indicator */}
-        {year >= minYear && year <= maxYear ? (
+        {/* Year cursor */}
+        {year >= minYear && year <= maxYear && (
           <div
-            className="absolute top-0 h-full w-0.5 bg-primary shadow-sm"
-            style={{ left: `${((year - minYear) / span) * 100}%` }}
+            className="absolute top-0 h-full w-0.5 transition-all duration-200"
+            style={{
+              left: `${((year - minYear) / span) * 100}%`,
+              background: "white",
+              boxShadow: "0 0 4px rgba(255,255,255,0.6)"
+            }}
           >
-            <div className="absolute -top-1 left-1/2 -translate-x-1/2 rounded-full bg-primary px-1.5 py-0.5 text-[9px] font-semibold text-primary-foreground whitespace-nowrap">
+            <div
+              className="absolute -top-0.5 left-1/2 -translate-x-1/2 rounded-full px-1.5 py-0.5 text-[9px] font-bold text-white whitespace-nowrap"
+              style={{ background: themeColor }}
+            >
               {year}
             </div>
           </div>
-        ) : null}
+        )}
       </div>
-      <p className="text-[11px] text-muted-foreground">
-        {periods.map((p) => `${p.start}–${p.end}`).join(" · ")}
-      </p>
+
+      {/* Period labels row */}
+      <div className="relative h-5">
+        {themePeriods.map((period, index) => {
+          const leftPct = ((period.start - minYear) / span) * 100;
+          return (
+            <span
+              key={index}
+              className="absolute text-[9px] text-muted-foreground -translate-x-1/2"
+              style={{ left: `${leftPct}%`, top: 0 }}
+            >
+              {period.start}
+            </span>
+          );
+        })}
+        <span
+          className="absolute text-[9px] text-muted-foreground"
+          style={{ right: 0, top: 0 }}
+        >
+          {maxYear}
+        </span>
+      </div>
     </section>
   );
 }

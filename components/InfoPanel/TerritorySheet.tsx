@@ -13,7 +13,8 @@ import { Separator } from "@/components/ui/separator";
 import { ActorCard } from "@/components/InfoPanel/ActorCard";
 import { SourcesList } from "@/components/InfoPanel/SourcesList";
 import { Disclaimer } from "@/components/InfoPanel/Disclaimer";
-import { loadTheme, getActorForTerritory, type Theme, type Actor } from "@/lib/theme-loader";
+import { getActorForTerritory, type Theme, type Actor } from "@/lib/theme-loader";
+import { loadThemeCached } from "@/lib/theme-cache";
 import type { TerritorySelection } from "@/components/Map/WorldMap";
 import type { ThemeMeta } from "@/lib/theme-data";
 import { iso3ToIso2 } from "@/lib/centroids";
@@ -43,7 +44,7 @@ export function TerritorySheet({
     if (!open || !territory) return;
 
     setLoading(true);
-    loadTheme(theme.id).then((data) => {
+    loadThemeCached(theme.id).then((data) => {
       setThemeData(data);
       if (data && territory.iso3) {
         const iso2 = iso3ToIso2[territory.iso3.toUpperCase()] ?? territory.iso3;
